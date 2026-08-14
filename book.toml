@@ -1,0 +1,8 @@
+[book]
+title = "Intelligent Network Design — Lab Manual"
+authors = ["Department of Computer & Applied Mathematics"]
+description = "지능형네트워크설계 (Software Convergence 001) — Hands-on lab modules using Cisco Packet Tracer"
+language = "en"
+
+[output.html]
+additional-js = ["mermaid.min.js", "mermaid-icons.js", "mermaid-init.js"]
