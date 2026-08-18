@@ -79,6 +79,18 @@ ip route 0.0.0.0 0.0.0.0 <next-hop-IP>   ← default route
 
 This is the mechanism that fixes the Seoul-Busan connectivity problem: adding `S` entries tells each router how to reach networks it is not directly connected to.
 
+### Ping Failure Diagnosis
+
+When a ping fails between two hosts on different subnets, the error message tells you *which side* is misconfigured:
+
+| Ping Output | Meaning | Likely Cause |
+|-------------|---------|-------------|
+| `Destination Host Unreachable` | The source host's **gateway** couldn't forward the packet | Route is missing on the router **nearest the source** — it doesn't know where to send packets toward the destination |
+| `Request Timed Out` | The packet reached the destination side but **no reply came back** | Route is missing on the router **nearest the destination** — the reply packet has no path back to the source |
+| `Success (!!!!!)` | Both directions have valid routes | Routing is bidirectional and complete |
+
+This heuristic saves significant diagnostic time: "Destination Unreachable → fix the source router; Request Timeout → fix the destination router."
+
 ## Guided Lab
 
 ### Part A — Build the Problem
@@ -229,6 +241,25 @@ R0# show ip route
 1. Add a **floating static route** as a backup path: `ip route 192.168.2.0 255.255.255.0 <alt-next-hop> 5` (administrative distance 5 instead of the default 1). Remove the primary static route. Verify the floating route activates automatically.
 2. Use the **exit-interface syntax** for one of your static routes and compare the routing table output. Does the code letter change? Is there any practical difference in a simulated environment?
 3. Configure `ip route 192.168.1.0 255.255.255.0 Null0` on R1. What does routing to Null0 accomplish? Why would a network engineer do this deliberately? (Research: null route / black-hole route.)
+4. **Three-router chain:** Build a 3-router topology with the following addressing. Derive all required static routes yourself — including the transit routes on the middle router — without looking at a solution. Then verify with end-to-end pings.
+
+   ```
+   PC0 (192.168.1.10/24, GW .1.1) — SW0 — R0 — R1 — R2 — SW2 — PC2 (192.168.3.10/24, GW .3.1)
+                                               |
+                                              SW1
+                                               |
+                                          PC1 (192.168.2.10/24, GW .2.1)
+   ```
+
+   | Link | Network | R-left IP | R-right IP |
+   |------|---------|-----------|------------|
+   | R0 LAN | 192.168.1.0/24 | R0 Fa0/0 = .1.1 | — |
+   | R0↔R1 | 172.16.1.0/30 | R0 Fa0/1 = .1.1 | R1 Fa0/0 = .1.2 |
+   | R1 LAN | 192.168.2.0/24 | R1 Fa0/1 = .2.1 | — |
+   | R1↔R2 | 172.16.2.0/30 | R1 Fa0/2 = .2.1 | R2 Fa0/0 = .2.2 |
+   | R2 LAN | 192.168.3.0/24 | R2 Fa0/1 = .3.1 | — |
+
+   > How many static routes does R1 (the middle router) need? Document each route and explain why it is necessary. Apply the ping-symptom heuristic from the Theory section to diagnose any initial failures.
 
 ## Deliverables
 
@@ -251,3 +282,7 @@ R0# show ip route
 | Default route configured and `S*` identified | 15 |
 | Break-and-fix diagnostic narrative | 15 |
 | **Total** | **100** |
+
+---
+
+*References: Ping failure diagnosis heuristic ("Destination Unreachable vs Request Timeout") and 3-router chain exercise adapted from Arief Sofyan, "Konfigurasi Routing Statis Pada Cisco" and "Modul Praktikum 5 — Ping dan Route" (Modul Praktikum Jaringan Komputer, Politeknik Negeri Malang, 2021).*

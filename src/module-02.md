@@ -151,11 +151,55 @@ Device addressing:
 
 ---
 
+---
+
+### Part D — ARP Cause and Effect
+
+This exercise demonstrates why ARP must precede any IP communication — and why running the same command twice can give different output.
+
+**Step 12.** On PC0's Desktop → Command Prompt, check the current ARP cache:
+
+```
+PC0> arp -a
+```
+
+📸 Screenshot. The table is likely empty or minimal (no entry for PC1's IP yet).
+
+**Step 13.** Ping PC1 once:
+
+```
+PC0> ping 192.168.1.20 -n 1
+```
+
+**Step 14.** Run `arp -a` again immediately:
+
+```
+PC0> arp -a
+```
+
+📸 Screenshot. You should now see an entry for 192.168.1.20 with a MAC address.
+
+> **Answer this question:** You ran `arp -a` twice with no configuration change in between. Why did the two outputs differ?
+> *(Hint: the ping in Step 13 triggered an ARP broadcast — your PC had to discover PC1's MAC before it could send the ICMP Echo Request. Once ARP received a reply, it cached the MAC. The second `arp -a` shows that cached entry.)*
+
+**Step 15.** In Simulation Mode, filter for **ARP and ICMP only**, then send the same ping. Step through the events.
+
+📸 Screenshot of the Event List showing the ARP broadcast (Ethernet destination FF:FF:FF:FF:FF:FF), ARP reply (unicast), and then ICMP Echo Request.
+
+> **Observe:** ARP is a Layer 2 broadcast. Every device on the local segment receives it. Only the device that owns the target IP replies. This is why ARP works within a subnet but cannot cross a router (routers do not forward broadcasts).
+
+---
+
 ## Challenge Tasks
 
 1. **Wireshark companion (real machine):** Open Wireshark, start a capture on your active interface, then open a webpage in your browser. Stop the capture and find: (a) the DNS query/response, (b) the TCP three-way handshake, (c) the HTTP GET request. Screenshot all three and annotate the layer for each.
 2. In PT Simulation Mode, find the exact moment the Ethernet frame changes its **source and destination MAC** as a packet passes through the router. Which MAC is used on each segment? What does this tell you about how routers work at Layer 2?
 3. Add a second router (Router1) between Router0 and Switch1. Explore what happens to the event count in the simulation list. Does the number of ARP events change? Why?
+4. **Personalized subnetting drill:** Take the IP address `10.10.XX.YY/24` where XX = the last two digits of your student ID and YY = 40 + your roll number in class (e.g., student ID 2023-0042, roll number 5 → `10.10.42.45/24`). Calculate: (a) the network address, (b) the broadcast address, (c) the first and last usable host addresses, (d) total usable hosts. Then find a classmate and compare your network addresses — do your addresses fall in the same /24 network? In the same /16? At what prefix length do you first land in the *same* network?
+
+---
+
+*References: ARP cause-and-effect exercise adapted from Arief Sofyan, "Modul Praktikum 11 — Perintah ARP" (Modul Praktikum Jaringan Komputer, Politeknik Negeri Malang, 2021). Subnetting drill structure from "Modul 7 — Subnetting" (same series).*
 
 ## Deliverables
 
@@ -166,15 +210,17 @@ Device addressing:
 5. Screenshot of the HTTP simulation event list.
 6. Written ordered list of protocols observed in the HTTP sequence with their OSI layer.
 7. Written answer: what is the difference between what a switch reads vs. what a router reads in a received packet?
-8. Your saved `.pka` file.
+8. Part D — two `arp -a` screenshots (before and after ping) with written explanation of why the outputs differ.
+9. Your saved `.pka` file.
 
 ## Assessment Rubric
 
 | Criterion | Points |
 |-----------|--------|
 | Topology correctly built and diagrammed | 20 |
-| ARP/ICMP simulation screenshots with annotation | 25 |
-| HTTP protocol sequence correctly ordered and layered | 25 |
-| Switch vs. router layer-reading explanation | 20 |
+| ARP/ICMP simulation screenshots with annotation | 20 |
+| HTTP protocol sequence correctly ordered and layered | 20 |
+| Switch vs. router layer-reading explanation | 15 |
+| ARP cause-and-effect (before/after arp -a with explanation) | 15 |
 | Challenge Task (any one, with explanation) | 10 |
 | **Total** | **100** |

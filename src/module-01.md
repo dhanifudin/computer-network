@@ -51,6 +51,24 @@ When you run `ping`, the OS sends an **ICMP Echo Request** to the target IP. If 
 
 This is the mechanism that fixes "the website works by IP but not by name": DNS is broken, not the network.
 
+### Cable Selection Rules
+
+Choosing the wrong cable type is one of the most common hardware mistakes. In older equipment (no Auto-MDIX), the wrong cable prevents the link from coming up at all. Packet Tracer enforces these rules and shows a red link light if you use the wrong cable type.
+
+| Connection | Cable Type | Why |
+|------------|-----------|-----|
+| PC ↔ Switch | Straight-through | Unlike devices (transmit pins connect to receive pins across device types) |
+| PC ↔ Router | Straight-through | Unlike devices |
+| Switch ↔ Router | Straight-through | Unlike devices |
+| PC ↔ PC | Crossover | Like devices (transmit must connect to the other side's receive) |
+| Switch ↔ Switch | Crossover | Like devices |
+| Router ↔ Router (Ethernet) | Crossover | Like devices |
+| PC ↔ Router console port | Rollover (console) | Management only — not data |
+
+**T-568A vs T-568B:** Both are valid Ethernet wiring standards that define which color wire goes on which pin. A **straight-through** cable uses the same standard (A–A or B–B) on both ends. A **crossover** cable uses T-568A on one end and T-568B on the other — this swaps the transmit and receive pairs, which is what like-device connections require.
+
+Modern switches include **Auto-MDIX**, which electronically detects the cable type and corrects it — so a straight-through cable between two switches still works. Packet Tracer's "Copper Auto" cable option simulates this. However, understanding the underlying rule is essential for working with older hardware or for troubleshooting link failures.
+
 ## Guided Lab
 
 ### Part A — Interrogating Your Own Machine
@@ -165,6 +183,11 @@ ping 192.168.1.20
 1. Add a third PC (PC2, IP `192.168.1.30/24`) connected to PC0 with another crossover cable. Try to ping PC2 from PC1. Does it work? Why or why not?
 2. On your own machine, run `arp -a` (Windows/Linux) after pinging your gateway. What appears in the ARP table? What does each entry mean?
 3. In Packet Tracer, switch to **Simulation Mode** and send a ping from PC0 to PC1. Click through each event and identify which protocol appears at the Data Link layer. Does it match what you expected?
+4. **Cable-type diagnosis:** In your PT topology from Part C, delete the cable between PC0 and PC1. Reconnect them using a **Copper Straight-Through** cable instead of a crossover. Does PT accept it? Observe the link LED. Now try "Copper Auto" — what happens? Explain what Auto-MDIX does and why a red link light is the symptom of a wrong cable type rather than a failed interface.
+
+---
+
+*References: Cable selection rules and T-568A/B standards adapted from Arief Sofyan, "Modul Praktikum 1 — Media Jaringan" (Modul Praktikum Jaringan Komputer, Politeknik Negeri Malang, 2021).*
 
 ## Deliverables
 

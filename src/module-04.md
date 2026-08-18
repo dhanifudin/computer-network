@@ -199,9 +199,53 @@ Router# show cdp neighbors
 
 ---
 
-### Part D — Configuration Backup and Comparison
+### Part D — Ping and Traceroute as Diagnostic Tools
 
-**Step 5.** Save the running configuration:
+Good network engineers don't just use `ping` with its defaults — they know which options reveal specific failure modes. IOS `ping` and `traceroute` both support extended options that provide far more diagnostic information.
+
+**Step 5a.** Run a basic ping from the router:
+
+```
+R0# ping 192.168.2.10
+```
+
+> The default sends 5 ICMP Echo Requests with a 2-second timeout and 100-byte datagram size.
+
+**Step 5b.** Run an extended ping (press Enter after `ping <ip>` to enter interactive mode, or use one-line syntax):
+
+```
+R0# ping 192.168.2.10 repeat 10 timeout 1 size 1500
+```
+
+📸 Screenshot. Identify: which option controls the number of probes? Which controls how long to wait for a reply? What does a large `size` value test?
+
+> **Failure interpretation:** IOS ping uses dots (`.`) for timeout and exclamation marks (`!`) for success. Common patterns:
+> - `!!!!!` — full connectivity
+> - `.....` — destination unreachable; the router closest to the **source** may be missing a route
+> - `U....` — destination unreachable ICMP message received; the router closest to the **destination** sent back a "no route to host" error
+> - `!!!!.` — intermittent loss (congestion or flapping interface)
+
+**Step 5c.** Run traceroute from the router:
+
+```
+R0# traceroute 192.168.2.10
+```
+
+📸 Screenshot. Identify each hop (IP and round-trip time).
+
+> **How traceroute works:** The router sends UDP probes (or ICMP probes in IOS) with TTL=1, then TTL=2, then TTL=3, etc. Each router that decrements TTL to 0 sends back an **ICMP Time Exceeded** message, revealing its own IP. When a probe finally reaches the destination, it sends back an **ICMP Port Unreachable** (the high-numbered UDP port is not in use), signaling the trace is complete.
+
+> **Timeout symbol:** Three asterisks `* * *` for a hop means that router did not send a Time Exceeded reply — either it was configured to suppress ICMP messages or a firewall blocked them. The trace continues past a silent hop; it does not mean the path is broken.
+
+**Step 5d.** Explore `traceroute` options — use `traceroute ?` to discover them. Try one option of your choice and document what it changes.
+
+> ⚠️ **IOS vs Windows difference:** In IOS `traceroute`, timeout is in seconds. In Windows `tracert`, the `-w` flag is in **milliseconds** — `tracert -w 1000` means 1 second, not 1 ms. This is a common gotcha when switching between environments.
+
+---
+
+### Part E — Configuration Backup and Comparison
+
+**Step 6.** Save the running configuration:
 
 ```
 Router# copy running-config startup-config
@@ -210,7 +254,7 @@ Destination filename [startup-config]? [Enter]
 
 📸 Screenshot.
 
-**Step 6.** Make a deliberate change — add a new loopback interface:
+**Step 7.** Make a deliberate change — add a new loopback interface:
 
 ```
 Router(config)# interface loopback 0
@@ -218,7 +262,7 @@ Router(config-if)# ip address 10.0.0.1 255.255.255.255
 Router(config-if)# end
 ```
 
-**Step 7.** Compare the two configs:
+**Step 8.** Compare the two configs:
 
 ```
 Router# show running-config | include loopback
@@ -227,7 +271,7 @@ Router# show startup-config | include loopback
 
 > **Observe:** Does the loopback appear in startup-config? Why not?
 
-**Step 8.** Reload the router *without* saving (type `reload` → confirm without saving). After reboot:
+**Step 9.** Reload the router *without* saving (type `reload` → confirm without saving). After reboot:
 
 ```
 Router# show ip interface brief
@@ -242,6 +286,7 @@ Router# show ip interface brief
 1. Use `show interfaces` to find the number of input errors and output drops on an interface. If you were troubleshooting a slow network, what would a high input error count suggest? What would a high output drop count suggest?
 2. Use `show running-config | section interface` to display only the interface sections of the config. Research the `|` (pipe) operator in IOS — what other filters are available? (`begin`, `include`, `exclude`, `section`)
 3. Configure a second router in the topology and use `show cdp neighbors detail` to see the connected router's IOS version. Explain why CDP is useful for network inventory and why it is sometimes disabled in security-conscious networks.
+4. **Ping flag scavenger hunt:** In IOS, run `ping ?` to see all one-line ping options. Find and test: the option that sets repeat count; the option that sets packet size; the option that sets timeout. For each option, document: the flag name, what it changes, and what scenario would make it useful for troubleshooting.
 
 ## Deliverables
 
@@ -250,16 +295,22 @@ Router# show ip interface brief
 3. Annotated screenshot of `show interfaces Fa0/0` with line/protocol status, IP, MTU, and packet counters labeled.
 4. Screenshot of `show ip route` with C and L prefixes explained.
 5. Screenshot of `show arp` before and after ping, with explanation of what changed and why.
-6. Written explanation of what happened to loopback vs. Fa0/0 after a reload-without-save, with reference to RAM vs. NVRAM.
-7. Your saved `.pka` file.
+6. Part D — extended ping and traceroute screenshots with annotations of: (a) dot vs exclamation interpretation, (b) how traceroute uses TTL and ICMP Time Exceeded, (c) the IOS-vs-Windows `-w` units difference.
+7. Written explanation of what happened to loopback vs. Fa0/0 after a reload-without-save, with reference to RAM vs. NVRAM.
+8. Your saved `.pka` file.
 
 ## Assessment Rubric
 
 | Criterion | Points |
 |-----------|--------|
-| All required show commands executed and screenshots present | 30 |
-| show ip interface brief: student-ID-based addressing, both interfaces up | 20 |
-| show interfaces annotated correctly (all four fields) | 20 |
-| RAM/NVRAM reload explanation | 20 |
+| All required show commands executed and screenshots present | 25 |
+| show ip interface brief: student-ID-based addressing, both interfaces up | 15 |
+| show interfaces annotated correctly (all four fields) | 15 |
+| Extended ping and traceroute with correct interpretation | 25 |
+| RAM/NVRAM reload explanation | 10 |
 | Challenge Task (any one, with explanation) | 10 |
 | **Total** | **100** |
+
+---
+
+*References: Ping and traceroute diagnostic techniques adapted from Arief Sofyan, "Modul Praktikum 5 — Ping dan Route" and "Modul Praktikum 10 — Traceroute" (Modul Praktikum Jaringan Komputer, Politeknik Negeri Malang, 2021).*

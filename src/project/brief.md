@@ -22,6 +22,38 @@ Regardless of scenario, every project must include:
 | WAN encapsulation | PPP on at least one serial link |
 | Documentation | Addressing table, topology diagram, and presentation |
 
+### Network Design Checklist
+
+Good network design starts with counting all IP-consuming devices before opening Packet Tracer. For each site in your scenario, complete this checklist before choosing your subnets:
+
+**Device inventory (count IPs for each):**
+- [ ] Workstation/student PCs
+- [ ] Servers (file server, DHCP server, web server — each needs a *static* IP outside the DHCP pool)
+- [ ] Printers (static IP recommended so clients always know the printer's address)
+- [ ] Router interfaces (each LAN interface consumes one IP; WAN links need /30 subnets)
+- [ ] Switch management interfaces (if managed switches are used, each needs an IP)
+- [ ] Reserve at least 20 IPs for exclusion (routers, servers, printers, future growth)
+
+**Private address range selection:**
+| Range | Prefix | Usable Hosts | When to use |
+|-------|--------|-------------|-------------|
+| 10.0.0.0/8 | /8 | ~16.7 million | Large enterprise / university backbone |
+| 172.16.0.0/12 | /12 | ~1 million | Medium-sized organization |
+| 192.168.0.0/16 | /16 | ~65,000 | Small office / lab environment |
+
+**Physical layer constraints (relevant when drawing topology and justifying cabling):**
+- UTP copper cable: maximum segment length **100 m** (beyond this, a switch or repeater is required)
+- Each cable run needs two RJ-45 connectors; budget connector count = (cable runs) × 2
+- Label each cable in the topology diagram with: media type (UTP/fiber), expected length, and the two devices it connects
+
+**Deliverable:** Before writing your proposal, complete and submit the device inventory table for your chosen scenario. This shows your design is grounded in capacity planning, not just topology aesthetics.
+
+---
+
+*References: Capacity-planning methodology adapted from Arief Sofyan, "Modul Praktikum 11 — Analisis Desain Jaringan" (Modul Praktikum Jaringan Komputer, Politeknik Negeri Malang, 2021).*
+
+---
+
 ## Project Scenarios
 
 Choose one of the following real-world scenarios. Each gives you a different organizational context, but all share the same technical requirements above.

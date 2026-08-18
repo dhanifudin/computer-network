@@ -114,6 +114,14 @@ architecture-beta
 
 **Step 1.** Verify PCs are set to DHCP: Click PC0 → Desktop → IP Configuration → select **DHCP**.
 
+Before configuring the server, observe the PC's state immediately after switching to DHCP:
+
+```
+PC0> ipconfig /all
+```
+
+📸 Screenshot. The IP address shows `0.0.0.0` and the DHCP lease fields are blank — this is the baseline "no server available" state. The PC has sent Discover broadcasts but received no Offer. Keep this screenshot; you will compare it to the post-assignment state in Step 5.
+
 **Step 2.** Configure R0 as DHCP server:
 
 ```
@@ -180,10 +188,20 @@ PC0> ipconfig
 
 > **Explain:** When the client releases its lease, does the server immediately make that IP available to another client? (Hint: look at the binding table on the router.)
 
-**Step 7.** Observe the DORA process in PT Simulation Mode. Set filter to show **DHCP** only. Trigger a DHCP request from PC0 and step through all four messages.
+**Step 7.** Observe the DORA process live in PT Simulation Mode. Set filter to show **DHCP** only. On PC0, run `ipconfig /release` to clear the current lease, then `ipconfig /renew` to trigger a fresh DORA exchange. Step through all four messages manually.
+
+For each event in the list, open the PDU detail and record:
+
+| Message | Source IP | Destination IP | Broadcast or Unicast? |
+|---------|-----------|----------------|----------------------|
+| 1. Discover | | | |
+| 2. Offer | | | |
+| 3. Request | | | |
+| 4. Acknowledge | | | |
 
 📸 Screenshot of the Simulation Event List showing all four DORA messages.
-> **Identify:** Which messages use broadcast as destination (255.255.255.255)? Which use unicast? Why?
+
+> **Identify:** Discover and Request are sent to 255.255.255.255 (broadcast) because the client has no IP yet and doesn't know the server's address. Offer and Acknowledge are sent to the client's MAC as unicast because the server knows who it's responding to. All four messages carry the same Transaction ID (XID) — this is how the client matches Offers and Acks to its own Discover and Request when multiple DHCP servers are present.
 
 ---
 
@@ -300,3 +318,7 @@ R0# show ip dhcp binding
 | DHCP relay configured and working | 25 |
 | giaddr explanation | 10 |
 | **Total** | **100** |
+
+---
+
+*References: DORA before/after observation technique and DHCP client state verification adapted from Arief Sofyan, "Modul Praktikum 2 — Identifikasi Hardware Jaringan dan Konfigurasi IP Dinamis-Statis" (Modul Praktikum Jaringan Komputer, Politeknik Negeri Malang, 2021).*
