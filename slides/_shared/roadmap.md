@@ -8,7 +8,7 @@ Grid is 5 columns x 3 rows (15 weeks). CSS lives in themes/hankyong.css.
 
 <div class="roadmap">
 <div class="wk"><div class="n">Wk 1</div><div class="t">Orientation</div></div>
-<div class="wk"><div class="n">Wk 2</div><div class="t">OSI Review</div></div>
+<div class="wk"><div class="n">Wk 2</div><div class="t">Network Review 1</div></div>
 <div class="wk"><div class="n">Wk 3</div><div class="t">Basic Config</div></div>
 <div class="wk"><div class="n">Wk 4</div><div class="t">IOS Management</div></div>
 <div class="wk"><div class="n">Wk 5</div><div class="t">Static Routing</div></div>

@@ -31,7 +31,7 @@ covers the lecture decks only.
 1. **Orientation** — you can read a live host's diagnostic state and build a
    2-PC LAN, but you don't yet know what happens to a packet moving through
    OSI layers on a switch/router path → **W2**
-2. **OSI Review** — you can trace a packet layer by layer, but the router in
+2. **Network Review 1** — you can trace a packet layer by layer, but the router in
    your topology has no hostname, no password, nothing configured → **W3**
 3. **Basic Config** — the router is hardened, but you don't yet know the
    vocabulary of `show` commands to diagnose it at 3 AM → **W4**
