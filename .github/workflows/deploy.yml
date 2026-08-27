@@ -26,12 +26,23 @@ jobs:
             | tar xz -C /usr/local/bin
 
       - name: Build book
-        run: mdbook build
+        run: mdbook build book --dest-dir "$GITHUB_WORKSPACE/_site/book"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build slides
+        run: npx --yes @marp-team/marp-cli --input-dir slides --output "$GITHUB_WORKSPACE/_site/slides" --html
+
+      - name: Add landing page
+        run: cp landing/index.html "$GITHUB_WORKSPACE/_site/index.html"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: book
+          path: _site
 
   deploy:
     needs: build
