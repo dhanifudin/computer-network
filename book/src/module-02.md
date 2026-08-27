@@ -31,15 +31,16 @@ By the end of this lab, students are able to:
 - Your own machine (for the optional Wireshark companion task)
 - Wireshark (optional, free download from [wireshark.org](https://www.wireshark.org))
 
-## Estimated Time
+## Estimated Time (In-Class Lab, ~2 hrs)
 
 | Phase | Time |
 |-------|------|
-| Pre-lab review | 10 min |
 | Part A: OSI review topology | 20 min |
 | Part B: Simulation Mode — ICMP | 25 min |
 | Part C: Simulation Mode — HTTP | 30 min |
 | Challenge / wrap-up | 15 min |
+
+*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 

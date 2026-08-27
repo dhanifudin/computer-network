@@ -31,15 +31,16 @@ By the end of this lab, students are able to:
 - Cisco Packet Tracer 8.x
 - Two Cisco 2960 switches, one 1841 router, four PCs
 
-## Estimated Time
+## Estimated Time (In-Class Lab, ~2 hrs)
 
 | Phase | Time |
 |-------|------|
-| Pre-lab review | 10 min |
 | Part A: VLAN creation & port assignment | 25 min |
 | Part B: Trunk link configuration | 20 min |
 | Part C: Router-on-a-stick inter-VLAN routing | 30 min |
 | Part D: Verify and troubleshoot | 15 min |
+
+*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 

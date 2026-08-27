@@ -32,14 +32,15 @@ By the end of this lab, students are able to:
 - Three routers, three switches, four PCs, one server
 - Module 5 or 6 topology as a starting point (already has routing configured)
 
-## Estimated Time
+## Estimated Time (In-Class Lab, ~2 hrs)
 
 | Phase | Time |
 |-------|------|
-| Pre-lab review | 10 min |
 | Part A: Standard ACL | 30 min |
 | Part B: Extended ACL | 35 min |
 | Part C: Named ACL & debugging | 25 min |
+
+*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 

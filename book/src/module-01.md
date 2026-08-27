@@ -31,15 +31,16 @@ By the end of this lab, students are able to:
 - Your own computer (Windows, Linux, or macOS)
 - This lab manual
 
-## Estimated Time
+## Estimated Time (In-Class Lab, ~2 hrs)
 
 | Phase | Time |
 |-------|------|
-| Pre-lab review & Q&A | 15 min |
 | Part A: Real-machine commands | 30 min |
 | Part B: Packet Tracer orientation | 30 min |
 | Part C: First topology | 25 min |
 | Report writeup / wrap-up | 10 min |
+
+*Guided Lab activities above run about 95 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 

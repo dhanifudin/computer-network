@@ -31,15 +31,16 @@ By the end of this lab, students are able to:
 - Cisco Packet Tracer 8.x
 - Two routers with serial interfaces (2811 or 1841 with WIC-2T module), one switch, two PCs, one server
 
-## Estimated Time
+## Estimated Time (In-Class Lab, ~2 hrs)
 
 | Phase | Time |
 |-------|------|
-| Pre-lab review | 10 min |
 | Part A: PPP & CHAP | 30 min |
 | Part B: Static NAT | 20 min |
 | Part C: PAT overload | 30 min |
 | Wrap-up | 10 min |
+
+*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 

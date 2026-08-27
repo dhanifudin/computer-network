@@ -31,16 +31,17 @@ By the end of this lab, students are able to:
 - Cisco Packet Tracer 8.x
 - Physical lab (if available): UTP Cat5e cable, RJ-45 connectors, crimping tool (tang RJ-45), cable tester
 
-## Estimated Time
+## Estimated Time (In-Class Lab, ~2 hrs)
 
 | Phase | Time |
 |-------|------|
-| Pre-lab review | 10 min |
 | Part A: Physical cabling (if hardware available) | 25 min |
 | Part A (alt): Subnetting review drills | 25 min |
 | Part B: IOS mode navigation | 25 min |
 | Part C: Basic router hardening | 30 min |
 | Wrap-up | 10 min |
+
+*Guided Lab activities above run about 90 minutes (one Part A variant) — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 

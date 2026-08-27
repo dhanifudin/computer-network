@@ -33,15 +33,16 @@ By the end of this lab, students are able to:
 - Cisco Packet Tracer 8.x
 - Two 1841 (or 2811) routers, two switches, two PCs per site
 
-## Estimated Time
+## Estimated Time (In-Class Lab, ~2 hrs)
 
 | Phase | Time |
 |-------|------|
-| Pre-lab review | 10 min |
 | Part A: Build the problem | 20 min |
 | Part B: Add static routes | 30 min |
 | Part C: Default route | 20 min |
 | Part D: Break and fix | 20 min |
+
+*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 

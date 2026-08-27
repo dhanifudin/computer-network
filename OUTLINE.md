@@ -8,6 +8,13 @@ this file is the flat semester-level view. Full step-by-step lab content,
 deliverables, and rubrics live in the book (`book/src/`) — this outline
 covers the lecture decks only.
 
+## Class Format
+
+Each weekly session is 3×50-minute periods (150 min total): ~1 hour of
+lecture/theory via the slide deck listed below, then ~2 hours of hands-on
+lab via the matching book chapter. See `book/src/introduction.md`'s "Class
+Format" section for the full breakdown.
+
 | Wk | Topic | Deck | Format |
 |---|---|---|---|
 | 1 | Orientation & Lab Environment | `slides/module-01.md` | Full |

@@ -4,6 +4,12 @@ Intelligent Network Design (지능형네트워크설계), 한경국립대학교 
 University. This document is the standard. Every deck (`slides/moduleNN-*.md`)
 should follow it. If a deck and this document disagree, fix the deck.
 
+Each weekly session is 3×50-minute periods (150 min total): the deck fills
+the first ~1 hour (lecture/theory), the book's Guided Lab fills the
+remaining ~2 hours (hands-on practice) — see `book/src/introduction.md`'s
+"Class Format" section. Size every full-spine deck for roughly an hour;
+17-21 slides at the pace of the existing decks is the target range.
+
 ## Principle
 
 **Motivation always precedes definition.** A student should never meet a term

@@ -31,15 +31,16 @@ By the end of this lab, students are able to:
 - Cisco Packet Tracer 8.x
 - Three routers, three switches, three PCs
 
-## Estimated Time
+## Estimated Time (In-Class Lab, ~2 hrs)
 
 | Phase | Time |
 |-------|------|
-| Pre-lab review | 10 min |
 | Part A: OSPF configuration | 30 min |
 | Part B: Verification commands | 25 min |
 | Part C: Link failure & reconvergence | 25 min |
 | Wrap-up | 10 min |
+
+*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 

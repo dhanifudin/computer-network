@@ -31,15 +31,16 @@ By the end of this lab, students are able to:
 - Cisco Packet Tracer 8.x
 - Two routers, two switches, three PCs (configured as DHCP clients)
 
-## Estimated Time
+## Estimated Time (In-Class Lab, ~2 hrs)
 
 | Phase | Time |
 |-------|------|
-| Pre-lab review | 10 min |
 | Part A: DHCP server configuration | 30 min |
 | Part B: Client verification | 20 min |
 | Part C: DHCP relay | 30 min |
 | Wrap-up | 10 min |
+
+*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 

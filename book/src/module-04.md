@@ -31,15 +31,16 @@ By the end of this lab, students are able to:
 - Cisco Packet Tracer 8.x
 - Topology from Module 2 (or rebuild from scratch using the diagram below)
 
-## Estimated Time
+## Estimated Time (In-Class Lab, ~2 hrs)
 
 | Phase | Time |
 |-------|------|
-| Pre-lab review | 10 min |
 | Part A: Context-sensitive help | 15 min |
 | Part B: Interface configuration | 25 min |
 | Part C: show command deep-dive | 30 min |
 | Part D: Config backup & restore | 20 min |
+
+*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 
