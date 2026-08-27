@@ -1,8 +1,8 @@
-# Module 4 — IOS Management Commands
+# Module 4 - IOS Management Commands
 
 ## Why This Matters
 
-Imagine you are called at midnight because a branch office cannot reach headquarters. You log into the router remotely. The running configuration in RAM looks fine — but something is clearly wrong. Is the interface down? Is there a duplicate IP? Did someone accidentally apply an ACL? Is the routing table missing a route? IOS `show` commands are the MRI scan of a Cisco router: they reveal the live internal state of every subsystem in seconds. Engineers who memorize the ten most important `show` commands — and know how to interpret their output — diagnose and fix problems that stumped everyone else. This module makes those commands automatic.
+Imagine you are called at midnight because a branch office cannot reach headquarters. You log into the router remotely. The running configuration in RAM looks fine - but something is clearly wrong. Is the interface down? Is there a duplicate IP? Did someone accidentally apply an ACL? Is the routing table missing a route? IOS `show` commands are the MRI scan of a Cisco router: they reveal the live internal state of every subsystem in seconds. Engineers who memorize the ten most important `show` commands - and know how to interpret their output - diagnose and fix problems that stumped everyone else. This module makes those commands automatic.
 
 ## Learning Outcomes
 
@@ -16,7 +16,7 @@ By the end of this lab, students are able to:
 
 ## Pre-Lab
 
-**Read before class:** Reference module — Modul Praktikum 16 (Modul Praktikum 16 — Konfigurasi Dasar Router Cisco), focusing on the `show` commands section and the RAM/NVRAM explanation.
+**Read before class:** Reference module - Modul Praktikum 16 (Modul Praktikum 16 - Konfigurasi Dasar Router Cisco), focusing on the `show` commands section and the RAM/NVRAM explanation.
 
 **Answer before the session:**
 
@@ -40,7 +40,7 @@ By the end of this lab, students are able to:
 | Part C: show command deep-dive | 30 min |
 | Part D: Config backup & restore | 20 min |
 
-*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
+*Guided Lab activities above run about 90 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 
@@ -52,10 +52,10 @@ Every Cisco interface has two state indicators, visible in `show interfaces`:
 FastEthernet0/0 is up, line protocol is up
 ```
 
-- **First status (up/down/administratively down):** Physical layer — is there a cable/signal?
+- **First status (up/down/administratively down):** Physical layer - is there a cable/signal?
   - `administratively down`: explicitly shut down with the `shutdown` command (fix: `no shutdown`)
   - `down`: no physical signal (cable unplugged, other end off)
-- **Second status (up/down):** Data Link layer — is the keepalive/protocol working?
+- **Second status (up/down):** Data Link layer - is the keepalive/protocol working?
   - If L1 is down, L2 is always down too
   - L1 up but L2 down: often an encapsulation mismatch (important for serial/WAN links)
 
@@ -80,14 +80,14 @@ You never need to memorize the full command; use `?` to discover it.
 | `show interfaces` | Per-interface: state, IP, counters, errors |
 | `show ip interface brief` | Compact table: all interfaces, IP, state |
 | `show running-config` | Current live config (in RAM) |
-| `show startup-config` | Saved config (in NVRAM) — what loads on reboot |
+| `show startup-config` | Saved config (in NVRAM) - what loads on reboot |
 | `show ip route` | Routing table: all known networks and how to reach them |
 | `show arp` | ARP cache: IP-to-MAC mappings the router has learned |
 | `show cdp neighbors` | Directly connected Cisco devices (Cisco Discovery Protocol) |
 
 ## Guided Lab
 
-### Part A — Context-Sensitive Help
+### Part A - Context-Sensitive Help
 
 **Step 1.** On your router's CLI, practice the `?` system at each mode level:
 
@@ -101,11 +101,11 @@ Router# show ip int?
 
 📸 Screenshot two of these `?` outputs.
 
-> **Observe:** How many commands begin with `show ip i`? Tab-complete to discover them. This is how professionals use IOS in the field — not from memory.
+> **Observe:** How many commands begin with `show ip i`? Tab-complete to discover them. This is how professionals use IOS in the field - not from memory.
 
 ---
 
-### Part B — Interface Configuration
+### Part B - Interface Configuration
 
 Use the topology below. If your Module 2 file already has this, open it:
 
@@ -129,10 +129,10 @@ architecture-beta
 | Device | Interface | IP Address | Notes |
 |--------|-----------|------------|-------|
 | PC0 | NIC | 192.168.1.10/24 | GW 192.168.1.1 |
-| SW0 | — | — | Layer-2 switch |
+| SW0 | - | - | Layer-2 switch |
 | R0 | Fa0/0 | 192.168.1.1/24 | LAN 1 gateway |
 | R0 | Fa0/1 | 192.168.2.1/24 | LAN 2 gateway |
-| SW1 | — | — | Layer-2 switch |
+| SW1 | - | - | Layer-2 switch |
 | PC1 | NIC | 192.168.2.10/24 | GW 192.168.2.1 |
 
 **Student addressing rule:** Replace the third octet with the last two digits of your student ID. If your student ID is 2023-0042, use `.42.` as the third octet (192.168.42.x/24 on the left, and choose a different third octet for the right subnet, e.g. 172.16.42.x/24). Document your addressing choice in your lab report.
@@ -155,7 +155,7 @@ Router(config-if)# exit
 
 ---
 
-### Part C — The show Command Deep-Dive
+### Part C - The show Command Deep-Dive
 
 **Step 4.** Run each command and answer the observation question:
 
@@ -200,9 +200,9 @@ Router# show cdp neighbors
 
 ---
 
-### Part D — Ping and Traceroute as Diagnostic Tools
+### Part D - Ping and Traceroute as Diagnostic Tools
 
-Good network engineers don't just use `ping` with its defaults — they know which options reveal specific failure modes. IOS `ping` and `traceroute` both support extended options that provide far more diagnostic information.
+Good network engineers don't just use `ping` with its defaults - they know which options reveal specific failure modes. IOS `ping` and `traceroute` both support extended options that provide far more diagnostic information.
 
 **Step 5a.** Run a basic ping from the router:
 
@@ -221,10 +221,10 @@ R0# ping 192.168.2.10 repeat 10 timeout 1 size 1500
 📸 Screenshot. Identify: which option controls the number of probes? Which controls how long to wait for a reply? What does a large `size` value test?
 
 > **Failure interpretation:** IOS ping uses dots (`.`) for timeout and exclamation marks (`!`) for success. Common patterns:
-> - `!!!!!` — full connectivity
-> - `.....` — destination unreachable; the router closest to the **source** may be missing a route
-> - `U....` — destination unreachable ICMP message received; the router closest to the **destination** sent back a "no route to host" error
-> - `!!!!.` — intermittent loss (congestion or flapping interface)
+> - `!!!!!` - full connectivity
+> - `.....` - destination unreachable; the router closest to the **source** may be missing a route
+> - `U....` - destination unreachable ICMP message received; the router closest to the **destination** sent back a "no route to host" error
+> - `!!!!.` - intermittent loss (congestion or flapping interface)
 
 **Step 5c.** Run traceroute from the router:
 
@@ -236,15 +236,15 @@ R0# traceroute 192.168.2.10
 
 > **How traceroute works:** The router sends UDP probes (or ICMP probes in IOS) with TTL=1, then TTL=2, then TTL=3, etc. Each router that decrements TTL to 0 sends back an **ICMP Time Exceeded** message, revealing its own IP. When a probe finally reaches the destination, it sends back an **ICMP Port Unreachable** (the high-numbered UDP port is not in use), signaling the trace is complete.
 
-> **Timeout symbol:** Three asterisks `* * *` for a hop means that router did not send a Time Exceeded reply — either it was configured to suppress ICMP messages or a firewall blocked them. The trace continues past a silent hop; it does not mean the path is broken.
+> **Timeout symbol:** Three asterisks `* * *` for a hop means that router did not send a Time Exceeded reply - either it was configured to suppress ICMP messages or a firewall blocked them. The trace continues past a silent hop; it does not mean the path is broken.
 
-**Step 5d.** Explore `traceroute` options — use `traceroute ?` to discover them. Try one option of your choice and document what it changes.
+**Step 5d.** Explore `traceroute` options - use `traceroute ?` to discover them. Try one option of your choice and document what it changes.
 
-> ⚠️ **IOS vs Windows difference:** In IOS `traceroute`, timeout is in seconds. In Windows `tracert`, the `-w` flag is in **milliseconds** — `tracert -w 1000` means 1 second, not 1 ms. This is a common gotcha when switching between environments.
+> ⚠️ **IOS vs Windows difference:** In IOS `traceroute`, timeout is in seconds. In Windows `tracert`, the `-w` flag is in **milliseconds** - `tracert -w 1000` means 1 second, not 1 ms. This is a common gotcha when switching between environments.
 
 ---
 
-### Part E — Configuration Backup and Comparison
+### Part E - Configuration Backup and Comparison
 
 **Step 6.** Save the running configuration:
 
@@ -255,7 +255,7 @@ Destination filename [startup-config]? [Enter]
 
 📸 Screenshot.
 
-**Step 7.** Make a deliberate change — add a new loopback interface:
+**Step 7.** Make a deliberate change - add a new loopback interface:
 
 ```
 Router(config)# interface loopback 0
@@ -285,7 +285,7 @@ Router# show ip interface brief
 ## Challenge Tasks
 
 1. Use `show interfaces` to find the number of input errors and output drops on an interface. If you were troubleshooting a slow network, what would a high input error count suggest? What would a high output drop count suggest?
-2. Use `show running-config | section interface` to display only the interface sections of the config. Research the `|` (pipe) operator in IOS — what other filters are available? (`begin`, `include`, `exclude`, `section`)
+2. Use `show running-config | section interface` to display only the interface sections of the config. Research the `|` (pipe) operator in IOS - what other filters are available? (`begin`, `include`, `exclude`, `section`)
 3. Configure a second router in the topology and use `show cdp neighbors detail` to see the connected router's IOS version. Explain why CDP is useful for network inventory and why it is sometimes disabled in security-conscious networks.
 4. **Ping flag scavenger hunt:** In IOS, run `ping ?` to see all one-line ping options. Find and test: the option that sets repeat count; the option that sets packet size; the option that sets timeout. For each option, document: the flag name, what it changes, and what scenario would make it useful for troubleshooting.
 
@@ -296,7 +296,7 @@ Router# show ip interface brief
 3. Annotated screenshot of `show interfaces Fa0/0` with line/protocol status, IP, MTU, and packet counters labeled.
 4. Screenshot of `show ip route` with C and L prefixes explained.
 5. Screenshot of `show arp` before and after ping, with explanation of what changed and why.
-6. Part D — extended ping and traceroute screenshots with annotations of: (a) dot vs exclamation interpretation, (b) how traceroute uses TTL and ICMP Time Exceeded, (c) the IOS-vs-Windows `-w` units difference.
+6. Part D - extended ping and traceroute screenshots with annotations of: (a) dot vs exclamation interpretation, (b) how traceroute uses TTL and ICMP Time Exceeded, (c) the IOS-vs-Windows `-w` units difference.
 7. Written explanation of what happened to loopback vs. Fa0/0 after a reload-without-save, with reference to RAM vs. NVRAM.
 8. Your saved `.pka` file.
 

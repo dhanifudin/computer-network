@@ -28,7 +28,7 @@ Good network design starts with counting all IP-consuming devices before opening
 
 **Device inventory (count IPs for each):**
 - [ ] Workstation/student PCs
-- [ ] Servers (file server, DHCP server, web server — each needs a *static* IP outside the DHCP pool)
+- [ ] Servers (file server, DHCP server, web server - each needs a *static* IP outside the DHCP pool)
 - [ ] Printers (static IP recommended so clients always know the printer's address)
 - [ ] Router interfaces (each LAN interface consumes one IP; WAN links need /30 subnets)
 - [ ] Switch management interfaces (if managed switches are used, each needs an IP)
@@ -56,7 +56,7 @@ Choose one of the following real-world scenarios. Each gives you a different org
 
 ---
 
-### Scenario A — University Campus Network
+### Scenario A - University Campus Network
 
 **Context:** A regional university has three buildings: Administration, Faculty, and Student dormitories. Each building has its own department network. The university connects to the internet through a single ISP uplink.
 
@@ -71,7 +71,7 @@ Choose one of the following real-world scenarios. Each gives you a different org
 
 ---
 
-### Scenario B — Small Enterprise with Branch Office
+### Scenario B - Small Enterprise with Branch Office
 
 **Context:** A tech startup has its headquarters in Seoul and a branch office in Busan. Each site has separate departments. The two sites connect via a WAN serial link.
 
@@ -86,15 +86,15 @@ Choose one of the following real-world scenarios. Each gives you a different org
 
 ---
 
-### Scenario C — Hospital Network
+### Scenario C - Hospital Network
 
-**Context:** A hospital must separate patient data networks from administrative and public networks strictly — patient data breaches carry heavy regulatory penalties. The hospital has three wings plus a data center.
+**Context:** A hospital must separate patient data networks from administrative and public networks strictly - patient data breaches carry heavy regulatory penalties. The hospital has three wings plus a data center.
 
 **Network requirements:**
-- Clinical VLAN (patient monitoring systems — highly restricted)
+- Clinical VLAN (patient monitoring systems - highly restricted)
 - Administrative VLAN (billing, HR)
-- Public VLAN (patient Wi-Fi — internet only)
-- Data Center VLAN (servers — DHCP excluded, all static IPs)
+- Public VLAN (patient Wi-Fi - internet only)
+- Data Center VLAN (servers - DHCP excluded, all static IPs)
 - Strict ACL policy: Public cannot reach any internal network; Clinical can only reach Data Center; Admin can reach Clinical and Data Center
 - OSPF between the core router and wing routers
 - NAT for Public VLAN internet access
@@ -102,15 +102,15 @@ Choose one of the following real-world scenarios. Each gives you a different org
 
 ---
 
-### Scenario D — Industrial/Smart Building Network
+### Scenario D - Industrial/Smart Building Network
 
 **Context:** A manufacturing plant integrates IT (office) and OT (operational technology / factory floor) networks. Strict separation is required: the PLC (Programmable Logic Controllers) network must never be reachable from the internet or from general office PCs.
 
 **Network requirements:**
 - Office VLAN (general IT, internet access via NAT)
-- PLC/OT VLAN (factory floor — no internet access, no route from Office VLAN)
-- Management VLAN (IT administrators only — access to everything)
-- Camera/IoT VLAN (factory cameras — isolated from IT and OT)
+- PLC/OT VLAN (factory floor - no internet access, no route from Office VLAN)
+- Management VLAN (IT administrators only - access to everything)
+- Camera/IoT VLAN (factory cameras - isolated from IT and OT)
 - EIGRP for routing between the factory segments
 - ACL: Office cannot reach PLC/OT; Management can reach everything; PLC/OT cannot initiate traffic to Office; internet cannot reach OT under any circumstances
 - DHCP for Office and Camera VLANs; static IPs for PLC and Management

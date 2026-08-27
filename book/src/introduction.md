@@ -1,4 +1,4 @@
-# Intelligent Network Design — Lab Manual
+# Intelligent Network Design - Lab Manual
 
 **Course:** 지능형네트워크설계 (Intelligent Network Design)  
 **Department:** School of Computer & Applied Mathematics (컴퓨터응용수학부)  
@@ -10,7 +10,7 @@
 
 ## Course Goal
 
-Students will be able to **build and operate computer networks** using Cisco Packet Tracer. The course builds directly on your prior Computer Networks course — you already understand the theory; here you implement, observe failures, and fix them.
+Students will be able to **build and operate computer networks** using Cisco Packet Tracer. The course builds directly on your prior Computer Networks course - you already understand the theory; here you implement, observe failures, and fix them.
 
 By the end of the semester, you will have designed and presented a complete simulated network from scratch, integrating multiple technologies covered in the weekly labs.
 
@@ -19,7 +19,7 @@ By the end of the semester, you will have designed and presented a complete simu
 | Method | Description |
 |--------|-------------|
 | Lecture (강의) | Brief concept intro at the start of each session |
-| Lab Practice (실험·실습) | Hands-on Packet Tracer guided labs — the majority of class time |
+| Lab Practice (실험·실습) | Hands-on Packet Tracer guided labs - the majority of class time |
 | PBL | Each module begins with a real-world problem your configuration must solve |
 | Capstone Design | Weeks 13–14: design, build, and present a complete network project |
 
@@ -29,18 +29,18 @@ Each weekly session is **3 × 50-minute periods (150 minutes total)**:
 
 | Segment | Duration | Material |
 |---------|----------|----------|
-| Lecture: concept & theory | ~1 hour | Slide deck — see [Lecture Slides](../slides/intro.html) |
+| Lecture: concept & theory | ~1 hour | Slide deck - see [Lecture Slides](../slides/intro.html) |
 | Hands-on lab: guided practice | ~2 hours | This book's Guided Lab (Parts A–D below) |
 
-The lecture covers *Why This Matters*, *Learning Outcomes*, and *Theory Review* before the lab begins — the module pages below assume that context going in. Guided Lab activities in each module run roughly 90 minutes; the remaining time in the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.
+The lecture covers *Why This Matters*, *Learning Outcomes*, and *Theory Review* before the lab begins - the module pages below assume that context going in. Guided Lab activities in each module run roughly 90 minutes; the remaining time in the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.
 
 ## Grading
 
 | Component | Weight |
 |-----------|--------|
 | Attendance (출석) | 10% |
-| Midterm Exam (중간평가) — Week 8 | 30% |
-| Final Exam (기말평가) — Week 15 | 30% |
+| Midterm Exam (중간평가) - Week 8 | 30% |
+| Final Exam (기말평가) - Week 15 | 30% |
 | Lab Reports / Assignments (과제) | 10% |
 | Other (project, participation) | 20% |
 
@@ -74,7 +74,7 @@ This lab manual is your primary course material (개인 강의 자료). Suppleme
 
 1. **Save your work constantly.** Packet Tracer does not auto-save. Use **File → Save As** at the beginning of every session with the filename format `StudentID_ModuleN.pka`.
 2. **Personalize your configurations.** Every module asks you to set your hostname to your name and use your student ID in IP addressing. Identical configurations across submissions will be treated as academic dishonesty.
-3. **Document as you go.** Take screenshots at each step marked 📸 — you will need them for your lab report.
+3. **Document as you go.** Take screenshots at each step marked 📸 - you will need them for your lab report.
 4. **Simulation Mode is your friend.** Use PT Simulation Mode (the clock icon) to watch packets travel hop-by-hop. Many lab questions require you to observe and explain packet behavior.
 5. **No late reports without prior approval.** Lab reports lose 20% per day late.
 
@@ -95,7 +95,7 @@ Every lab module follows the same template so you always know where you are:
 | **Deliverables** | Numbered checklist for your lab report |
 | **Assessment Rubric** | How your report is graded |
 
-## Week 8 Midterm — Format
+## Week 8 Midterm - Format
 
 The midterm is a **timed practical exam** (50 minutes) administered in Packet Tracer. You will be given a partially-configured network topology and must:
 

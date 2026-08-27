@@ -106,7 +106,7 @@ see inside the device, right now, without guessing.
 Cisco's IOS CLI was designed around one goal: an operator should be able to
 diagnose a device without memorizing hundreds of commands or having a
 manual on hand. The `?` context-help system and the layered `show` command
-family both trace back to that same 1980s design principle — discoverable
+family both trace back to that same 1980s design principle - discoverable
 over memorized.
 
 ---
@@ -117,7 +117,7 @@ over memorized.
 
 > Every Cisco interface reports two independent status indicators:
 > **physical** (up/down/administratively down) and **data link** (up/down).
-> If Layer 1 is down, Layer 2 is always down too — but Layer 1 up with
+> If Layer 1 is down, Layer 2 is always down too - but Layer 1 up with
 > Layer 2 down often signals an encapsulation mismatch.
 
 ```
@@ -157,15 +157,15 @@ decrements TTL to 0 replies "Time Exceeded," revealing the path hop by hop.
 
 # Guided Lab at a Glance
 
-**Part A** — `?` context-help at every mode level
+**Part A** - `?` context-help at every mode level
 
-**Part B** — configure both interfaces with student-ID-based addressing
+**Part B** - configure both interfaces with student-ID-based addressing
 
-**Part C** — `show` command deep-dive across the full toolkit
+**Part C** - `show` command deep-dive across the full toolkit
 
-**Part D** — extended ping/traceroute options
+**Part D** - extended ping/traceroute options
 
-**Part E** — save config, add a loopback, reload without saving, observe what survives
+**Part E** - save config, add a loopback, reload without saving, observe what survives
 
 ---
 
@@ -174,7 +174,7 @@ decrements TTL to 0 replies "Time Exceeded," revealing the path hop by hop.
 # Common Mistakes
 
 - **Reading "administratively down" as a cable fault:** it means someone ran
-  `shutdown` — the fix is `no shutdown`, not a new cable
+  `shutdown` - the fix is `no shutdown`, not a new cable
 - **Trusting `running-config` alone:** a config that looks correct on screen
   can vanish on reload if it was never saved to `startup-config`
 
@@ -191,8 +191,8 @@ decrements TTL to 0 replies "Time Exceeded," revealing the path hop by hop.
 
 # Answers
 
-1. A compact one-line-per-interface summary of IP and state — `show interfaces` gives deep per-interface detail (counters, errors, MTU) but not an at-a-glance table of all interfaces
-2. Layer 1 (physical) is fine, but Layer 2 isn't — often an encapsulation mismatch on WAN links
+1. A compact one-line-per-interface summary of IP and state - `show interfaces` gives deep per-interface detail (counters, errors, MTU) but not an at-a-glance table of all interfaces
+2. Layer 1 (physical) is fine, but Layer 2 isn't - often an encapsulation mismatch on WAN links
 
 ---
 
@@ -224,7 +224,7 @@ it: static routing.
 - `?` and `show` commands turn a black box into a readable device
 - running-config vs startup-config: what's live vs what survives a reboot
 - **Deliverables & assessment:** annotated `show` command screenshots,
-  student-ID-based interface addressing, RAM/NVRAM explanation — see the
+  student-ID-based interface addressing, RAM/NVRAM explanation - see the
   book for the full rubric
 
 ---

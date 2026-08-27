@@ -58,9 +58,9 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 <div class="pain">
 
 Two branch offices, each with its own local network. Every PC can ping its
-own router — but no one in Seoul can ping anyone in Busan. Orders never
+own router - but no one in Seoul can ping anyone in Busan. Orders never
 reach the warehouse. Email fails silently. The link between the offices is
-physically connected — the router just doesn't know to use it.
+physically connected - the router just doesn't know to use it.
 
 </div>
 
@@ -71,10 +71,10 @@ physically connected — the router just doesn't know to use it.
 # What This Actually Costs
 
 - Two perfectly healthy local networks stay functionally isolated from each other
-- The failure is silent — no error, no alarm, just packets that quietly go nowhere
+- The failure is silent - no error, no alarm, just packets that quietly go nowhere
 
 <div class="why">
-<strong>In industry:</strong> misrouted or missing static routes are one of the most common real-world multi-site outage causes — and one of the fastest to fix, once diagnosed correctly.
+<strong>In industry:</strong> misrouted or missing static routes are one of the most common real-world multi-site outage causes - and one of the fastest to fix, once diagnosed correctly.
 </div>
 
 ---
@@ -103,7 +103,7 @@ physically connected — the router just doesn't know to use it.
 
 # Where This Idea Came From
 
-Static routing is the oldest form of inter-network routing — before any
+Static routing is the oldest form of inter-network routing - before any
 dynamic protocol existed, every router in the early ARPANET era needed an
 operator to hand-enter which networks were reachable through which
 neighbor. Every dynamic protocol that came later (Modules 6 and 11) exists
@@ -138,7 +138,7 @@ ip route 0.0.0.0 0.0.0.0 <next-hop-IP>   ← default route
 | `S` | Static route |
 | `S*` | Static default route |
 
-**Routing is never one-way** — request *and* reply packets each need a
+**Routing is never one-way** - request *and* reply packets each need a
 path, so both routers need a route to the other's LAN.
 
 ---
@@ -158,13 +158,13 @@ This heuristic saves real diagnostic time in the field.
 
 # Guided Lab at a Glance
 
-**Part A** — build a two-site topology, observe the failed cross-site ping
+**Part A** - build a two-site topology, observe the failed cross-site ping
 
-**Part B** — add static routes on both routers, verify, test successful ping
+**Part B** - add static routes on both routers, verify, test successful ping
 
-**Part C** — add an ISP-gateway router, configure a default route (`S*`)
+**Part C** - add an ISP-gateway router, configure a default route (`S*`)
 
-**Part D** — break-and-fix: diagnose an injected fault using only `show ip route` and `ping`
+**Part D** - break-and-fix: diagnose an injected fault using only `show ip route` and `ping`
 
 ---
 
@@ -173,7 +173,7 @@ This heuristic saves real diagnostic time in the field.
 # Common Mistakes
 
 - **Configuring only one direction:** a route on the source router without
-  a matching route on the destination router — the request arrives, the
+  a matching route on the destination router - the request arrives, the
   reply has nowhere to go
 - **Confusing next-hop IP with exit-interface syntax:** both work, but
   mixing up which one you meant to type produces a route to the wrong
@@ -193,7 +193,7 @@ This heuristic saves real diagnostic time in the field.
 # Answers
 
 1. The first specifies a next-hop IP (router still ARPs to find the MAC); the second specifies an exit interface directly
-2. A route matching `0.0.0.0/0`, used when no more specific route matches — the "gateway of last resort"
+2. A route matching `0.0.0.0/0`, used when no more specific route matches - the "gateway of last resort"
 
 ---
 
@@ -203,7 +203,7 @@ This heuristic saves real diagnostic time in the field.
 
 <div class="limits">
 Static routes connect two or three sites fine. But a network with dozens
-of buildings can't be hand-updated the moment a link fails at 3 AM — every
+of buildings can't be hand-updated the moment a link fails at 3 AM - every
 affected site stays isolated until someone notices and logs in manually.
 </div>
 
@@ -222,10 +222,10 @@ dynamic routing protocols that update automatically.
 
 # Summary
 
-- Routing is bidirectional — both ends need a path
+- Routing is bidirectional - both ends need a path
 - Ping failure symptoms tell you *which side* is missing a route
 - **Deliverables & assessment:** both routing tables, successful cross-site
-  ping, default route, break-and-fix diagnostic narrative — see the book
+  ping, default route, break-and-fix diagnostic narrative - see the book
   for the full rubric
 
 ---

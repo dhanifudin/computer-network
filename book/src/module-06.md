@@ -1,8 +1,8 @@
-# Module 6 — Dynamic Routing: RIP & EIGRP
+# Module 6 - Dynamic Routing: RIP & EIGRP
 
 ## Why This Matters
 
-Static routing works well for networks with two or three sites. But consider a university campus with 40 buildings, or a national ISP with hundreds of routers. If a link goes down at 3 AM, someone must log into each affected router and manually update routes — or the affected sites stay isolated until morning. This is not hypothetical: in 2021, the Facebook outage that took down Instagram, WhatsApp, and Oculus for six hours was caused by a BGP misconfiguration that propagated instantly across the network and immediately removed all routes to Facebook's infrastructure from the global internet. Dynamic routing protocols solve the opposite problem: they propagate route information **automatically** and adapt to topology changes within seconds. This module introduces the two entry-level dynamic routing protocols: RIPv2 (a classic distance-vector protocol) and EIGRP (Cisco's enhanced hybrid protocol).
+Static routing works well for networks with two or three sites. But consider a university campus with 40 buildings, or a national ISP with hundreds of routers. If a link goes down at 3 AM, someone must log into each affected router and manually update routes - or the affected sites stay isolated until morning. This is not hypothetical: in 2021, the Facebook outage that took down Instagram, WhatsApp, and Oculus for six hours was caused by a BGP misconfiguration that propagated instantly across the network and immediately removed all routes to Facebook's infrastructure from the global internet. Dynamic routing protocols solve the opposite problem: they propagate route information **automatically** and adapt to topology changes within seconds. This module introduces the two entry-level dynamic routing protocols: RIPv2 (a classic distance-vector protocol) and EIGRP (Cisco's enhanced hybrid protocol).
 
 ## Learning Outcomes
 
@@ -40,7 +40,7 @@ By the end of this lab, students are able to:
 | Part C: EIGRP configuration & comparison | 30 min |
 | Wrap-up | 10 min |
 
-*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
+*Guided Lab activities above run about 90 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 
@@ -64,7 +64,7 @@ router rip
 ```
 
 - `network` uses **classful** network addresses (e.g., `192.168.1.0` not `192.168.1.0/24`). RIP announces all interfaces whose IP falls within that classful network.
-- `no auto-summary` prevents RIPv2 from summarizing routes at classful boundaries — essential for discontiguous subnets.
+- `no auto-summary` prevents RIPv2 from summarizing routes at classful boundaries - essential for discontiguous subnets.
 
 ### EIGRP Configuration Pattern
 
@@ -79,11 +79,11 @@ router eigrp <AS-number>
 
 ### Why Dynamic Routing Fixes the Problem
 
-Static routes are configured once and never change. If a link fails, the static route still points down that link — traffic is black-holed. Dynamic protocols detect the failure (missing hellos / updates), remove the dead route, and install an alternate path automatically.
+Static routes are configured once and never change. If a link fails, the static route still points down that link - traffic is black-holed. Dynamic protocols detect the failure (missing hellos / updates), remove the dead route, and install an alternate path automatically.
 
 ## Guided Lab
 
-### Part A — Three-Router RIPv2 Topology
+### Part A - Three-Router RIPv2 Topology
 
 Build the following topology:
 
@@ -128,7 +128,7 @@ architecture-beta
 
 **Step 1.** Configure all interface IPs and `no shutdown`. Do NOT add any static routes.
 
-**Step 2.** Verify: ping between directly connected interfaces only — cross-site pings should fail.
+**Step 2.** Verify: ping between directly connected interfaces only - cross-site pings should fail.
 
 ```
 PC0> ping <PC1's IP>
@@ -167,7 +167,7 @@ PC0> ping <PC2's IP>
 
 ---
 
-### Part B — RIP Verification & Link Failure Simulation
+### Part B - RIP Verification & Link Failure Simulation
 
 **Step 6.** Run diagnostic commands:
 
@@ -184,7 +184,7 @@ R1# show ip rip database
 📸 Screenshot.
 > **Identify:** Which routes are "directly connected" and which are "from" a neighbor?
 
-**Step 7.** Simulate a link failure — right-click the cable between R0 and R1 and select **Delete**, or administratively shut down R0's Fa0/1:
+**Step 7.** Simulate a link failure - right-click the cable between R0 and R1 and select **Delete**, or administratively shut down R0's Fa0/1:
 
 ```
 R0(config)# interface Fa0/1
@@ -199,7 +199,7 @@ R0(config-if)# shutdown
 
 ---
 
-### Part C — EIGRP Configuration
+### Part C - EIGRP Configuration
 
 **Step 9.** Remove RIP and replace with EIGRP on all three routers:
 
@@ -228,7 +228,7 @@ R0# show ip eigrp neighbors
 R0# show ip route
 ```
 
-📸 Screenshot — identify `D` entries (EIGRP). Note the metric values (much larger numbers than RIP's simple hop count).
+📸 Screenshot - identify `D` entries (EIGRP). Note the metric values (much larger numbers than RIP's simple hop count).
 
 **Step 12.** Simulate the same link failure as in Part B. Time how long EIGRP takes to reconverge. Compare to RIP.
 
@@ -238,7 +238,7 @@ R0# show ip route
 
 ## Challenge Tasks
 
-1. Configure RIPv2 on a topology where one router has two equal-cost paths to a destination. Run `show ip route` — do you see two `R` entries for the same network? This is **load balancing**. Use Simulation Mode to verify traffic alternates between the two paths.
+1. Configure RIPv2 on a topology where one router has two equal-cost paths to a destination. Run `show ip route` - do you see two `R` entries for the same network? This is **load balancing**. Use Simulation Mode to verify traffic alternates between the two paths.
 2. Configure EIGRP with an unequal-cost load balancing using the `variance` command. Research what `variance 2` does and demonstrate it with a topology that has two paths of different bandwidth.
 3. Research what happens when two EIGRP routers have different AS numbers. Configure this deliberately and observe whether a neighbor relationship forms. Explain why the AS number must match.
 

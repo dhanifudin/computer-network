@@ -1,8 +1,8 @@
-# Module 5 — Routing Fundamentals & Static Routing
+# Module 5 - Routing Fundamentals & Static Routing
 
 ## Why This Matters
 
-Picture two branch offices — Office A in Seoul and Office B in Busan. Each has its own local network (192.168.1.0/24 and 192.168.2.0/24). Every PC can ping its own router, but no one in Seoul can ping anyone in Busan. Orders entered in Seoul never reach the warehouse system in Busan. Email between offices fails silently. The two networks are connected by a router with a link between them, but the router does not *know* that Seoul should send Busan-bound traffic out its WAN interface — because nobody told it. This is precisely the problem static routing solves. A static route is an explicit instruction: "to reach 192.168.2.0/24, send traffic out this interface, toward this next-hop IP." Without it, packets die at the router. With it, both offices talk freely.
+Picture two branch offices - Office A in Seoul and Office B in Busan. Each has its own local network (192.168.1.0/24 and 192.168.2.0/24). Every PC can ping its own router, but no one in Seoul can ping anyone in Busan. Orders entered in Seoul never reach the warehouse system in Busan. Email between offices fails silently. The two networks are connected by a router with a link between them, but the router does not *know* that Seoul should send Busan-bound traffic out its WAN interface - because nobody told it. This is precisely the problem static routing solves. A static route is an explicit instruction: "to reach 192.168.2.0/24, send traffic out this interface, toward this next-hop IP." Without it, packets die at the router. With it, both offices talk freely.
 
 ## Learning Outcomes
 
@@ -16,7 +16,7 @@ By the end of this lab, students are able to:
 
 ## Pre-Lab
 
-**Read before class:** Reference module — Modul Teori Jarkom-5 (Lapisan Network), particularly the section on routing; Modul Praktikum 17, the two-router static routing lab.
+**Read before class:** Reference module - Modul Teori Jarkom-5 (Lapisan Network), particularly the section on routing; Modul Praktikum 17, the two-router static routing lab.
 
 **Answer before the session:**
 
@@ -42,7 +42,7 @@ By the end of this lab, students are able to:
 | Part C: Default route | 20 min |
 | Part D: Break and fix | 20 min |
 
-*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
+*Guided Lab activities above run about 90 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 
@@ -54,7 +54,7 @@ When a packet arrives, the router:
 3. Forwards out the matching interface (or to the next-hop IP).
 4. If no match: uses the **default route** (`0.0.0.0/0`) if one exists; otherwise drops the packet.
 
-**Longest prefix match:** A route for `192.168.1.0/26` beats a route for `192.168.1.0/24` for a packet destined to `192.168.1.50` — the /26 is more specific.
+**Longest prefix match:** A route for `192.168.1.0/26` beats a route for `192.168.1.0/24` for a packet destined to `192.168.1.50` - the /26 is more specific.
 
 ### Static Route Syntax
 
@@ -86,15 +86,15 @@ When a ping fails between two hosts on different subnets, the error message tell
 
 | Ping Output | Meaning | Likely Cause |
 |-------------|---------|-------------|
-| `Destination Host Unreachable` | The source host's **gateway** couldn't forward the packet | Route is missing on the router **nearest the source** — it doesn't know where to send packets toward the destination |
-| `Request Timed Out` | The packet reached the destination side but **no reply came back** | Route is missing on the router **nearest the destination** — the reply packet has no path back to the source |
+| `Destination Host Unreachable` | The source host's **gateway** couldn't forward the packet | Route is missing on the router **nearest the source** - it doesn't know where to send packets toward the destination |
+| `Request Timed Out` | The packet reached the destination side but **no reply came back** | Route is missing on the router **nearest the destination** - the reply packet has no path back to the source |
 | `Success (!!!!!)` | Both directions have valid routes | Routing is bidirectional and complete |
 
 This heuristic saves significant diagnostic time: "Destination Unreachable → fix the source router; Request Timeout → fix the destination router."
 
 ## Guided Lab
 
-### Part A — Build the Problem
+### Part A - Build the Problem
 
 Construct this two-site topology:
 
@@ -120,12 +120,12 @@ architecture-beta
 | Device | Interface | IP Address | Role |
 |--------|-----------|------------|------|
 | PC0 | NIC | 192.168.1.10/24 | Workstation, GW .1.1 |
-| SW0 | — | — | Layer-2 switch |
+| SW0 | - | - | Layer-2 switch |
 | R0 | Fa0/0 | 192.168.1.1/24 | LAN A gateway |
 | R0 | Fa0/1 | 10.0.0.1/30 | WAN toward R1 |
 | R1 | Fa0/1 | 10.0.0.2/30 | WAN toward R0 |
 | R1 | Fa0/0 | 192.168.2.1/24 | LAN B gateway |
-| SW1 | — | — | Layer-2 switch |
+| SW1 | - | - | Layer-2 switch |
 | PC1 | NIC | 192.168.2.10/24 | Workstation, GW .2.1 |
 > Left LAN: 192.168.1.0/24 · WAN link: 10.0.0.0/30 · Right LAN: 192.168.2.0/24
 
@@ -154,7 +154,7 @@ PC0> ping 192.168.2.10
 
 ---
 
-### Part B — Add Static Routes
+### Part B - Add Static Routes
 
 **Step 4.** On R0, add a static route to the right-side LAN:
 
@@ -177,7 +177,7 @@ R0# show ip route
 R1# show ip route
 ```
 
-📸 Screenshot of each — identify the `S` entries. Note the `[1/0]` next to each static route — these are the administrative distance (1) and metric (0).
+📸 Screenshot of each - identify the `S` entries. Note the `[1/0]` next to each static route - these are the administrative distance (1) and metric (0).
 
 **Step 7.** Test connectivity:
 
@@ -191,7 +191,7 @@ PC0> ping 192.168.2.10
 
 ---
 
-### Part C — Default Route
+### Part C - Default Route
 
 Add a third router (R2) simulating an ISP gateway, with a link to R0:
 
@@ -219,7 +219,7 @@ R0(config)# ip route 0.0.0.0 0.0.0.0 203.0.113.2
 R0# show ip route
 ```
 
-📸 Screenshot — identify the `S*` (default route) entry and the gateway of last resort message at the top.
+📸 Screenshot - identify the `S*` (default route) entry and the gateway of last resort message at the top.
 
 **Step 10.** From PC0, ping R2's Fa0/0 IP (`203.0.113.2`). Does it work?
 
@@ -227,9 +227,9 @@ R0# show ip route
 
 ---
 
-### Part D — Break and Fix
+### Part D - Break and Fix
 
-**Step 11.** The instructor (or you) will introduce **one fault** — either a wrong next-hop IP, a wrong subnet mask, or a missing route on one router. Use only `show ip route` and `ping` to diagnose which router is missing which route, then fix it.
+**Step 11.** The instructor (or you) will introduce **one fault** - either a wrong next-hop IP, a wrong subnet mask, or a missing route on one router. Use only `show ip route` and `ping` to diagnose which router is missing which route, then fix it.
 
 📸 Screenshot the diagnostic process (failed ping → route table inspection → fix → successful ping).
 
@@ -242,10 +242,10 @@ R0# show ip route
 1. Add a **floating static route** as a backup path: `ip route 192.168.2.0 255.255.255.0 <alt-next-hop> 5` (administrative distance 5 instead of the default 1). Remove the primary static route. Verify the floating route activates automatically.
 2. Use the **exit-interface syntax** for one of your static routes and compare the routing table output. Does the code letter change? Is there any practical difference in a simulated environment?
 3. Configure `ip route 192.168.1.0 255.255.255.0 Null0` on R1. What does routing to Null0 accomplish? Why would a network engineer do this deliberately? (Research: null route / black-hole route.)
-4. **Three-router chain:** Build a 3-router topology with the following addressing. Derive all required static routes yourself — including the transit routes on the middle router — without looking at a solution. Then verify with end-to-end pings.
+4. **Three-router chain:** Build a 3-router topology with the following addressing. Derive all required static routes yourself - including the transit routes on the middle router - without looking at a solution. Then verify with end-to-end pings.
 
    ```
-   PC0 (192.168.1.10/24, GW .1.1) — SW0 — R0 — R1 — R2 — SW2 — PC2 (192.168.3.10/24, GW .3.1)
+   PC0 (192.168.1.10/24, GW .1.1) - SW0 - R0 - R1 - R2 - SW2 - PC2 (192.168.3.10/24, GW .3.1)
                                                |
                                               SW1
                                                |
@@ -254,11 +254,11 @@ R0# show ip route
 
    | Link | Network | R-left IP | R-right IP |
    |------|---------|-----------|------------|
-   | R0 LAN | 192.168.1.0/24 | R0 Fa0/0 = .1.1 | — |
+   | R0 LAN | 192.168.1.0/24 | R0 Fa0/0 = .1.1 | - |
    | R0↔R1 | 172.16.1.0/30 | R0 Fa0/1 = .1.1 | R1 Fa0/0 = .1.2 |
-   | R1 LAN | 192.168.2.0/24 | R1 Fa0/1 = .2.1 | — |
+   | R1 LAN | 192.168.2.0/24 | R1 Fa0/1 = .2.1 | - |
    | R1↔R2 | 172.16.2.0/30 | R1 Fa0/2 = .2.1 | R2 Fa0/0 = .2.2 |
-   | R2 LAN | 192.168.3.0/24 | R2 Fa0/1 = .3.1 | — |
+   | R2 LAN | 192.168.3.0/24 | R2 Fa0/1 = .3.1 | - |
 
    > How many static routes does R1 (the middle router) need? Document each route and explain why it is necessary. Apply the ping-symptom heuristic from the Theory section to diagnose any initial failures.
 

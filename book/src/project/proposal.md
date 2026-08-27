@@ -1,8 +1,8 @@
-# Week 13 — Project Proposal Presentation
+# Week 13 - Project Proposal Presentation
 
 ## Overview
 
-In Week 13, each team presents a **10-minute proposal** followed by **5 minutes of Q&A** from the instructor and other teams. The proposal is not a finished product — it is a design plan. The goal is to surface misunderstandings, ambiguities, and design flaws *before* you spend hours building the wrong thing.
+In Week 13, each team presents a **10-minute proposal** followed by **5 minutes of Q&A** from the instructor and other teams. The proposal is not a finished product - it is a design plan. The goal is to surface misunderstandings, ambiguities, and design flaws *before* you spend hours building the wrong thing.
 
 A proposal that identifies a design flaw during Week 13 Q&A is a success, not a failure. The Q&A is where you get free advice.
 
@@ -79,7 +79,7 @@ For each ACL you plan to implement:
 |-------------------|---------|-----------------------------------|---------|--------|
 | | | | | |
 
-Explain the **business justification** for each ACL. "Block access" is not sufficient — state *why* that access must be blocked (regulatory requirement, attack-surface reduction, data sensitivity, etc.).
+Explain the **business justification** for each ACL. "Block access" is not sufficient - state *why* that access must be blocked (regulatory requirement, attack-surface reduction, data sensitivity, etc.).
 
 ---
 
@@ -111,7 +111,7 @@ If any subnets require a DHCP relay: identify which router interface will carry 
 
 ### 10. Known Risks / Open Questions
 
-List 2–3 things you are **not sure about** or are worried might be difficult. This is where you ask the instructor for guidance. There are no wrong answers here — this section shows intellectual honesty.
+List 2–3 things you are **not sure about** or are worried might be difficult. This is where you ask the instructor for guidance. There are no wrong answers here - this section shows intellectual honesty.
 
 ---
 

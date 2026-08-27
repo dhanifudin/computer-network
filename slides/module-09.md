@@ -47,7 +47,7 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 # Last Time, This Time
 
 - **Before the midterm:** you could filter Layer 3 traffic between subnets with ACLs
-- **It left broken:** ACLs never see traffic that never needed to be routed — a flat Layer 2 network has no isolation at all
+- **It left broken:** ACLs never see traffic that never needed to be routed - a flat Layer 2 network has no isolation at all
 
 ---
 
@@ -59,7 +59,7 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 A department connects 80 PCs to the same switches. A poorly written
 program floods the network with broadcast frames. Every single PC must
-process every broadcast — 80 PCs processing an endless flood means no CPU
+process every broadcast - 80 PCs processing an endless flood means no CPU
 cycles left for anything else. The entire floor stops responding.
 
 </div>
@@ -74,7 +74,7 @@ cycles left for anything else. The entire floor stops responding.
 - No isolation between departments that shouldn't be able to reach each other at all
 
 <div class="why">
-<strong>In industry:</strong> VLAN design is one of the first things a network engineer touches on any campus or enterprise deployment — it's assumed baseline knowledge.
+<strong>In industry:</strong> VLAN design is one of the first things a network engineer touches on any campus or enterprise deployment - it's assumed baseline knowledge.
 </div>
 
 ---
@@ -95,7 +95,7 @@ cycles left for anything else. The entire floor stops responding.
 1. Explain what a VLAN is and how it differs from a physical LAN
 2. Create VLANs, assign ports
 3. Configure a trunk link, verify VLAN propagation
-4. Implement inter-VLAN routing — router-on-a-stick
+4. Implement inter-VLAN routing - router-on-a-stick
 
 ---
 
@@ -106,7 +106,7 @@ cycles left for anything else. The entire floor stops responding.
 Before VLANs, logical segmentation meant physically separate switches and
 cabling for every department. **IEEE 802.1Q (1998)** standardized a way to
 tag frames with a VLAN ID, letting one physical switch infrastructure
-behave as many isolated logical ones — no rewiring required.
+behave as many isolated logical ones - no rewiring required.
 
 ---
 
@@ -115,7 +115,7 @@ behave as many isolated logical ones — no rewiring required.
 # VLAN: Definition
 
 > A VLAN is a logical partition of a switched network: frames tagged VLAN
-> 10 only forward to other VLAN-10 ports — broadcasts stay inside the
+> 10 only forward to other VLAN-10 ports - broadcasts stay inside the
 > VLAN. A PC in VLAN 10 cannot directly reach a PC in VLAN 20, even on the
 > same physical switch.
 
@@ -154,13 +154,13 @@ routes, and re-tags for the destination VLAN.
 
 # Guided Lab at a Glance
 
-**Part A** — create VLANs, assign ports; same-VLAN pings succeed, cross-VLAN pings fail (isolated, as expected)
+**Part A** - create VLANs, assign ports; same-VLAN pings succeed, cross-VLAN pings fail (isolated, as expected)
 
-**Part B** — add a second switch, configure a trunk link, verify propagation
+**Part B** - add a second switch, configure a trunk link, verify propagation
 
-**Part C** — router-on-a-stick: configure sub-interfaces, cross-VLAN ping succeeds
+**Part C** - router-on-a-stick: configure sub-interfaces, cross-VLAN ping succeeds
 
-**Part D** — verification: `show vlan brief`, `show interfaces trunk`, `show ip route`
+**Part D** - verification: `show vlan brief`, `show interfaces trunk`, `show ip route`
 
 ---
 
@@ -198,8 +198,8 @@ routes, and re-tags for the destination VLAN.
 
 <div class="limits">
 VLANs isolate broadcast domains across your campus switches. But
-connecting to a remote site over a WAN link — with authentication, and
-enough public IP addresses for everyone — is a completely different
+connecting to a remote site over a WAN link - with authentication, and
+enough public IP addresses for everyone - is a completely different
 problem.
 </div>
 
@@ -218,10 +218,10 @@ addresses it: PPP and NAT.
 
 # Summary
 
-- One flat network is one big failure domain — VLANs fix that
+- One flat network is one big failure domain - VLANs fix that
 - Router-on-a-stick lets one interface route for every VLAN
 - **Deliverables & assessment:** `show vlan brief`, trunk verification,
-  successful inter-VLAN ping — see the book for the full rubric
+  successful inter-VLAN ping - see the book for the full rubric
 
 ---
 

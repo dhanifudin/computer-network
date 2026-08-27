@@ -58,7 +58,7 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 <div class="pain">
 
 A route changes in a data center. RIP routers at the edge of a large
-enterprise network might not learn about it for two or three minutes —
+enterprise network might not learn about it for two or three minutes -
 during which traffic is routed into a black hole. On a network of hundreds
 of routers, that's not a rare event; it's a daily one.
 
@@ -105,8 +105,8 @@ of routers, that's not a rare event; it's a daily one.
 
 **OSPF** (John Moy, RFC 1131 in 1989, revised as RFC 2328 in 1998) was
 designed explicitly to replace RIP's hop-count ceiling and slow
-convergence. It applies **Dijkstra's shortest-path algorithm (1959)** — over
-30 years old at the time — to a live, self-updating network map.
+convergence. It applies **Dijkstra's shortest-path algorithm (1959)** - over
+30 years old at the time - to a live, self-updating network map.
 
 ---
 
@@ -140,7 +140,7 @@ router ospf <process-id>
 ```
 
 **Why `passive-interface` on LAN ports:** they connect to end devices, not
-other routers — sending Hellos there wastes bandwidth. Passive interfaces
+other routers - sending Hellos there wastes bandwidth. Passive interfaces
 still *advertise* the network; they just don't Hello on that port.
 
 ---
@@ -149,11 +149,11 @@ still *advertise* the network; they just don't Hello on that port.
 
 # Guided Lab at a Glance
 
-**Part A** — configure OSPF area 0 on three routers, with passive LAN interfaces
+**Part A** - configure OSPF area 0 on three routers, with passive LAN interfaces
 
-**Part B** — verify: neighbor FULL state, LSA count, `O` entries + cost
+**Part B** - verify: neighbor FULL state, LSA count, `O` entries + cost
 
-**Part C** — link failure & reconvergence: shut a link, watch the ~40s dead-interval timeout, restore, watch adjacency states progress to FULL
+**Part C** - link failure & reconvergence: shut a link, watch the ~40s dead-interval timeout, restore, watch adjacency states progress to FULL
 
 ---
 
@@ -162,7 +162,7 @@ still *advertise* the network; they just don't Hello on that port.
 # Common Mistakes
 
 - **Mismatched area ID:** two routers with different area numbers on the
-  same link never form an adjacency — no error, just silence, same as a
+  same link never form an adjacency - no error, just silence, same as a
   mismatched EIGRP AS number
 - **Forgetting `passive-interface` on LAN ports:** wastes bandwidth and can
   expose OSPF Hellos to end devices that have no business seeing them
@@ -181,7 +181,7 @@ still *advertise* the network; they just don't Hello on that port.
 # Answers
 
 1. Dijkstra's Shortest Path First (SPF) algorithm, run over the Link State Database
-2. An interface that still advertises its network but sends/accepts no Hellos — used on LAN-facing ports since there's no router neighbor to discover there
+2. An interface that still advertises its network but sends/accepts no Hellos - used on LAN-facing ports since there's no router neighbor to discover there
 
 ---
 
@@ -191,7 +191,7 @@ still *advertise* the network; they just don't Hello on that port.
 
 <div class="limits">
 OSPF now gets routes to every subnet in seconds. But none of those devices
-have an IP address, a gateway, or a DNS server configured — until someone
+have an IP address, a gateway, or a DNS server configured - until someone
 sets each one up by hand.
 </div>
 
@@ -213,7 +213,7 @@ addresses it: DHCP.
 - OSPF's link-state design converges in seconds, not minutes, at any scale
 - Passive interfaces keep Hellos off LAN-facing ports without losing advertisement
 - **Deliverables & assessment:** OSPF config across three routers, FULL-state
-  neighbors, link-failure comparison to RIP — see the book for the full
+  neighbors, link-failure comparison to RIP - see the book for the full
   rubric
 
 ---

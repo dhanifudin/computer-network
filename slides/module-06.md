@@ -8,7 +8,7 @@ footer: 'School of Computer & Applied Mathematics'
 <!-- SLOT 1: Title -->
 <!-- _class: title -->
 
-# Module 6: Dynamic Routing — RIP & EIGRP
+# Module 6: Dynamic Routing - RIP & EIGRP
 
 <span class="subtitle">Intelligent Network Design (지능형네트워크설계)</span>
 
@@ -59,7 +59,7 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 A university campus has 40 buildings; a national ISP has hundreds of
 routers. If a link goes down at 3 AM, someone must log into each affected
-router and manually update routes — or the affected sites stay isolated
+router and manually update routes - or the affected sites stay isolated
 until morning. In 2021, a single routing misconfiguration took down
 Instagram, WhatsApp, and Oculus worldwide for six hours.
 
@@ -105,7 +105,7 @@ Instagram, WhatsApp, and Oculus worldwide for six hours.
 # Where This Idea Came From
 
 RIP traces back to Xerox PARC's routing work in the late 1970s, formalized
-as an internet standard in **RFC 1058 (1988)** — simple, but limited to 15
+as an internet standard in **RFC 1058 (1988)** - simple, but limited to 15
 hops by design, to prevent routing loops from running forever. **EIGRP**
 (Cisco, 1994) built on distance-vector research from SRI International's
 DUAL algorithm to converge far faster while staying easy to configure.
@@ -117,7 +117,7 @@ DUAL algorithm to converge far faster while staying easy to configure.
 # Distance-Vector Routing: Definition
 
 > A **distance-vector** protocol shares its own routing table with directly
-> connected neighbors, who add their own cost and pass it on — routers
+> connected neighbors, who add their own cost and pass it on - routers
 > learn the network gradually, hop by hop, without ever seeing the full
 > topology.
 
@@ -153,9 +153,9 @@ router eigrp <AS-number>
 
 # Why EIGRP Converges Faster
 
-EIGRP's **DUAL algorithm** pre-computes **feasible successors** — backup
+EIGRP's **DUAL algorithm** pre-computes **feasible successors** - backup
 routes that are loop-free and ready before a failure happens. RIP has no
-such backup — it waits for the next periodic update (up to 30s) to detect
+such backup - it waits for the next periodic update (up to 30s) to detect
 a dead route.
 
 ---
@@ -164,11 +164,11 @@ a dead route.
 
 # Guided Lab at a Glance
 
-**Part A** — three-router topology, configure RIPv2, verify `R` entries and connectivity
+**Part A** - three-router topology, configure RIPv2, verify `R` entries and connectivity
 
-**Part B** — verify with `show ip protocols`; simulate a link failure, time RIP's reconvergence
+**Part B** - verify with `show ip protocols`; simulate a link failure, time RIP's reconvergence
 
-**Part C** — replace RIP with EIGRP (matching AS number); compare `D` entries and reconvergence time
+**Part C** - replace RIP with EIGRP (matching AS number); compare `D` entries and reconvergence time
 
 ---
 
@@ -179,7 +179,7 @@ a dead route.
 - **Forgetting `no auto-summary`:** without it, RIP/EIGRP summarize at
   classful boundaries, breaking routing across discontiguous subnets
 - **Mismatched EIGRP AS numbers:** routers with different AS numbers never
-  form a neighbor relationship — no error, just silence
+  form a neighbor relationship - no error, just silence
 
 ---
 
@@ -206,7 +206,7 @@ a dead route.
 <div class="limits">
 RIP and EIGRP now find alternate paths automatically when a link fails.
 But nothing here stops an unauthorized source from reaching a vulnerable
-service in the first place — routing gets a packet somewhere; it doesn't
+service in the first place - routing gets a packet somewhere; it doesn't
 ask whether it should.
 </div>
 
@@ -228,7 +228,7 @@ it: Access Control Lists.
 - Dynamic routing automates what static routing did by hand
 - EIGRP's pre-computed backups converge faster than RIP's wait-and-detect
 - **Deliverables & assessment:** routing tables for both protocols, link
-  failure convergence comparison — see the book for the full rubric
+  failure convergence comparison - see the book for the full rubric
 
 ---
 

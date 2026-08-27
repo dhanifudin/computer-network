@@ -1,8 +1,8 @@
-# Module 3 — Network Review 2 & Router/Switch Basic Config
+# Module 3 - Network Review 2 & Router/Switch Basic Config
 
 ## Why This Matters
 
-Every Cisco device leaves the factory in the same state: no hostname, no passwords, no IP addresses configured, and all interfaces administratively shut down. The moment a device is installed in a real network, it becomes a target — attackers actively scan for unconfigured Cisco routers (default usernames and passwords are publicly documented). The 2016 Bangladesh Bank heist, in which $81 million was stolen via SWIFT, began with attackers who had already compromised router-level access on the bank's network. A router with no console password, no enable password, and no management interface restrictions is an open door. This module teaches you to close that door as the very first act of any network deployment.
+Every Cisco device leaves the factory in the same state: no hostname, no passwords, no IP addresses configured, and all interfaces administratively shut down. The moment a device is installed in a real network, it becomes a target - attackers actively scan for unconfigured Cisco routers (default usernames and passwords are publicly documented). The 2016 Bangladesh Bank heist, in which $81 million was stolen via SWIFT, began with attackers who had already compromised router-level access on the bank's network. A router with no console password, no enable password, and no management interface restrictions is an open door. This module teaches you to close that door as the very first act of any network deployment.
 
 ## Learning Outcomes
 
@@ -16,7 +16,7 @@ By the end of this lab, students are able to:
 
 ## Pre-Lab
 
-**Read before class:** Reference modules — Modul Praktikum 16 (Konfigurasi Dasar Router Cisco) and Modul Praktikum 17 (Konfigurasi Dasar Router Cisco - 2), which are included as reference materials for this course.
+**Read before class:** Reference modules - Modul Praktikum 16 (Konfigurasi Dasar Router Cisco) and Modul Praktikum 17 (Konfigurasi Dasar Router Cisco - 2), which are included as reference materials for this course.
 
 **Answer before the session:**
 
@@ -41,7 +41,7 @@ By the end of this lab, students are able to:
 | Part C: Basic router hardening | 30 min |
 | Wrap-up | 10 min |
 
-*Guided Lab activities above run about 90 minutes (one Part A variant) — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
+*Guided Lab activities above run about 90 minutes (one Part A variant) - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 
@@ -95,7 +95,7 @@ Without passwords, anyone with physical or network access can type `enable` and 
 
 ## Guided Lab
 
-### Part A (Physical Lab) — UTP Cable Crimping
+### Part A (Physical Lab) - UTP Cable Crimping
 
 If your lab has physical equipment:
 
@@ -122,7 +122,7 @@ Pin: 1    2    3    4    5    6    7    8
 
 ---
 
-### Part A (Simulation Alt) — Subnetting Review Drills
+### Part A (Simulation Alt) - Subnetting Review Drills
 
 Complete the following table. Use binary AND operation to find the network address:
 
@@ -137,7 +137,7 @@ Show your binary working for at least one row.
 
 ---
 
-### Part B — IOS Mode Navigation
+### Part B - IOS Mode Navigation
 
 **Step 1.** Open the topology file from Module 2 (or rebuild a single router with two PCs). Click the router → **CLI** tab.
 
@@ -172,7 +172,7 @@ Router# hostname TestRouter
 
 ---
 
-### Part C — Basic Router Hardening
+### Part C - Basic Router Hardening
 
 **Step 5.** Enter Global Configuration mode and set the hostname (use **your first name**):
 
@@ -231,7 +231,7 @@ YourName# copy running-config startup-config
 
 📸 Screenshot the confirmation message.
 
-**Step 12.** Simulate a reboot — type `reload` and confirm. After the device restarts, try accessing Privileged EXEC. Does it ask for the password now?
+**Step 12.** Simulate a reboot - type `reload` and confirm. After the device restarts, try accessing Privileged EXEC. Does it ask for the password now?
 
 > **Explain:** What would happen to your hostname, passwords, and interface configuration if you ran `reload` *without* first running `copy running-config startup-config`?
 
@@ -240,7 +240,7 @@ YourName# copy running-config startup-config
 ## Challenge Tasks
 
 1. Use `show version` to find the router's IOS version, available memory, and uptime. What information here would a network inventory system want to record?
-2. Configure the router to encrypt all cleartext passwords in the config file with `service password-encryption`. Run `show running-config` again — how does the console password appear now? What level of security does this provide compared to `enable secret`?
+2. Configure the router to encrypt all cleartext passwords in the config file with `service password-encryption`. Run `show running-config` again - how does the console password appear now? What level of security does this provide compared to `enable secret`?
 3. Use `show interfaces` to find the state of each interface. What do "administratively down" and "line protocol is down" each mean? (Hint: they are different failure modes.)
 
 ## Deliverables

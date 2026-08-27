@@ -1,8 +1,8 @@
-# Module 9 — Switching & VLANs
+# Module 9 - Switching & VLANs
 
 ## Why This Matters
 
-A university department buys 80 PCs and connects them all to the same set of switches. On the first day of the semester, a student runs a poorly written program that floods the network with broadcast frames. Every single PC in the department stops responding — because every PC must process every broadcast frame, and 80 PCs processing an endless flood of them means no CPU cycles are left for anything else. This is called a **broadcast storm**, and on a flat (VLAN-less) network it can take down an entire floor. The fix is segmentation: VLANs divide a single physical switch infrastructure into multiple isolated broadcast domains. The Finance VLAN, the Student VLAN, and the Faculty VLAN each behave as if they are on completely separate switches. Traffic crosses between them only through a router — which you control and can filter with ACLs. This module is the point where access-layer design (switches, ports, VLANs) meets network-layer design (routing between VLANs).
+A university department buys 80 PCs and connects them all to the same set of switches. On the first day of the semester, a student runs a poorly written program that floods the network with broadcast frames. Every single PC in the department stops responding - because every PC must process every broadcast frame, and 80 PCs processing an endless flood of them means no CPU cycles are left for anything else. This is called a **broadcast storm**, and on a flat (VLAN-less) network it can take down an entire floor. The fix is segmentation: VLANs divide a single physical switch infrastructure into multiple isolated broadcast domains. The Finance VLAN, the Student VLAN, and the Faculty VLAN each behave as if they are on completely separate switches. Traffic crosses between them only through a router - which you control and can filter with ACLs. This module is the point where access-layer design (switches, ports, VLANs) meets network-layer design (routing between VLANs).
 
 ## Learning Outcomes
 
@@ -40,17 +40,17 @@ By the end of this lab, students are able to:
 | Part C: Router-on-a-stick inter-VLAN routing | 30 min |
 | Part D: Verify and troubleshoot | 15 min |
 
-*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
+*Guided Lab activities above run about 90 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 
 ### VLANs and Broadcast Domains
 
-A switch, by default, forwards broadcast frames out every port. A VLAN is a logical partition: frames tagged with VLAN 10 are only forwarded to other ports in VLAN 10 — broadcasts stay within the VLAN. A PC in VLAN 10 cannot directly communicate with a PC in VLAN 20, even on the same physical switch, because they are in different broadcast domains.
+A switch, by default, forwards broadcast frames out every port. A VLAN is a logical partition: frames tagged with VLAN 10 are only forwarded to other ports in VLAN 10 - broadcasts stay within the VLAN. A PC in VLAN 10 cannot directly communicate with a PC in VLAN 20, even on the same physical switch, because they are in different broadcast domains.
 
 ### Access Ports vs. Trunk Ports
 
-- **Access port:** Belongs to exactly one VLAN. Frames entering/leaving carry no VLAN tag — the switch adds/strips the tag internally. Used for end devices (PCs, printers).
+- **Access port:** Belongs to exactly one VLAN. Frames entering/leaving carry no VLAN tag - the switch adds/strips the tag internally. Used for end devices (PCs, printers).
 - **Trunk port:** Carries frames from *multiple* VLANs. Frames are tagged with 802.1Q (a 4-byte header insert containing the VLAN ID). Used between switches and between a switch and a router.
 
 ### Router-on-a-Stick
@@ -75,7 +75,7 @@ Broadcasts in VLAN 10 never reach VLAN 20. A student in the Student VLAN cannot 
 
 ## Guided Lab
 
-### Part A — VLAN Creation & Port Assignment
+### Part A - VLAN Creation & Port Assignment
 
 Build this topology (single switch for Part A, add the second switch in Part B):
 
@@ -138,8 +138,8 @@ SW0# show vlan brief
 **Step 4.** Configure PC IP addresses (see table above). Test within-VLAN ping:
 
 ```
-PC-A> ping 192.168.10.20   (PC-B — same VLAN 10)
-PC-C> ping 192.168.20.20   (PC-D — same VLAN 20)
+PC-A> ping 192.168.10.20   (PC-B - same VLAN 10)
+PC-C> ping 192.168.20.20   (PC-D - same VLAN 20)
 ```
 
 📸 Screenshot: within-VLAN pings succeed.
@@ -147,14 +147,14 @@ PC-C> ping 192.168.20.20   (PC-D — same VLAN 20)
 **Step 5.** Test cross-VLAN ping:
 
 ```
-PC-A> ping 192.168.20.10   (PC-C — different VLAN)
+PC-A> ping 192.168.20.10   (PC-C - different VLAN)
 ```
 
-📸 Screenshot: cross-VLAN ping **fails** (no routing yet). This is the expected result — VLANs are isolated.
+📸 Screenshot: cross-VLAN ping **fails** (no routing yet). This is the expected result - VLANs are isolated.
 
 ---
 
-### Part B — Trunk Link Between Two Switches
+### Part B - Trunk Link Between Two Switches
 
 Add SW1 with two more PCs (one per VLAN). Connect SW0 Fa0/24 to SW1 Fa0/24.
 
@@ -187,11 +187,11 @@ PC-A (on SW0, VLAN 10)> ping <PC on SW1, VLAN 10>
 
 📸 Screenshot: succeeds. The trunk carries VLAN 10 frames between switches.
 
-> **Observe:** Ping from a VLAN 10 PC to a VLAN 20 PC on the other switch — does it succeed? Explain.
+> **Observe:** Ping from a VLAN 10 PC to a VLAN 20 PC on the other switch - does it succeed? Explain.
 
 ---
 
-### Part C — Router-on-a-Stick
+### Part C - Router-on-a-Stick
 
 Connect R0's Fa0/0 to SW0's Fa0/23 (this will be a trunk port).
 
@@ -241,7 +241,7 @@ PC-A (VLAN 10)> ping <PC-C, VLAN 20>
 
 ---
 
-### Part D — Verification Commands
+### Part D - Verification Commands
 
 **Step 14.** Run all three verification commands and screenshot each:
 

@@ -41,7 +41,7 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 <div class="pain">
 
-<Describe a specific failure — a real incident or realistic scenario — in
+<Describe a specific failure - a real incident or realistic scenario - in
 plain language. No technical terms yet.>
 
 </div>
@@ -112,7 +112,7 @@ plain language. No technical terms yet.>
 # Guided Lab at a Glance
 
 <Summarize the module's guided-lab topology and parts. Full step-by-step
-stays in the book — link to it on the closing slide.>
+stays in the book - link to it on the closing slide.>
 
 ---
 

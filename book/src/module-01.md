@@ -1,8 +1,8 @@
-# Module 1 — Orientation & Lab Environment
+# Module 1 - Orientation & Lab Environment
 
 ## Why This Matters
 
-You have studied how packets travel across networks in theory. But when a network actually breaks, you cannot open a textbook diagram — you have to *interrogate* the live system. Every operating system ships with built-in diagnostic commands that expose exactly what the OS knows about its network: its IP address, its routing decisions, the path a packet takes, and what names resolve to what addresses. Knowing these tools cold is the difference between a network engineer who finds the fault in five minutes and one who reboots things randomly for two hours. This module makes those tools automatic before we simulate anything.
+You have studied how packets travel across networks in theory. But when a network actually breaks, you cannot open a textbook diagram - you have to *interrogate* the live system. Every operating system ships with built-in diagnostic commands that expose exactly what the OS knows about its network: its IP address, its routing decisions, the path a packet takes, and what names resolve to what addresses. Knowing these tools cold is the difference between a network engineer who finds the fault in five minutes and one who reboots things randomly for two hours. This module makes those tools automatic before we simulate anything.
 
 ## Learning Outcomes
 
@@ -40,15 +40,15 @@ By the end of this lab, students are able to:
 | Part C: First topology | 25 min |
 | Report writeup / wrap-up | 10 min |
 
-*Guided Lab activities above run about 95 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
+*Guided Lab activities above run about 95 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 
-A network interface has at minimum three pieces of L3 state: its **IP address**, its **subnet mask** (defining the local network boundary), and its **default gateway** (the router to use for everything outside the local network). The operating system maintains a **routing table** — a list of destination networks and where to send packets for each.
+A network interface has at minimum three pieces of L3 state: its **IP address**, its **subnet mask** (defining the local network boundary), and its **default gateway** (the router to use for everything outside the local network). The operating system maintains a **routing table** - a list of destination networks and where to send packets for each.
 
 When you run `ping`, the OS sends an **ICMP Echo Request** to the target IP. If the target is on the same subnet, the OS sends directly (using ARP to resolve MAC); if not, it forwards to the default gateway. `tracert`/`traceroute` exploits the IP TTL field: each probe's TTL is incremented by one, causing each successive router to respond with a "Time Exceeded" ICMP message, revealing the hop-by-hop path.
 
-`nslookup`/`dig` query a **DNS resolver** — usually your router or ISP — which translates a hostname into an IP address using a distributed hierarchical database. If DNS fails, name resolution fails even though the IP network is perfectly healthy.
+`nslookup`/`dig` query a **DNS resolver** - usually your router or ISP - which translates a hostname into an IP address using a distributed hierarchical database. If DNS fails, name resolution fails even though the IP network is perfectly healthy.
 
 This is the mechanism that fixes "the website works by IP but not by name": DNS is broken, not the network.
 
@@ -64,15 +64,15 @@ Choosing the wrong cable type is one of the most common hardware mistakes. In ol
 | PC ↔ PC | Crossover | Like devices (transmit must connect to the other side's receive) |
 | Switch ↔ Switch | Crossover | Like devices |
 | Router ↔ Router (Ethernet) | Crossover | Like devices |
-| PC ↔ Router console port | Rollover (console) | Management only — not data |
+| PC ↔ Router console port | Rollover (console) | Management only - not data |
 
-**T-568A vs T-568B:** Both are valid Ethernet wiring standards that define which color wire goes on which pin. A **straight-through** cable uses the same standard (A–A or B–B) on both ends. A **crossover** cable uses T-568A on one end and T-568B on the other — this swaps the transmit and receive pairs, which is what like-device connections require.
+**T-568A vs T-568B:** Both are valid Ethernet wiring standards that define which color wire goes on which pin. A **straight-through** cable uses the same standard (A–A or B–B) on both ends. A **crossover** cable uses T-568A on one end and T-568B on the other - this swaps the transmit and receive pairs, which is what like-device connections require.
 
-Modern switches include **Auto-MDIX**, which electronically detects the cable type and corrects it — so a straight-through cable between two switches still works. Packet Tracer's "Copper Auto" cable option simulates this. However, understanding the underlying rule is essential for working with older hardware or for troubleshooting link failures.
+Modern switches include **Auto-MDIX**, which electronically detects the cable type and corrects it - so a straight-through cable between two switches still works. Packet Tracer's "Copper Auto" cable option simulates this. However, understanding the underlying rule is essential for working with older hardware or for troubleshooting link failures.
 
 ## Guided Lab
 
-### Part A — Interrogating Your Own Machine
+### Part A - Interrogating Your Own Machine
 
 Open a terminal (Windows: `cmd` or PowerShell; Linux/macOS: any terminal).
 
@@ -125,7 +125,7 @@ dig google.com
 
 ---
 
-### Part B — Packet Tracer Orientation
+### Part B - Packet Tracer Orientation
 
 Open Cisco Packet Tracer.
 
@@ -139,13 +139,13 @@ Open Cisco Packet Tracer.
 | Right side | Physical/Config/CLI tabs | Device management |
 | Top right | Simulation/Realtime toggle | Simulation Mode switch |
 
-> **Observe:** Notice the two modes in the lower-right corner — **Realtime** and **Simulation**. In Simulation Mode, packets move step-by-step and you can inspect each layer. We will use this extensively from Module 2 onward.
+> **Observe:** Notice the two modes in the lower-right corner - **Realtime** and **Simulation**. In Simulation Mode, packets move step-by-step and you can inspect each layer. We will use this extensively from Module 2 onward.
 
-**Step 6.** Explore device options: click on **Routers** in the device list and hover over each model. Note the Cisco 1841 and 2811 — these are the models you will configure in later modules.
+**Step 6.** Explore device options: click on **Routers** in the device list and hover over each model. Note the Cisco 1841 and 2811 - these are the models you will configure in later modules.
 
 ---
 
-### Part C — First Topology
+### Part C - First Topology
 
 **Step 7.** Build the following topology:
 
@@ -158,7 +158,7 @@ architecture-beta
 ```
 
 - Drag two **PC-PT** devices onto the workspace.
-- Connect them with a **Copper Cross-Over** cable (straight cables are for unlike devices; same-type devices need a crossover — or use Auto in PT).
+- Connect them with a **Copper Cross-Over** cable (straight cables are for unlike devices; same-type devices need a crossover - or use Auto in PT).
 - Click PC0 → **Desktop** tab → **IP Configuration**:
   - IP Address: `192.168.1.10`
   - Subnet Mask: `255.255.255.0`
@@ -184,7 +184,7 @@ ping 192.168.1.20
 1. Add a third PC (PC2, IP `192.168.1.30/24`) connected to PC0 with another crossover cable. Try to ping PC2 from PC1. Does it work? Why or why not?
 2. On your own machine, run `arp -a` (Windows/Linux) after pinging your gateway. What appears in the ARP table? What does each entry mean?
 3. In Packet Tracer, switch to **Simulation Mode** and send a ping from PC0 to PC1. Click through each event and identify which protocol appears at the Data Link layer. Does it match what you expected?
-4. **Cable-type diagnosis:** In your PT topology from Part C, delete the cable between PC0 and PC1. Reconnect them using a **Copper Straight-Through** cable instead of a crossover. Does PT accept it? Observe the link LED. Now try "Copper Auto" — what happens? Explain what Auto-MDIX does and why a red link light is the symptom of a wrong cable type rather than a failed interface.
+4. **Cable-type diagnosis:** In your PT topology from Part C, delete the cable between PC0 and PC1. Reconnect them using a **Copper Straight-Through** cable instead of a crossover. Does PT accept it? Observe the link LED. Now try "Copper Auto" - what happens? Explain what Auto-MDIX does and why a red link light is the symptom of a wrong cable type rather than a failed interface.
 
 ## Deliverables
 

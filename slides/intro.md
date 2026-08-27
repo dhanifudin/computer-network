@@ -42,7 +42,7 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교 Hank
 
 Build and operate computer networks using **Cisco Packet Tracer**.
 
-This course builds on your prior Computer Networks course — you already
+This course builds on your prior Computer Networks course - you already
 understand the theory. Here you **implement, observe failures, and fix
 them**.
 
@@ -63,7 +63,7 @@ network integrating every technology covered in the weekly labs.
 | Method | Description |
 |--------|-------------|
 | Lecture (강의) | Brief concept intro at the start of each session |
-| Lab Practice (실험·실습) | Hands-on Packet Tracer guided labs — the majority of class time |
+| Lab Practice (실험·실습) | Hands-on Packet Tracer guided labs - the majority of class time |
 | PBL | Each module begins with a real-world problem your configuration must solve |
 | Capstone Design | Weeks 13–14: design, build, present a complete network project |
 
@@ -74,8 +74,8 @@ network integrating every technology covered in the weekly labs.
 | Component | Weight |
 |-----------|--------|
 | Attendance (출석) | 10% |
-| Midterm Exam (중간평가) — Week 8 | 30% |
-| Final Exam (기말평가) — Week 15 | 30% |
+| Midterm Exam (중간평가) - Week 8 | 30% |
+| Final Exam (기말평가) - Week 15 | 30% |
 | Lab Reports / Assignments (과제) | 10% |
 | Other (project, participation) | 20% |
 
@@ -85,11 +85,11 @@ Lab reports (실습결과보고서) due on the LMS within one week of each sessi
 
 ## Lab Rules
 
-1. **Save constantly** — Packet Tracer does not auto-save. `StudentID_ModuleN.pka`
-2. **Personalize your configs** — hostname = your name, IP addressing = your student ID
-3. **Document as you go** — screenshot every step marked 📸
-4. **Use Simulation Mode** — watch packets hop-by-hop
-5. **No late reports without prior approval** — 20%/day penalty
+1. **Save constantly** - Packet Tracer does not auto-save. `StudentID_ModuleN.pka`
+2. **Personalize your configs** - hostname = your name, IP addressing = your student ID
+3. **Document as you go** - screenshot every step marked 📸
+4. **Use Simulation Mode** - watch packets hop-by-hop
+5. **No late reports without prior approval** - 20%/day penalty
 
 ---
 
@@ -102,7 +102,7 @@ Lab reports (실습결과보고서) due on the LMS within one week of each sessi
 | Origin & core concept | Where the idea came from, its first formal definition |
 | Mechanics & worked example | Configuration patterns, applied to the running lab topology |
 | Common mistakes / check yourself | Pitfalls, then a quick recall check |
-| Limits | What this technique cannot do — next week's pain |
+| Limits | What this technique cannot do - next week's pain |
 
 ---
 
@@ -110,4 +110,4 @@ Lab reports (실습결과보고서) due on the LMS within one week of each sessi
 
 # Let's Begin
 
-<div class="meta">Module 1 — Orientation & Lab Environment.<br>Full lab manual: <a href="../book/introduction.html">Open the Book →</a></div>
+<div class="meta">Module 1 - Orientation & Lab Environment.<br>Full lab manual: <a href="../book/introduction.html">Open the Book →</a></div>

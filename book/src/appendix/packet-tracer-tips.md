@@ -1,4 +1,4 @@
-# Appendix B — Packet Tracer Tips & Tricks
+# Appendix B - Packet Tracer Tips & Tricks
 
 ---
 
@@ -19,7 +19,7 @@ TeamName_Project.pka       ← for the team project
 
 | Mode | Icon | Use it when... |
 |------|------|----------------|
-| Realtime | Play button | Normal lab work — pings and configs apply instantly |
+| Realtime | Play button | Normal lab work - pings and configs apply instantly |
 | Simulation | Clock icon | You want to watch packets move step-by-step and inspect each layer |
 
 In Simulation Mode:
@@ -50,14 +50,14 @@ In Simulation Mode:
 |-------------------|-------------|
 | PC → Switch | Copper Straight-Through |
 | Switch → Router | Copper Straight-Through |
-| Switch → Switch | Copper Crossover (old) or Straight-Through (modern — PT uses Auto) |
+| Switch → Switch | Copper Crossover (old) or Straight-Through (modern - PT uses Auto) |
 | Router → Router (Ethernet) | Copper Crossover |
 | Router → Router (Serial) | Serial DCE/DTE |
 | Console access | Console (light blue rollover cable in PT) |
 
-Use **Automatic** cable type (the lightning bolt icon) if you are unsure — PT will pick the correct cable. For learning purposes, choosing manually builds the habit.
+Use **Automatic** cable type (the lightning bolt icon) if you are unsure - PT will pick the correct cable. For learning purposes, choosing manually builds the habit.
 
-**Which serial end is DCE?** Right-click the serial cable in the workspace — the DCE end is labeled. The DCE side must configure `clock rate`.
+**Which serial end is DCE?** Right-click the serial cable in the workspace - the DCE end is labeled. The DCE side must configure `clock rate`.
 
 ---
 
@@ -79,7 +79,7 @@ Use **Automatic** cable type (the lightning bolt icon) if you are unsure — PT 
 | Issue | Cause | Fix |
 |-------|-------|-----|
 | Interface LED stays red | Interface is `shutdown` or no cable | `no shutdown`; check cable |
-| Ping fails after config | PT needs a moment to settle — especially after adding routes | Wait 5 seconds, retry |
+| Ping fails after config | PT needs a moment to settle - especially after adding routes | Wait 5 seconds, retry |
 | Sub-interface not routing | Parent interface has an IP assigned | Remove IP from parent with `no ip address`; only sub-interfaces should have IPs |
 | VLAN missing on trunk | VLAN not created on one of the switches | `vlan <id>` on each switch independently |
 | DHCP client shows 0.0.0.0 | DHCP server not reachable (no routing or no relay) | Verify routing; add `ip helper-address` |
@@ -91,11 +91,11 @@ Use **Automatic** cable type (the lightning bolt icon) if you are unsure — PT 
 
 ## Working with .pka Files
 
-A `.pka` file is a **Packet Tracer Activity** — it stores the full topology, configurations, and (optionally) assessment criteria. Opening it reopens exactly where you left off.
+A `.pka` file is a **Packet Tracer Activity** - it stores the full topology, configurations, and (optionally) assessment criteria. Opening it reopens exactly where you left off.
 
 **Exporting a topology screenshot:** File → Export Image → PNG.
 
-**The Activity Wizard** (advanced): instructors can embed graded tasks directly into a `.pka` file. For the project, you submit a plain `.pka` — no activity wizard required.
+**The Activity Wizard** (advanced): instructors can embed graded tasks directly into a `.pka` file. For the project, you submit a plain `.pka` - no activity wizard required.
 
 ---
 
@@ -111,7 +111,7 @@ A `.pka` file is a **Packet Tracer Activity** — it stores the full topology, c
 
 ---
 
-## Simulation Mode — Reading the PDU Details
+## Simulation Mode - Reading the PDU Details
 
 When you click an envelope icon in Simulation Mode, the PDU window shows:
 

@@ -16,7 +16,7 @@ SPINE.md                  standard lecture structure, read this first
 OUTLINE.md                 15-week plan + Limits -> Pain chain
 themes/hankyong.css        Marp theme, HKNU colors
 assets/hankyong-*.png      university logo (color + white variants)
-book/                      mdBook lab manual — full guided labs, rubrics
+book/                      mdBook lab manual - full guided labs, rubrics
   src/
     introduction.md
     module-01.md ... module-12.md (no module-08: midterm week)
@@ -27,7 +27,7 @@ slides/
   _shared/roadmap.md       Act-0 roadmap graphic, paste into slot 2
   intro.md                 course overview + logistics (outside the spine)
   module-01.md ... module-12.md   17-slot lecture decks
-landing/index.html          site root — links the book and every deck
+landing/index.html          site root - links the book and every deck
 ```
 
 ## Setup
@@ -82,6 +82,6 @@ npm run build:pptx    # -> dist/slides/*.pptx
 ## Status
 
 All 12 lecture decks (Introduction + Modules 1–7, 9–12) are drafted, built,
-and themed. Handout/worksheet/quiz materials are not yet authored — the
+and themed. Handout/worksheet/quiz materials are not yet authored - the
 book covers full lab instructions, deliverables, and rubrics in the
 meantime.

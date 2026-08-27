@@ -58,7 +58,7 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 <div class="pain">
 
 You've studied how packets travel across networks in theory. But when a
-network actually breaks, there's no diagram to open — you have to
+network actually breaks, there's no diagram to open - you have to
 interrogate the live system in front of you: its IP address, its routing
 decisions, the path a packet takes, what names resolve to what addresses.
 
@@ -74,7 +74,7 @@ decisions, the path a packet takes, what names resolve to what addresses.
 - Hours lost rebooting things randomly instead of reading what the OS already knows
 
 <div class="why">
-<strong>In industry:</strong> every help-desk and NOC role starts here — reading <code>ipconfig</code>/<code>traceroute</code>/<code>dig</code> output cold is table-stakes for any junior network role.
+<strong>In industry:</strong> every help-desk and NOC role starts here - reading <code>ipconfig</code>/<code>traceroute</code>/<code>dig</code> output cold is table-stakes for any junior network role.
 </div>
 
 ---
@@ -103,11 +103,11 @@ decisions, the path a packet takes, what names resolve to what addresses.
 
 # Where These Tools Came From
 
-`ping` was written by Mike Muuss in 1983 for early ARPANET troubleshooting —
+`ping` was written by Mike Muuss in 1983 for early ARPANET troubleshooting -
 named after sonar. `traceroute` (Van Jacobson, 1987) exploits a field
 already in every IP packet: TTL. `nslookup`/`dig` query DNS (Mockapetris,
 1983), the system built to replace one giant shared hostname file. None of
-these are new inventions — they're 40-year-old tools still standard because
+these are new inventions - they're 40-year-old tools still standard because
 the problem they solve never went away.
 
 ---
@@ -116,7 +116,7 @@ the problem they solve never went away.
 
 # L3 Host State: Definition
 
-> Every network interface carries three pieces of Layer-3 state — its **IP
+> Every network interface carries three pieces of Layer-3 state - its **IP
 > address**, its **subnet mask** (the local network boundary), and its
 > **default gateway** (the router for everything outside it). The OS's
 > **routing table** decides, per packet, where it goes next.
@@ -127,9 +127,9 @@ the problem they solve never went away.
 
 # How the Diagnostic Commands Work
 
-- **`ping`** — sends ICMP Echo Request. Same subnet → direct (via ARP); otherwise → default gateway
-- **`tracert`/`traceroute`** — increments TTL by one each probe; each router along the path replies "Time Exceeded," revealing the hop-by-hop route
-- **`nslookup`/`dig`** — queries a DNS resolver, translating hostname → IP
+- **`ping`** - sends ICMP Echo Request. Same subnet → direct (via ARP); otherwise → default gateway
+- **`tracert`/`traceroute`** - increments TTL by one each probe; each router along the path replies "Time Exceeded," revealing the hop-by-hop route
+- **`nslookup`/`dig`** - queries a DNS resolver, translating hostname → IP
 
 > "Website works by IP but not by name" → DNS is broken, not the network.
 
@@ -154,13 +154,13 @@ Modern switches use **Auto-MDIX** to detect and correct automatically.
 
 # Guided Lab at a Glance
 
-**Part A** — interrogate your own machine: `ipconfig`/`ip addr`, ping the
+**Part A** - interrogate your own machine: `ipconfig`/`ip addr`, ping the
 gateway, traceroute to 8.8.8.8, `nslookup`/`dig`
 
-**Part B** — Packet Tracer orientation: workspace, device list, Simulation
+**Part B** - Packet Tracer orientation: workspace, device list, Simulation
 vs Realtime mode
 
-**Part C** — first topology: two PCs, crossover cable, static IPs, verify
+**Part C** - first topology: two PCs, crossover cable, static IPs, verify
 with `ping`
 
 ---
@@ -171,9 +171,9 @@ with `ping`
 
 - **Wrong cable, blaming the interface:** a red link light after a
   straight-through cable between two switches is a cabling mistake, not a
-  hardware failure — check Auto-MDIX before you assume anything is broken
+  hardware failure - check Auto-MDIX before you assume anything is broken
 - **Confusing DNS failure with network failure:** if `ping <IP>` works but
-  `ping <hostname>` doesn't, the *network* is fine — go fix DNS, not routing
+  `ping <hostname>` doesn't, the *network* is fine - go fix DNS, not routing
 
 ---
 
@@ -188,8 +188,8 @@ with `ping`
 
 # Answers
 
-1. Layer 3 (Network) — `ping` uses **ICMP** Echo Request/Reply
-2. The packet cannot leave the local subnet — with no gateway, the host has no path to anywhere off-link, so the packet is dropped
+1. Layer 3 (Network) - `ping` uses **ICMP** Echo Request/Reply
+2. The packet cannot leave the local subnet - with no gateway, the host has no path to anywhere off-link, so the packet is dropped
 
 ---
 
@@ -200,7 +200,7 @@ with `ping`
 <div class="limits">
 You can now read one host's state and build a 2-PC LAN. But you don't yet
 know what happens to a packet's headers as it crosses a switch and a
-router — the OSI/TCP-IP mechanics are still a black box.
+router - the OSI/TCP-IP mechanics are still a black box.
 </div>
 
 ---
@@ -219,9 +219,9 @@ opens the box: the OSI/TCP-IP models, watched live in Simulation Mode.
 # Summary
 
 - Diagnostic commands read L3 state without needing a diagram
-- Cable type matters — Auto-MDIX doesn't excuse skipping the rule
+- Cable type matters - Auto-MDIX doesn't excuse skipping the rule
 - **Deliverables & assessment:** 4 annotated command screenshots, PT topology
-  + successful ping, crossover cable explanation — see the book for the full
+  + successful ping, crossover cable explanation - see the book for the full
   rubric
 
 ---

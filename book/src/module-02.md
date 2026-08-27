@@ -1,4 +1,4 @@
-# Module 2 — Network Review 1 & Packet Tracer Intro
+# Module 2 - Network Review 1 & Packet Tracer Intro
 
 ## Why This Matters
 
@@ -15,7 +15,7 @@ By the end of this lab, students are able to:
 
 ## Pre-Lab
 
-**Read before class:** Supplementary textbook, Chapter 2 (Network Models); reference module — Modul Teori Jarkom-2 (Protokol dan Model Jaringan).
+**Read before class:** Supplementary textbook, Chapter 2 (Network Models); reference module - Modul Teori Jarkom-2 (Protokol dan Model Jaringan).
 
 **Answer before the session:**
 
@@ -36,15 +36,15 @@ By the end of this lab, students are able to:
 | Phase | Time |
 |-------|------|
 | Part A: OSI review topology | 20 min |
-| Part B: Simulation Mode — ICMP | 25 min |
-| Part C: Simulation Mode — HTTP | 30 min |
+| Part B: Simulation Mode - ICMP | 25 min |
+| Part C: Simulation Mode - HTTP | 30 min |
 | Challenge / wrap-up | 15 min |
 
-*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
+*Guided Lab activities above run about 90 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 
-The **OSI model** has 7 layers; the **TCP/IP model** has 4. Each layer adds a **header** (and sometimes a trailer) to the data handed down from above — this is **encapsulation**. At the receiving end, each layer strips its header and passes the remainder up — **decapsulation**.
+The **OSI model** has 7 layers; the **TCP/IP model** has 4. Each layer adds a **header** (and sometimes a trailer) to the data handed down from above - this is **encapsulation**. At the receiving end, each layer strips its header and passes the remainder up - **decapsulation**.
 
 | OSI | TCP/IP | PDU | Key Protocols |
 |-----|--------|-----|---------------|
@@ -56,15 +56,15 @@ The **OSI model** has 7 layers; the **TCP/IP model** has 4. Each layer adds a **
 | Data Link (2) | Network Access | Frame | Ethernet, PPP, Wi-Fi |
 | Physical (1) | Network Access | Bit | Cables, signals, NIC |
 
-A **switch** operates at Layer 2: it reads the destination MAC address in the Ethernet frame and forwards it to the correct port — it never looks at the IP header. A **router** operates at Layer 3: it strips the Ethernet frame, reads the IP destination, makes a routing decision, and re-encapsulates into a new Ethernet frame for the next hop. Understanding this explains why routing is needed between subnets but not within them.
+A **switch** operates at Layer 2: it reads the destination MAC address in the Ethernet frame and forwards it to the correct port - it never looks at the IP header. A **router** operates at Layer 3: it strips the Ethernet frame, reads the IP destination, makes a routing decision, and re-encapsulates into a new Ethernet frame for the next hop. Understanding this explains why routing is needed between subnets but not within them.
 
 This is the mechanism that makes layer-by-layer troubleshooting possible: each device is only responsible for its own layer.
 
 ## Guided Lab
 
-### Part A — Build the Review Topology
+### Part A - Build the Review Topology
 
-Construct the following three-subnet topology. Use the exact IP addresses shown — you will need them for later modules.
+Construct the following three-subnet topology. Use the exact IP addresses shown - you will need them for later modules.
 
 ```mermaid
 architecture-beta
@@ -91,11 +91,11 @@ Device addressing:
 |--------|-----------|------------|-------------|---------|
 | PC0 | NIC | 192.168.1.10 | 255.255.255.0 | 192.168.1.1 |
 | PC1 | NIC | 192.168.1.20 | 255.255.255.0 | 192.168.1.1 |
-| Router0 | Fa0/0 | 192.168.1.1 | 255.255.255.0 | — |
-| Router0 | Fa0/1 | 192.168.2.1 | 255.255.255.0 | — |
+| Router0 | Fa0/0 | 192.168.1.1 | 255.255.255.0 | - |
+| Router0 | Fa0/1 | 192.168.2.1 | 255.255.255.0 | - |
 | PC2 | NIC | 192.168.2.10 | 255.255.255.0 | 192.168.2.1 |
 
-> **Note:** We will configure the router interfaces in Module 3. For now, PCs on the **same switch** should be able to ping each other; cross-router pings will fail — and that is expected and intentional.
+> **Note:** We will configure the router interfaces in Module 3. For now, PCs on the **same switch** should be able to ping each other; cross-router pings will fail - and that is expected and intentional.
 
 **Step 1.** Place devices: 2× PC-PT, 1× Cisco 2960 switch, 1× Cisco 1841 router (or 2811), 1× more 2960 switch, 1× more PC-PT.
 
@@ -111,7 +111,7 @@ Device addressing:
 
 ---
 
-### Part B — ICMP in Simulation Mode
+### Part B - ICMP in Simulation Mode
 
 **Step 5.** Switch to **Simulation Mode** (clock icon, bottom right). Set the Event List filter to show only **ICMP** and **ARP**.
 
@@ -121,7 +121,7 @@ Device addressing:
 
 📸 Screenshot the event list showing the ARP request/reply followed by ICMP echo/reply.
 
-> **Observe:** Which happened first — ARP or ICMP? Why must ARP happen first?
+> **Observe:** Which happened first - ARP or ICMP? Why must ARP happen first?
 
 **Step 8.** Click on any ICMP event and open the PDU information (click the envelope icon). Identify:
 
@@ -133,7 +133,7 @@ Device addressing:
 
 ---
 
-### Part C — HTTP in Simulation Mode
+### Part C - HTTP in Simulation Mode
 
 **Step 9.** Add a **Server-PT** to the topology, connected to Switch1 with a straight-through cable.
 
@@ -142,7 +142,7 @@ Device addressing:
 
 **Step 10.** On PC0, open **Desktop → Web Browser**. In the URL bar type: `http://192.168.2.100`
 
-> The page will fail — the router is not configured. This is the "problem" state. Note it and move on.
+> The page will fail - the router is not configured. This is the "problem" state. Note it and move on.
 
 **Step 11.** In Simulation Mode, set the filter to show: **DNS, TCP, HTTP, ARP, ICMP**. Send the HTTP request again from PC0.
 
@@ -154,9 +154,9 @@ Device addressing:
 
 ---
 
-### Part D — ARP Cause and Effect
+### Part D - ARP Cause and Effect
 
-This exercise demonstrates why ARP must precede any IP communication — and why running the same command twice can give different output.
+This exercise demonstrates why ARP must precede any IP communication - and why running the same command twice can give different output.
 
 **Step 12.** On PC0's Desktop → Command Prompt, check the current ARP cache:
 
@@ -181,7 +181,7 @@ PC0> arp -a
 📸 Screenshot. You should now see an entry for 192.168.1.20 with a MAC address.
 
 > **Answer this question:** You ran `arp -a` twice with no configuration change in between. Why did the two outputs differ?
-> *(Hint: the ping in Step 13 triggered an ARP broadcast — your PC had to discover PC1's MAC before it could send the ICMP Echo Request. Once ARP received a reply, it cached the MAC. The second `arp -a` shows that cached entry.)*
+> *(Hint: the ping in Step 13 triggered an ARP broadcast - your PC had to discover PC1's MAC before it could send the ICMP Echo Request. Once ARP received a reply, it cached the MAC. The second `arp -a` shows that cached entry.)*
 
 **Step 15.** In Simulation Mode, filter for **ARP and ICMP only**, then send the same ping. Step through the events.
 
@@ -196,7 +196,7 @@ PC0> arp -a
 1. **Wireshark companion (real machine):** Open Wireshark, start a capture on your active interface, then open a webpage in your browser. Stop the capture and find: (a) the DNS query/response, (b) the TCP three-way handshake, (c) the HTTP GET request. Screenshot all three and annotate the layer for each.
 2. In PT Simulation Mode, find the exact moment the Ethernet frame changes its **source and destination MAC** as a packet passes through the router. Which MAC is used on each segment? What does this tell you about how routers work at Layer 2?
 3. Add a second router (Router1) between Router0 and Switch1. Explore what happens to the event count in the simulation list. Does the number of ARP events change? Why?
-4. **Personalized subnetting drill:** Take the IP address `10.10.XX.YY/24` where XX = the last two digits of your student ID and YY = 40 + your roll number in class (e.g., student ID 2023-0042, roll number 5 → `10.10.42.45/24`). Calculate: (a) the network address, (b) the broadcast address, (c) the first and last usable host addresses, (d) total usable hosts. Then find a classmate and compare your network addresses — do your addresses fall in the same /24 network? In the same /16? At what prefix length do you first land in the *same* network?
+4. **Personalized subnetting drill:** Take the IP address `10.10.XX.YY/24` where XX = the last two digits of your student ID and YY = 40 + your roll number in class (e.g., student ID 2023-0042, roll number 5 → `10.10.42.45/24`). Calculate: (a) the network address, (b) the broadcast address, (c) the first and last usable host addresses, (d) total usable hosts. Then find a classmate and compare your network addresses - do your addresses fall in the same /24 network? In the same /16? At what prefix length do you first land in the *same* network?
 
 ## Deliverables
 
@@ -207,7 +207,7 @@ PC0> arp -a
 5. Screenshot of the HTTP simulation event list.
 6. Written ordered list of protocols observed in the HTTP sequence with their OSI layer.
 7. Written answer: what is the difference between what a switch reads vs. what a router reads in a received packet?
-8. Part D — two `arp -a` screenshots (before and after ping) with written explanation of why the outputs differ.
+8. Part D - two `arp -a` screenshots (before and after ping) with written explanation of why the outputs differ.
 9. Your saved `.pka` file.
 
 ## Assessment Rubric

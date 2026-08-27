@@ -1,8 +1,8 @@
-# Module 10 — WAN: PPP & NAT
+# Module 10 - WAN: PPP & NAT
 
 ## Why This Matters
 
-The IPv4 address space has 4.3 billion addresses. In 2011, IANA allocated the last remaining blocks to the five regional registries. Today, getting a new public IPv4 address requires either paying significant sums or waiting — neither of which are practical for a startup or a home ISP customer. The fix that has kept IPv4 functional for 25 years beyond its expected lifespan is **NAT (Network Address Translation)**: your ISP gives you *one* public IP address, and your router secretly rewrites the source address of every outgoing packet so hundreds of devices can share it. At the same time, WAN links between office sites need their own encapsulation protocol: **PPP (Point-to-Point Protocol)** adds authentication, error detection, and multilink bonding capabilities to serial links that raw IP cannot provide. Together, PPP and NAT represent the backbone of how enterprise sites connect to the internet — which is why you will encounter them in almost every real-world network you ever work on.
+The IPv4 address space has 4.3 billion addresses. In 2011, IANA allocated the last remaining blocks to the five regional registries. Today, getting a new public IPv4 address requires either paying significant sums or waiting - neither of which are practical for a startup or a home ISP customer. The fix that has kept IPv4 functional for 25 years beyond its expected lifespan is **NAT (Network Address Translation)**: your ISP gives you *one* public IP address, and your router secretly rewrites the source address of every outgoing packet so hundreds of devices can share it. At the same time, WAN links between office sites need their own encapsulation protocol: **PPP (Point-to-Point Protocol)** adds authentication, error detection, and multilink bonding capabilities to serial links that raw IP cannot provide. Together, PPP and NAT represent the backbone of how enterprise sites connect to the internet - which is why you will encounter them in almost every real-world network you ever work on.
 
 ## Learning Outcomes
 
@@ -40,7 +40,7 @@ By the end of this lab, students are able to:
 | Part C: PAT overload | 30 min |
 | Wrap-up | 10 min |
 
-*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
+*Guided Lab activities above run about 90 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 
@@ -49,7 +49,7 @@ By the end of this lab, students are able to:
 PPP is a Layer 2 protocol designed for point-to-point serial links. Over Cisco's default HDLC encapsulation, PPP adds:
 - **LCP (Link Control Protocol):** Negotiates link parameters, options, and authentication method.
 - **NCP (Network Control Protocol):** Negotiates which Layer 3 protocols run over the link (e.g., IPCP for IPv4).
-- **Authentication:** Supports PAP (password in cleartext — avoid) and **CHAP** (challenge-response with MD5 hash — preferred).
+- **Authentication:** Supports PAP (password in cleartext - avoid) and **CHAP** (challenge-response with MD5 hash - preferred).
 
 CHAP three-way handshake:
 1. Authenticator sends a Challenge (random value + authenticator hostname).
@@ -77,11 +77,11 @@ The password never crosses the link in cleartext.
 
 ### Why This Fixes the Problem
 
-PAT allows an entire office of 200 devices to share one public IP by using unique port numbers to track each connection. Without NAT, every device would need its own public IPv4 address — impossible given address exhaustion.
+PAT allows an entire office of 200 devices to share one public IP by using unique port numbers to track each connection. Without NAT, every device would need its own public IPv4 address - impossible given address exhaustion.
 
 ## Guided Lab
 
-### Part A — PPP & CHAP Authentication
+### Part A - PPP & CHAP Authentication
 
 Build this WAN topology:
 
@@ -112,7 +112,7 @@ architecture-beta
 | R1 | Se0/0/0 | 10.0.0.2/30 | Serial WAN (DTE) |
 | R1 | Fa0/0 | 192.168.2.1/24 | LAN B gateway |
 
-**Step 1.** Configure interface IPs. On the serial interfaces, add `clock rate 64000` on the DCE side (the router with the DCE cable end — in PT, right-click the serial cable to see which end is DCE):
+**Step 1.** Configure interface IPs. On the serial interfaces, add `clock rate 64000` on the DCE side (the router with the DCE cable end - in PT, right-click the serial cable to see which end is DCE):
 
 ```
 R0(config)# interface Serial 0/0/0
@@ -156,7 +156,7 @@ R0# show interfaces Serial 0/0/0
 
 📸 Screenshot. Find the line `Encapsulation PPP` and `LCP Open` or `Open` status.
 
-**Step 5.** Deliberately misconfigure — change R1's password to something different from R0's:
+**Step 5.** Deliberately misconfigure - change R1's password to something different from R0's:
 
 ```
 R1(config)# username R0 password wrong
@@ -174,7 +174,7 @@ R0# show interfaces Serial 0/0/0
 
 ---
 
-### Part B — Static NAT
+### Part B - Static NAT
 
 Scenario: R1 hosts a web server (PC1 acting as server). You want it reachable from the internet (the R0 side) using a public IP.
 
@@ -208,7 +208,7 @@ R1# show ip nat statistics
 
 ---
 
-### Part C — PAT (NAT Overload)
+### Part C - PAT (NAT Overload)
 
 Scenario: All PCs on 192.168.1.0/24 (R0's LAN) must share R0's single public IP (10.0.0.1) to reach the server on R1's side. (In a real scenario, 10.0.0.1 would be R0's public internet IP.)
 
@@ -239,7 +239,7 @@ R0# show ip nat translations
 R0# show ip nat statistics
 ```
 
-📸 Screenshot. Note the port numbers in the translation table — this is what distinguishes each inside host's connections.
+📸 Screenshot. Note the port numbers in the translation table - this is what distinguishes each inside host's connections.
 
 Open multiple connections from PC0 (ping, then open web browser to the server) and run `show ip nat translations` again.
 
@@ -250,7 +250,7 @@ Open multiple connections from PC0 (ping, then open web browser to the server) a
 ## Challenge Tasks
 
 1. Configure CHAP with **one-way authentication** (only R0 authenticates R1, not the reverse). Is this possible? What are the security implications? Try it in PT and observe.
-2. Add a second PC to R0's LAN and open a web browser from both PCs to the server simultaneously. Run `show ip nat translations` — how many entries appear? How does NAT distinguish PC0's connection from the second PC's connection?
+2. Add a second PC to R0's LAN and open a web browser from both PCs to the server simultaneously. Run `show ip nat translations` - how many entries appear? How does NAT distinguish PC0's connection from the second PC's connection?
 3. Research **NAT hairpinning** (also called NAT loopback). Why can a device inside the NAT domain sometimes not reach an internal server using the server's public IP address? Does PT simulate this behavior?
 
 ## Deliverables

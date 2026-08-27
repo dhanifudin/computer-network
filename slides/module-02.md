@@ -53,7 +53,7 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 <!-- SLOT 4: The pain -->
 
-# "The Network Is Down" — But Where?
+# "The Network Is Down" - But Where?
 
 <div class="pain">
 
@@ -74,7 +74,7 @@ systematic way to check, "down" is just a guess.
 - Wrong fixes get applied at the wrong layer, wasting time without resolving anything
 
 <div class="why">
-<strong>In industry:</strong> "which layer would you check first" is one of the most common networking interview questions — it tests whether you troubleshoot systematically or guess.
+<strong>In industry:</strong> "which layer would you check first" is one of the most common networking interview questions - it tests whether you troubleshoot systematically or guess.
 </div>
 
 ---
@@ -104,7 +104,7 @@ systematic way to check, "down" is just a guess.
 # Where This Idea Came From
 
 The **OSI model** (ISO, 1984) was designed by committee to let any vendor's
-equipment interoperate — a teaching and interoperability reference, mostly
+equipment interoperate - a teaching and interoperability reference, mostly
 never implemented layer-for-layer. The **TCP/IP model** (Cerf & Kahn, DARPA,
 1974) was the pragmatic, already-shipping protocol suite that became the
 real internet. Today we use OSI's vocabulary to talk about TCP/IP's reality.
@@ -116,8 +116,8 @@ real internet. Today we use OSI's vocabulary to talk about TCP/IP's reality.
 # Encapsulation: Definition
 
 > Each layer adds a **header** (and sometimes a trailer) to the data handed
-> down from above — **encapsulation**. At the receiving end, each layer
-> strips its own header and passes the remainder up — **decapsulation**.
+> down from above - **encapsulation**. At the receiving end, each layer
+> strips its own header and passes the remainder up - **decapsulation**.
 
 | OSI | TCP/IP | PDU | Key Protocols |
 |-----|--------|-----|---------------|
@@ -130,12 +130,12 @@ real internet. Today we use OSI's vocabulary to talk about TCP/IP's reality.
 
 <!-- Act 3 / BUILD -->
 
-# Switch vs Router — Which Layer Do They Read?
+# Switch vs Router - Which Layer Do They Read?
 
-- **Switch (Layer 2):** reads the destination **MAC** in the Ethernet frame, forwards to the correct port — never looks at the IP header
+- **Switch (Layer 2):** reads the destination **MAC** in the Ethernet frame, forwards to the correct port - never looks at the IP header
 - **Router (Layer 3):** strips the Ethernet frame, reads the **IP** destination, makes a routing decision, re-encapsulates for the next hop
 
-This is why routing is needed **between** subnets but not **within** them —
+This is why routing is needed **between** subnets but not **within** them -
 and why layer-by-layer troubleshooting works: each device answers only for
 its own layer.
 
@@ -143,11 +143,11 @@ its own layer.
 
 # Why ARP Must Precede ICMP
 
-ARP is a **Layer 2 broadcast** — every device on the local segment receives
+ARP is a **Layer 2 broadcast** - every device on the local segment receives
 it, but only the device owning the target IP replies.
 
 This is why ARP works within a subnet but **cannot cross a router**
-(routers don't forward broadcasts) — and why your PC must resolve a MAC
+(routers don't forward broadcasts) - and why your PC must resolve a MAC
 address before sending its first ICMP Echo Request to a new neighbor.
 
 ---
@@ -156,14 +156,14 @@ address before sending its first ICMP Echo Request to a new neighbor.
 
 # Guided Lab at a Glance
 
-**Part A** — build a 3-subnet review topology (same-subnet pings work;
-cross-router pings intentionally fail — routing comes in Module 3)
+**Part A** - build a 3-subnet review topology (same-subnet pings work;
+cross-router pings intentionally fail - routing comes in Module 3)
 
-**Part B** — Simulation Mode: watch ARP + ICMP for a same-subnet ping
+**Part B** - Simulation Mode: watch ARP + ICMP for a same-subnet ping
 
-**Part C** — Simulation Mode: trace a full HTTP request (DNS → TCP → HTTP)
+**Part C** - Simulation Mode: trace a full HTTP request (DNS → TCP → HTTP)
 
-**Part D** — ARP cause-and-effect: why `arp -a` output changes after a ping
+**Part D** - ARP cause-and-effect: why `arp -a` output changes after a ping
 
 ---
 
@@ -171,7 +171,7 @@ cross-router pings intentionally fail — routing comes in Module 3)
 
 # Common Mistakes
 
-- **Assuming a switch reads IP headers:** it doesn't — a switch never looks
+- **Assuming a switch reads IP headers:** it doesn't - a switch never looks
   past Layer 2, so "the switch dropped it because of a bad IP" is never the
   right diagnosis
 - **Testing HTTP before checking ARP/ICMP:** if the lower layers aren't
@@ -192,7 +192,7 @@ cross-router pings intentionally fail — routing comes in Module 3)
 # Answers
 
 1. Each layer adds its own header to the data before passing it down to the layer below
-2. No — a switch operates at Layer 2 and only reads the destination MAC address to decide which port to forward the frame out of
+2. No - a switch operates at Layer 2 and only reads the destination MAC address to decide which port to forward the frame out of
 
 ---
 
@@ -202,7 +202,7 @@ cross-router pings intentionally fail — routing comes in Module 3)
 
 <div class="limits">
 You can now trace a packet through every layer. But the router in your
-topology has no hostname, no password, nothing configured — anyone with
+topology has no hostname, no password, nothing configured - anyone with
 access to it could type <code>enable</code> and change anything.
 </div>
 
@@ -224,7 +224,7 @@ Module 2 leaves **an unsecured, unconfigured router** in your topology.
 - Every "network is down" report starts with: which layer?
 - Switches read Layer 2 only; routers read up to Layer 3
 - **Deliverables & assessment:** topology diagram, annotated ARP/ICMP and
-  HTTP simulation screenshots, switch-vs-router explanation — see the book
+  HTTP simulation screenshots, switch-vs-router explanation - see the book
   for the full rubric
 
 ---

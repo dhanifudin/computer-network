@@ -1,4 +1,4 @@
-# Appendix A — IOS Command Reference
+# Appendix A - IOS Command Reference
 
 A quick-reference of every command used across Modules 1–12. Commands are grouped by function.
 

@@ -1,8 +1,8 @@
-# Module 11 — OSPF (Advanced Routing Protocol)
+# Module 11 - OSPF (Advanced Routing Protocol)
 
 ## Why This Matters
 
-RIP works fine for small networks but has a 15-hop limit and converges in minutes. A route changes in a data center, and RIP routers at the edge of a large enterprise network might not learn about it for two or three minutes — during which traffic is routed into a black hole. OSPF (Open Shortest Path First) has no hop limit, converges in seconds, and uses actual link bandwidth as its cost metric (not arbitrary hop count). It is the dominant Interior Gateway Protocol (IGP) in enterprise networks and ISP cores worldwide. When you work for a company with a multi-campus network, the routing protocol running between buildings and data centers is almost certainly OSPF. Understanding how to configure, verify, and troubleshoot it is not optional for a network engineer.
+RIP works fine for small networks but has a 15-hop limit and converges in minutes. A route changes in a data center, and RIP routers at the edge of a large enterprise network might not learn about it for two or three minutes - during which traffic is routed into a black hole. OSPF (Open Shortest Path First) has no hop limit, converges in seconds, and uses actual link bandwidth as its cost metric (not arbitrary hop count). It is the dominant Interior Gateway Protocol (IGP) in enterprise networks and ISP cores worldwide. When you work for a company with a multi-campus network, the routing protocol running between buildings and data centers is almost certainly OSPF. Understanding how to configure, verify, and troubleshoot it is not optional for a network engineer.
 
 ## Learning Outcomes
 
@@ -40,7 +40,7 @@ By the end of this lab, students are able to:
 | Part C: Link failure & reconvergence | 25 min |
 | Wrap-up | 10 min |
 
-*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
+*Guided Lab activities above run about 90 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 
@@ -87,11 +87,11 @@ The process-id is locally significant (does not need to match between routers). 
 
 ### Why OSPF Fixes the Performance Problem
 
-OSPF converges in seconds because routers exchange LSAs immediately when a topology change occurs — they do not wait for a 30-second timer. The SPF algorithm finds the optimal path based on real bandwidth, not arbitrary hop count.
+OSPF converges in seconds because routers exchange LSAs immediately when a topology change occurs - they do not wait for a 30-second timer. The SPF algorithm finds the optimal path based on real bandwidth, not arbitrary hop count.
 
 ## Guided Lab
 
-### Part A — OSPF Configuration
+### Part A - OSPF Configuration
 
 Use the same three-router topology from Module 6:
 
@@ -136,7 +136,7 @@ If using Module 6's file, remove the previous routing protocol first:
 ```
 R0(config)# no router rip
 ```
-(or `no router eigrp 100` — repeat on all routers)
+(or `no router eigrp 100` - repeat on all routers)
 
 **Step 1.** Configure OSPF on R0:
 
@@ -169,11 +169,11 @@ R2(config-router)# network 192.168.2.0 0.0.0.255 area 0
 R2(config-router)# passive-interface FastEthernet 0/1
 ```
 
-> **Why passive-interface on LAN ports?** LAN-facing interfaces connect to end devices, not to other routers. Sending OSPF Hellos out those ports wastes bandwidth and confuses end devices. Passive interfaces still *advertise* the network in OSPF — they just do not send or accept Hellos on that port.
+> **Why passive-interface on LAN ports?** LAN-facing interfaces connect to end devices, not to other routers. Sending OSPF Hellos out those ports wastes bandwidth and confuses end devices. Passive interfaces still *advertise* the network in OSPF - they just do not send or accept Hellos on that port.
 
 ---
 
-### Part B — Verification Commands
+### Part B - Verification Commands
 
 **Step 4.** Verify neighbor relationships:
 
@@ -200,7 +200,7 @@ R0# show ip ospf database
 R0# show ip route
 ```
 
-📸 Screenshot. Identify: `O` entries (OSPF), the cost value in brackets (e.g., `[110/2]` — AD 110, metric/cost 2).
+📸 Screenshot. Identify: `O` entries (OSPF), the cost value in brackets (e.g., `[110/2]` - AD 110, metric/cost 2).
 
 > **Calculate:** The path from R0 to 192.168.2.0/24 passes through two FastEthernet hops. Each FastEthernet interface has cost 1. What should the total cost be? Does `show ip route` agree?
 
@@ -223,7 +223,7 @@ PC0> ping 192.168.3.10
 
 ---
 
-### Part C — Link Failure & Reconvergence
+### Part C - Link Failure & Reconvergence
 
 **Step 9.** Time-stamp your observation. Shut down the R0-R1 link:
 
@@ -238,7 +238,7 @@ R0(config-if)# shutdown
 R0# show ip ospf neighbor
 ```
 
-> **Observe:** How quickly does the neighbor entry for R1 disappear? (OSPF dead interval is typically 40 seconds by default — how does this compare to RIP's 180-second dead interval?)
+> **Observe:** How quickly does the neighbor entry for R1 disappear? (OSPF dead interval is typically 40 seconds by default - how does this compare to RIP's 180-second dead interval?)
 
 **Step 11.** After neighbor loss, check the routing table:
 

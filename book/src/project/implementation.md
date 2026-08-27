@@ -1,4 +1,4 @@
-# Week 14 — Implementation & Final Presentation
+# Week 14 - Implementation & Final Presentation
 
 ## Overview
 
@@ -7,7 +7,7 @@ By Week 14 you have incorporated feedback from your Week 13 proposal and built t
 1. **LMS submission** (before class): upload your `.pka` file and supporting documentation.
 2. **In-class presentation** (15 minutes per team): live demonstration + Q&A.
 
-There is no grace period for the `.pka` submission — the instructor will review it during your presentation slot. A broken topology that you cannot explain is worse than a working topology you can explain fully.
+There is no grace period for the `.pka` submission - the instructor will review it during your presentation slot. A broken topology that you cannot explain is worse than a working topology you can explain fully.
 
 ---
 
@@ -15,12 +15,12 @@ There is no grace period for the `.pka` submission — the instructor will revie
 
 Submit all of the following to the LMS before Week 14 class begins:
 
-- [ ] **`TeamName_Project.pka`** — complete, working Packet Tracer file
+- [ ] **`TeamName_Project.pka`** - complete, working Packet Tracer file
 - [ ] **Addressing Table** (final version, may differ from proposal)
 - [ ] **Topology Diagram** (final version, labeled with all IP addresses)
-- [ ] **ACL Documentation** — each ACL rule with its security rationale
-- [ ] **Test Report** — results of the 10 mandatory connectivity tests (see below)
-- [ ] **Individual Reflection** — 1 page per team member (due 1 week after Week 14)
+- [ ] **ACL Documentation** - each ACL rule with its security rationale
+- [ ] **Test Report** - results of the 10 mandatory connectivity tests (see below)
+- [ ] **Individual Reflection** - 1 page per team member (due 1 week after Week 14)
 
 ---
 
@@ -33,13 +33,13 @@ Before your presentation, verify all of the following and document each result (
 | 1 | Ping within VLAN 10 (same switch) | Pass |
 | 2 | Ping within VLAN 20 (same switch) | Pass |
 | 3 | Ping cross-VLAN (VLAN 10 → VLAN 20) via router | Pass |
-| 4 | Ping from a DHCP client — verify it received a valid IP | Pass |
+| 4 | Ping from a DHCP client - verify it received a valid IP | Pass |
 | 5 | Ping from a restricted VLAN to a protected server | **Fail** (ACL working) |
 | 6 | Ping from a permitted VLAN to the same protected server | Pass |
 | 7 | Ping across the WAN (PPP/CHAP link) between routers | Pass |
 | 8 | Ping from an inside NAT host to the simulated internet | Pass |
-| 9 | Verify DHCP relay — client on remote subnet gets IP | Pass |
-| 10 | `show ip ospf neighbor` (or EIGRP equivalent) — all neighbors `FULL` | Pass |
+| 9 | Verify DHCP relay - client on remote subnet gets IP | Pass |
+| 10 | `show ip ospf neighbor` (or EIGRP equivalent) - all neighbors `FULL` | Pass |
 
 Include screenshots of every test in your test report. Annotate each screenshot to show which test it corresponds to.
 
@@ -51,17 +51,17 @@ Include screenshots of every test in your test report. Annotate each screenshot 
 
 **Structure:**
 
-### Part 1 — Problem & Design (3 minutes)
+### Part 1 - Problem & Design (3 minutes)
 - What organization and scenario did you choose?
 - What is the core network problem your design solves?
 - Show your final topology diagram.
 - What changed between your Week 13 proposal and the final design? Why?
 
-### Part 2 — Live Demonstration (7 minutes)
+### Part 2 - Live Demonstration (7 minutes)
 
 The instructor will watch you demonstrate, live in Packet Tracer:
 
-1. Run the 10 mandatory connectivity tests (or a representative subset — the instructor may choose which to verify live).
+1. Run the 10 mandatory connectivity tests (or a representative subset - the instructor may choose which to verify live).
 2. Show one `show` command output for each major technology:
    - `show ip ospf neighbor` or `show ip eigrp neighbors`
    - `show vlan brief`
@@ -70,7 +70,7 @@ The instructor will watch you demonstrate, live in Packet Tracer:
    - `show access-lists`
 3. The instructor may ask you to make a **live change** (e.g., "add a static route," "block a new host," "delete and restore the DHCP pool") to verify you understand what you built, not just that it works.
 
-### Part 3 — Design Reflection (2 minutes)
+### Part 3 - Design Reflection (2 minutes)
 - What was the hardest technical challenge you faced?
 - What would you do differently with another week?
 - What real-world attack or failure does your design protect against, and how?

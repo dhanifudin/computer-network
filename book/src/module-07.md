@@ -1,8 +1,8 @@
-# Module 7 — Access Control Lists
+# Module 7 - Access Control Lists
 
 ## Why This Matters
 
-In 2020, a ransomware attack on the University Hospital Düsseldorf forced the hospital to redirect emergency patients to other facilities — and one patient died during the delay. The attackers had entered through a remote-access server that had no traffic restrictions: any IP address could connect to port 443 and exploit the vulnerability. An Access Control List (ACL) placed at the right interface would not have stopped a determined attacker indefinitely, but it would have restricted which source addresses could even *reach* the vulnerable service — dramatically shrinking the attack surface. ACLs are the most widely deployed traffic-filtering tool in the world. They are in every corporate router, every ISP core, and every campus network. This module teaches you to write them correctly — because an ACL placed at the wrong interface, or with rules in the wrong order, either blocks legitimate traffic or passes everything it was meant to block.
+In 2020, a ransomware attack on the University Hospital Düsseldorf forced the hospital to redirect emergency patients to other facilities - and one patient died during the delay. The attackers had entered through a remote-access server that had no traffic restrictions: any IP address could connect to port 443 and exploit the vulnerability. An Access Control List (ACL) placed at the right interface would not have stopped a determined attacker indefinitely, but it would have restricted which source addresses could even *reach* the vulnerable service - dramatically shrinking the attack surface. ACLs are the most widely deployed traffic-filtering tool in the world. They are in every corporate router, every ISP core, and every campus network. This module teaches you to write them correctly - because an ACL placed at the wrong interface, or with rules in the wrong order, either blocks legitimate traffic or passes everything it was meant to block.
 
 ## Learning Outcomes
 
@@ -40,7 +40,7 @@ By the end of this lab, students are able to:
 | Part B: Extended ACL | 35 min |
 | Part C: Named ACL & debugging | 25 min |
 
-*Guided Lab activities above run about 90 minutes — the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
+*Guided Lab activities above run about 90 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
 ## Theory Review
 
@@ -73,7 +73,7 @@ Shorthand: `host 192.168.1.10` = `192.168.1.10 0.0.0.0`; `any` = `0.0.0.0 255.25
 
 ### Why ACL Placement Fixes the Security Problem
 
-A standard ACL placed outbound on the router interface *facing the vulnerable server* would drop traffic from unauthorized source IPs before it ever reaches the server — without blocking legitimate hosts on the authorized subnet.
+A standard ACL placed outbound on the router interface *facing the vulnerable server* would drop traffic from unauthorized source IPs before it ever reaches the server - without blocking legitimate hosts on the authorized subnet.
 
 ## Guided Lab
 
@@ -119,7 +119,7 @@ Ensure routing (static or RIP) is configured so all PCs can reach the Server bef
 
 ---
 
-### Part A — Standard ACL: Restrict Server Access by Source
+### Part A - Standard ACL: Restrict Server Access by Source
 
 **Scenario:** Only PC-Admin (192.168.1.10) and the Admin subnet (192.168.1.0/24) should access the Server. Block PC-Remote (192.168.3.x).
 
@@ -134,7 +134,7 @@ R1(config)# access-list 10 deny any
 
 **Step 2.** Apply inbound on R1 Fa0/0 (packets arriving from the WAN toward the server):
 
-> Wait — is this the right interface and direction? Think carefully before applying.
+> Wait - is this the right interface and direction? Think carefully before applying.
 
 **Correct placement:** Apply **outbound on R1 Fa0/1** (the interface facing the Server), or **inbound on R1 Fa0/0** (arriving from R0). Either works, but outbound on Fa0/1 (closer to destination) is most common for standard ACLs.
 
@@ -164,7 +164,7 @@ R1# show access-lists
 
 ---
 
-### Part B — Extended ACL: Block Specific Service
+### Part B - Extended ACL: Block Specific Service
 
 **Scenario:** PC-User (192.168.1.20) should be able to ping the Server (ICMP) but must NOT be able to browse its website (HTTP, port 80).
 
@@ -183,7 +183,7 @@ R1(config)# access-list 110 permit ip any any
 
 > **Order matters:** The specific deny must appear before the general permit. Explain why.
 
-**Step 7.** Apply inbound on R0 Fa0/0 (close to the source — the correct placement for extended ACLs):
+**Step 7.** Apply inbound on R0 Fa0/0 (close to the source - the correct placement for extended ACLs):
 
 ```
 R0(config)# interface FastEthernet 0/0
@@ -192,8 +192,8 @@ R0(config-if)# ip access-group 110 in
 
 **Step 8.** Test both services from PC-User:
 
-- `ping 192.168.2.100` — should **succeed** (ICMP is not blocked)
-- Open Web Browser → `http://192.168.2.100` — should **fail** (HTTP port 80 blocked)
+- `ping 192.168.2.100` - should **succeed** (ICMP is not blocked)
+- Open Web Browser → `http://192.168.2.100` - should **fail** (HTTP port 80 blocked)
 
 📸 Screenshot both results.
 
@@ -201,7 +201,7 @@ R0(config-if)# ip access-group 110 in
 
 ---
 
-### Part C — Named ACL & Debugging
+### Part C - Named ACL & Debugging
 
 **Step 9.** Replace the numbered ACL with a named ACL (more readable and easier to edit):
 
@@ -225,7 +225,7 @@ R0# show ip interface Fa0/0
 
 📸 Screenshot the named ACL output and note which interface it is applied to.
 
-**Step 11.** Deliberate mistake — remove the `permit ip any any` line and retest:
+**Step 11.** Deliberate mistake - remove the `permit ip any any` line and retest:
 
 ```
 R0(config)# ip access-list extended BLOCK_HTTP_PCUSER
@@ -243,7 +243,7 @@ Fix it by adding `permit ip any any` back.
 ## Challenge Tasks
 
 1. Write an ACL that blocks ALL traffic from the 192.168.3.0/24 network except ICMP (pings). Apply it and verify ping works but HTTP and Telnet do not.
-2. Add a second deny rule to your named ACL — but add it **after** the `permit ip any any`. Run `show access-lists` and check the hit counts. Send blocked traffic. Do the counters on your new deny rule increase? Why not? What does this demonstrate about ACL rule ordering?
+2. Add a second deny rule to your named ACL - but add it **after** the `permit ip any any`. Run `show access-lists` and check the hit counts. Send blocked traffic. Do the counters on your new deny rule increase? Why not? What does this demonstrate about ACL rule ordering?
 3. Research the `log` keyword at the end of an ACL statement. Add `log` to one of your deny rules, then send traffic that matches it. What additional output do you see? Where would this log appear in a production environment?
 
 ## Deliverables

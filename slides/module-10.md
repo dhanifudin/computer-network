@@ -8,7 +8,7 @@ footer: 'School of Computer & Applied Mathematics'
 <!-- SLOT 1: Title -->
 <!-- _class: title -->
 
-# Module 10: WAN — PPP & NAT
+# Module 10: WAN - PPP & NAT
 
 <span class="subtitle">Intelligent Network Design (지능형네트워크설계)</span>
 
@@ -47,7 +47,7 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 # Last Time, This Time
 
 - **Module 9 delivered:** isolated broadcast domains across campus switches
-- **It left broken:** connecting to a remote site over a WAN — with authentication, and enough public IPs for everyone — is a different problem entirely
+- **It left broken:** connecting to a remote site over a WAN - with authentication, and enough public IPs for everyone - is a different problem entirely
 
 ---
 
@@ -59,7 +59,7 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 IPv4 has 4.3 billion addresses. In 2011, the last remaining blocks were
 allocated to the world's registries. Today, a new public IPv4 address
-costs real money or a long wait — impossible for every device in an office
+costs real money or a long wait - impossible for every device in an office
 to have its own.
 
 </div>
@@ -74,7 +74,7 @@ to have its own.
 - WAN links without authentication let anyone who taps the line masquerade as the other site
 
 <div class="why">
-<strong>In industry:</strong> NAT/PAT runs on nearly every home router and enterprise edge device in the world — it is the single most-deployed IPv4 workaround in networking history.
+<strong>In industry:</strong> NAT/PAT runs on nearly every home router and enterprise edge device in the world - it is the single most-deployed IPv4 workaround in networking history.
 </div>
 
 ---
@@ -106,7 +106,7 @@ to have its own.
 **PPP (RFC 1661, 1994)** replaced the earlier SLIP protocol, adding
 authentication and error detection that raw serial links lacked. **NAT
 (RFC 1631, 1994)** was proposed the same year as an explicit *stopgap*
-while IPv6 was developed — thirty years later, it's still the primary
+while IPv6 was developed - thirty years later, it's still the primary
 mechanism keeping IPv4 alive.
 
 ---
@@ -145,11 +145,11 @@ passwords in plaintext.
 
 # Guided Lab at a Glance
 
-**Part A** — PPP & CHAP: configure encapsulation and matching credentials; break the password deliberately, observe, then recover
+**Part A** - PPP & CHAP: configure encapsulation and matching credentials; break the password deliberately, observe, then recover
 
-**Part B** — static NAT: map an inside server to a public IP
+**Part B** - static NAT: map an inside server to a public IP
 
-**Part C** — PAT (overload): an entire LAN shares one public IP, verified with port-multiplexed translation entries
+**Part C** - PAT (overload): an entire LAN shares one public IP, verified with port-multiplexed translation entries
 
 ---
 
@@ -158,7 +158,7 @@ passwords in plaintext.
 # Common Mistakes
 
 - **CHAP username mismatch:** the username configured on each router must
-  match the **hostname of the other router**, not its own — a common
+  match the **hostname of the other router**, not its own - a common
   reversal
 - **Forgetting `ip nat inside`/`outside`:** NAT rules exist but do nothing
   until both the inside and outside interfaces are explicitly marked
@@ -188,7 +188,7 @@ passwords in plaintext.
 <div class="limits">
 PAT now lets a whole office share one public IP outward. But a large
 multi-building campus still needs routing that converges faster and
-scales further than RIP or EIGRP — the WAN link works, the campus core
+scales further than RIP or EIGRP - the WAN link works, the campus core
 still doesn't scale.
 </div>
 
@@ -210,7 +210,7 @@ Module 10 leaves **large-scale routing convergence** unsolved. **Module
 - PPP/CHAP secures the link; NAT/PAT solves address scarcity
 - Static NAT is one-to-one; PAT is many-to-one via port multiplexing
 - **Deliverables & assessment:** PPP/CHAP failure-and-recovery, static NAT
-  and PAT translation tables — see the book for the full rubric
+  and PAT translation tables - see the book for the full rubric
 
 ---
 

@@ -6,7 +6,7 @@ should follow it. If a deck and this document disagree, fix the deck.
 
 Each weekly session is 3×50-minute periods (150 min total): the deck fills
 the first ~1 hour (lecture/theory), the book's Guided Lab fills the
-remaining ~2 hours (hands-on practice) — see `book/src/introduction.md`'s
+remaining ~2 hours (hands-on practice) - see `book/src/introduction.md`'s
 "Class Format" section. Size every full-spine deck for roughly an hour;
 17-21 slides at the pace of the existing decks is the target range.
 
@@ -14,12 +14,12 @@ remaining ~2 hours (hands-on practice) — see `book/src/introduction.md`'s
 
 **Motivation always precedes definition.** A student should never meet a term
 before meeting the concrete problem that forced someone to invent it. Every
-module opens with a real-world failure — a heist, an outage, a hospital
-attack — not a formal definition.
+module opens with a real-world failure - a heist, an outage, a hospital
+attack - not a formal definition.
 
 **Modules chain.** The "Limits" slide that closes module N is, almost
 verbatim, the "Pain" slide that opens module N+1. The semester should read as
-one build-up toward a working, secured, routed network — not eleven
+one build-up toward a working, secured, routed network - not eleven
 independent talks.
 
 ## The 17 slots
@@ -39,13 +39,13 @@ deck. Act 3 (Build) expands or contracts to fit the topic.
 
 | # | Slide | Rule |
 |---|---|---|
-| 4 | The pain | Concrete broken scenario — real incident or realistic failure. **Zero jargon.** If a technical term appears here, the slide is wrong |
+| 4 | The pain | Concrete broken scenario - real incident or realistic failure. **Zero jargon.** If a technical term appears here, the slide is wrong |
 | 5 | Cost of not knowing | What breaks downstream (outages, breaches, failed labs) *and* where this bites in industry (interviews, job postings, real incidents) |
 | 6 | Driving question | One sentence the module must answer |
 | 7 | Learning outcomes | 3–5 verbs, each traceable to the module's Learning Outcomes in the book |
 
 **Hard rule:** no formal definition before slot 8. If you need one earlier,
-the pain slide (4) is too abstract — fix it instead of breaking the rule.
+the pain slide (4) is too abstract - fix it instead of breaking the rule.
 
 ### Act 2: GROUND
 
@@ -58,8 +58,8 @@ the pain slide (4) is too abstract — fix it instead of breaking the rule.
 
 | # | Slide | Rule |
 |---|---|---|
-| 10..N-3 | Mechanics | Stepwise, as many slides as the topic needs — configuration patterns, tables, protocol behavior |
-| N-2 | Worked example | The module's guided-lab topology, walked through at a glance — full step-by-step stays in the book |
+| 10..N-3 | Mechanics | Stepwise, as many slides as the topic needs - configuration patterns, tables, protocol behavior |
+| N-2 | Worked example | The module's guided-lab topology, walked through at a glance - full step-by-step stays in the book |
 | N-1 | Common mistakes | Misconfigurations students actually make and why each is tempting |
 | N | Check yourself | 2–3 questions, drawn from the module's Pre-Lab questions; answers on the slide immediately after, never the same slide |
 
@@ -80,4 +80,4 @@ the pain slide (4) is too abstract — fix it instead of breaking the rule.
 - Course logistics (grading, schedule, policies) live in an appendix block in
   the Introduction deck only, outside the spine numbering.
 - Full step-by-step lab instructions, deliverable checklists, and rubrics
-  stay in the book (`book/src/`) — slides summarize, they never duplicate.
+  stay in the book (`book/src/`) - slides summarize, they never duplicate.

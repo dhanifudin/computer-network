@@ -58,7 +58,7 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 <div class="pain">
 
 In 2020, a ransomware attack on a hospital forced the redirect of
-emergency patients — one patient died during the delay. Attackers entered
+emergency patients - one patient died during the delay. Attackers entered
 through a remote-access server with no traffic restrictions: any address
 could connect and exploit it. Routing got them there; nothing stopped them.
 
@@ -70,11 +70,11 @@ could connect and exploit it. Routing got them there; nothing stopped them.
 
 # What This Actually Costs
 
-- Without traffic filtering, "reachable" and "authorized" mean the same thing — which they should never mean
+- Without traffic filtering, "reachable" and "authorized" mean the same thing - which they should never mean
 - One exposed service becomes the entry point for an entire network compromise
 
 <div class="why">
-<strong>In industry:</strong> ACLs are the most widely deployed traffic-filtering tool in the world — in every corporate router, every ISP core, every campus network.
+<strong>In industry:</strong> ACLs are the most widely deployed traffic-filtering tool in the world - in every corporate router, every ISP core, every campus network.
 </div>
 
 ---
@@ -104,7 +104,7 @@ could connect and exploit it. Routing got them there; nothing stopped them.
 # Where This Idea Came From
 
 Access control lists originate from Unix file-permission concepts of the
-1970s, adapted by router vendors in the late 1980s into packet filtering —
+1970s, adapted by router vendors in the late 1980s into packet filtering -
 years before dedicated firewall appliances existed. For most of networking
 history, the router's ACL *was* the firewall.
 
@@ -136,14 +136,14 @@ history, the router's ACL *was* the firewall.
 | `0.0.0.255` | All hosts in a /24 |
 | `255.255.255.255` | All addresses (`any` keyword) |
 
-A wildcard `1` bit means "don't care" — the inverse of a subnet mask.
+A wildcard `1` bit means "don't care" - the inverse of a subnet mask.
 
 ---
 
 # The Implicit Deny Trap
 
 Every ACL ends with an unwritten **implicit deny all**. Removing your
-explicit `permit ip any any` line doesn't remove one rule — it exposes that
+explicit `permit ip any any` line doesn't remove one rule - it exposes that
 implicit deny, and **all** traffic through that interface stops, not just
 the traffic you meant to block.
 
@@ -153,11 +153,11 @@ the traffic you meant to block.
 
 # Guided Lab at a Glance
 
-**Part A** — standard ACL: restrict server access to one subnet, applied outbound closest to destination
+**Part A** - standard ACL: restrict server access to one subnet, applied outbound closest to destination
 
-**Part B** — extended ACL: permit ICMP but block HTTP from one host, applied inbound closest to source
+**Part B** - extended ACL: permit ICMP but block HTTP from one host, applied inbound closest to source
 
-**Part C** — named ACL + debugging: deliberately remove `permit any` and observe everything break
+**Part C** - named ACL + debugging: deliberately remove `permit any` and observe everything break
 
 ---
 
@@ -185,7 +185,7 @@ the traffic you meant to block.
 # Answers
 
 1. `0.0.0.0` (or the `host` keyword) matches one host; `255.255.255.255` (or `any`) matches all
-2. It is dropped — the implicit deny all at the end of every ACL
+2. It is dropped - the implicit deny all at the end of every ACL
 
 ---
 
@@ -195,7 +195,7 @@ the traffic you meant to block.
 
 <div class="limits">
 ACLs filter Layer 3 traffic between subnets. But they can't stop a
-broadcast storm inside one flat Layer 2 network — an ACL never even sees
+broadcast storm inside one flat Layer 2 network - an ACL never even sees
 traffic that never needed to be routed in the first place.
 </div>
 
@@ -205,7 +205,7 @@ traffic that never needed to be routed in the first place.
 
 # Next Module
 
-<!-- Week 8 is the midterm — no deck, no chain link here -->
+<!-- Week 8 is the midterm - no deck, no chain link here -->
 
 Module 7 leaves **Layer 2 broadcast isolation** unsolved. **Module 9**
 (after the Week 8 midterm) addresses it: VLANs.
@@ -216,10 +216,10 @@ Module 7 leaves **Layer 2 broadcast isolation** unsolved. **Module 9**
 
 # Summary
 
-- Filtering is not the same as routing — reachable ≠ authorized
+- Filtering is not the same as routing - reachable ≠ authorized
 - The implicit deny is the most common ACL authoring trap
 - **Deliverables & assessment:** standard + extended + named ACL screenshots
-  with hit counts, implicit-deny explanation — see the book for the full
+  with hit counts, implicit-deny explanation - see the book for the full
   rubric
 
 ---

@@ -59,7 +59,7 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 Every Cisco device leaves the factory the same way: no hostname, no
 passwords, no IP addresses, every interface shut down. The moment it's
-installed in a real network, it becomes a target — attackers actively scan
+installed in a real network, it becomes a target - attackers actively scan
 for unconfigured routers, because default credentials are public knowledge.
 
 </div>
@@ -70,7 +70,7 @@ for unconfigured routers, because default credentials are public knowledge.
 
 # What This Actually Costs
 
-- The 2016 Bangladesh Bank heist — $81 million stolen via SWIFT — began with attackers who had already compromised router-level access
+- The 2016 Bangladesh Bank heist - $81 million stolen via SWIFT - began with attackers who had already compromised router-level access
 - A router with no console password, no enable password, no management restrictions is an open door to everything behind it
 
 <div class="why">
@@ -106,8 +106,8 @@ for unconfigured routers, because default credentials are public knowledge.
 Cisco IOS (1986) was one of the first commercial router operating systems,
 and its earliest versions supported only a plaintext `enable password`.
 Once operators realized that password showed up in cleartext in any
-`show running-config` printout — readable by anyone who could see the
-screen — Cisco added `enable secret`, storing the password as an MD5 hash
+`show running-config` printout - readable by anyone who could see the
+screen - Cisco added `enable secret`, storing the password as an MD5 hash
 instead.
 
 ---
@@ -141,8 +141,8 @@ Router(config)# end  (Ctrl+Z)      → back to Privileged EXEC
 
 Save with: `copy running-config startup-config` (or `wr`)
 
-Anything only in `running-config` — hostname, passwords, interface
-config — is **lost** on reload unless it's saved first.
+Anything only in `running-config` - hostname, passwords, interface
+config - is **lost** on reload unless it's saved first.
 
 ---
 
@@ -150,13 +150,13 @@ config — is **lost** on reload unless it's saved first.
 
 # Guided Lab at a Glance
 
-**Part A** — physical UTP crimping (if hardware available) *or* subnetting
+**Part A** - physical UTP crimping (if hardware available) *or* subnetting
 review drills
 
-**Part B** — IOS mode navigation: observe the prompt change through all
+**Part B** - IOS mode navigation: observe the prompt change through all
 four modes
 
-**Part C** — basic router hardening: hostname, MOTD banner, console
+**Part C** - basic router hardening: hostname, MOTD banner, console
 password, VTY password, `enable secret`, save config, `reload` and observe
 
 ---
@@ -166,7 +166,7 @@ password, VTY password, `enable secret`, save config, `reload` and observe
 # Common Mistakes
 
 - **Using `enable password` instead of `enable secret`:** the former stores
-  the password in cleartext in the config file — always use `enable secret`
+  the password in cleartext in the config file - always use `enable secret`
 - **Forgetting to save before `reload`:** every hardening command you just
   typed lives only in `running-config` until `copy running-config
   startup-config` runs
@@ -185,7 +185,7 @@ password, VTY password, `enable secret`, save config, `reload` and observe
 # Answers
 
 1. `enable password` stores the password in cleartext; `enable secret` stores an MD5 hash. Always use `enable secret`
-2. They are lost — `running-config` lives in volatile RAM and is not preserved across a power loss or reload
+2. They are lost - `running-config` lives in volatile RAM and is not preserved across a power loss or reload
 
 ---
 
@@ -214,10 +214,10 @@ Module 3 leaves you **unable to read the router's live internal state**.
 
 # Summary
 
-- Factory-default devices are insecure by design — hardening is step one
-- `running-config` (RAM) vs `startup-config` (NVRAM) — save or lose it
+- Factory-default devices are insecure by design - hardening is step one
+- `running-config` (RAM) vs `startup-config` (NVRAM) - save or lose it
 - **Deliverables & assessment:** all four IOS prompts, hardening commands
-  applied, encrypted `enable secret` visible in running-config — see the
+  applied, encrypted `enable secret` visible in running-config - see the
   book for the full rubric
 
 ---

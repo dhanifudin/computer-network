@@ -59,7 +59,7 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 A university manages 3,000 laptops across 50 classrooms. Without
 automatic addressing, every laptop in every new room needs its IP, mask,
-gateway, and DNS entered by hand — 300 manual setups before a single
+gateway, and DNS entered by hand - 300 manual setups before a single
 300-seat exam hall can go online.
 
 </div>
@@ -74,7 +74,7 @@ gateway, and DNS entered by hand — 300 manual setups before a single
 - A rogue DHCP server can hand out malicious gateway/DNS settings, redirecting all traffic through an attacker
 
 <div class="why">
-<strong>In industry:</strong> DHCP is running on essentially every corporate, campus, and home network in the world — and DHCP Snooping (detecting rogue servers) is standard switch security configuration.
+<strong>In industry:</strong> DHCP is running on essentially every corporate, campus, and home network in the world - and DHCP Snooping (detecting rogue servers) is standard switch security configuration.
 </div>
 
 ---
@@ -93,7 +93,7 @@ gateway, and DNS entered by hand — 300 manual setups before a single
 # By the End of This Module, You Can
 
 1. Explain the DHCP DORA process
-2. Configure a router as a DHCP server — pools, exclusions, lease, DNS
+2. Configure a router as a DHCP server - pools, exclusions, lease, DNS
 3. Configure a DHCP relay agent (`ip helper-address`)
 4. Troubleshoot with `ipconfig /release` and `/renew`
 
@@ -105,7 +105,7 @@ gateway, and DNS entered by hand — 300 manual setups before a single
 
 **DHCP (RFC 1531, 1993, R. Droms)** was built to replace **BOOTP**, whose
 static IP-to-MAC mapping table required a human to update it for every new
-device. DHCP added automatic, time-limited **leases** — the same
+device. DHCP added automatic, time-limited **leases** - the same
 foundational idea BOOTP never had.
 
 ---
@@ -138,7 +138,7 @@ ip dhcp pool <name>
  dns-server <DNS-IP>
 ```
 
-**DHCP relay** — since Discover is a broadcast and routers don't forward
+**DHCP relay** - since Discover is a broadcast and routers don't forward
 broadcasts between subnets, a relay converts it to unicast toward the
 server: `ip helper-address <DHCP-server-IP>`, applied on the **client-facing**
 interface.
@@ -149,11 +149,11 @@ interface.
 
 # Guided Lab at a Glance
 
-**Part A** — configure a router as a DHCP server; verify pool/binding/statistics
+**Part A** - configure a router as a DHCP server; verify pool/binding/statistics
 
-**Part B** — client verification: `ipconfig /all`, release/renew, observe DORA live
+**Part B** - client verification: `ipconfig /all`, release/renew, observe DORA live
 
-**Part C** — DHCP relay: DHCP fails across a router without a relay, succeeds once `ip helper-address` is configured
+**Part C** - DHCP relay: DHCP fails across a router without a relay, succeeds once `ip helper-address` is configured
 
 ---
 
@@ -190,7 +190,7 @@ interface.
 
 <div class="limits">
 DHCP now automates addressing for thousands of devices. But every
-topology this semester has been two to five routers — the real test is
+topology this semester has been two to five routers - the real test is
 whether you can design, build, and defend a network at realistic scale,
 end to end, on your own.
 </div>
@@ -201,7 +201,7 @@ end to end, on your own.
 
 # Next: The Capstone
 
-Module 12 completes the toolkit — diagnostics, config, routing (static and
+Module 12 completes the toolkit - diagnostics, config, routing (static and
 dynamic), filtering, segmentation, WAN, and addressing. **Weeks 13–14**
 address the real gap: designing and defending a complete network of your
 own, at realistic scale.
@@ -215,7 +215,7 @@ own, at realistic scale.
 - DORA automates in milliseconds what used to take a person by hand
 - Relay agents extend one DHCP server across every subnet in a campus
 - **Deliverables & assessment:** DHCP pool + binding table, DORA event
-  capture, relay before/after — see the book for the full rubric
+  capture, relay before/after - see the book for the full rubric
 
 ---
 
