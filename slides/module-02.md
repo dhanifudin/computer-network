@@ -42,18 +42,12 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 ---
 
-<!-- SLOT 3: Recap + open wound -->
-
-# Last Time, This Time
-
-- **Module 1 delivered:** diagnostic commands and a working 2-PC LAN
-- **It left broken:** you still don't know what happens to a packet's headers as it crosses a switch and a router
-
----
-
-<!-- SLOT 4: The pain -->
+<!-- SLOT 3+4: Recap and the pain -->
+<!-- _class: callout -->
 
 # "The Network Is Down" - But Where?
+
+<span class="thread">Last time: you still don't know what happens to a packet's headers as it crosses a switch and a router.</span>
 
 <div class="pain">
 
@@ -67,6 +61,7 @@ systematic way to check, "down" is just a guess.
 ---
 
 <!-- SLOT 5: Cost of not knowing -->
+<!-- _class: callout -->
 
 # What This Actually Costs
 
@@ -196,7 +191,8 @@ cross-router pings intentionally fail - routing comes in Module 3)
 
 ---
 
-<!-- SLOT N+1: Limits -->
+<!-- SLOT N+1+N+2: Limits and bridge -->
+<!-- _class: callout -->
 
 # What Layer-by-Layer Tracing Cannot Do
 
@@ -206,14 +202,7 @@ topology has no hostname, no password, nothing configured - anyone with
 access to it could type <code>enable</code> and change anything.
 </div>
 
----
-
-<!-- SLOT N+2: Bridge -->
-
-# Next Module
-
-Module 2 leaves **an unsecured, unconfigured router** in your topology.
-**Module 3** addresses it: IOS mode navigation and basic hardening.
+<span class="thread">Next: Module 3 addresses the unsecured router - IOS mode navigation and basic hardening.</span>
 
 ---
 
@@ -234,4 +223,4 @@ Module 2 leaves **an unsecured, unconfigured router** in your topology.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-02.html">Open Module 2 in the Book →</a></div>
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-02.html">Open Module 2 in the Book</a></div>

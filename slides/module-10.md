@@ -42,18 +42,12 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 ---
 
-<!-- SLOT 3: Recap + open wound -->
-
-# Last Time, This Time
-
-- **Module 9 delivered:** isolated broadcast domains across campus switches
-- **It left broken:** connecting to a remote site over a WAN - with authentication, and enough public IPs for everyone - is a different problem entirely
-
----
-
-<!-- SLOT 4: The pain -->
+<!-- SLOT 3+4: Recap and the pain -->
+<!-- _class: callout -->
 
 # The Internet Ran Out of Addresses
+
+<span class="thread">Last time: connecting to a remote site over a WAN - with authentication, and enough public IPs for everyone - is a different problem entirely.</span>
 
 <div class="pain">
 
@@ -67,6 +61,7 @@ to have its own.
 ---
 
 <!-- SLOT 5: Cost of not knowing -->
+<!-- _class: callout -->
 
 # What This Actually Costs
 
@@ -181,7 +176,8 @@ passwords in plaintext.
 
 ---
 
-<!-- SLOT N+1: Limits -->
+<!-- SLOT N+1+N+2: Limits and bridge -->
+<!-- _class: callout -->
 
 # What PPP & NAT Cannot Do
 
@@ -192,14 +188,7 @@ scales further than RIP or EIGRP - the WAN link works, the campus core
 still doesn't scale.
 </div>
 
----
-
-<!-- SLOT N+2: Bridge -->
-
-# Next Module
-
-Module 10 leaves **large-scale routing convergence** unsolved. **Module
-11** addresses it: OSPF.
+<span class="thread">Next: Module 11 addresses large-scale routing convergence - OSPF.</span>
 
 ---
 
@@ -219,4 +208,4 @@ Module 10 leaves **large-scale routing convergence** unsolved. **Module
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-10.html">Open Module 10 in the Book →</a></div>
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-10.html">Open Module 10 in the Book</a></div>

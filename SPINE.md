@@ -33,14 +33,14 @@ deck. Act 3 (Build) expands or contracts to fit the topic.
 |---|---|---|
 | 1 | Title | Module #, topic, course name, instructor, department |
 | 2 | Where we are | Shared roadmap graphic (`slides/_shared/roadmap.md`), current module highlighted |
-| 3 | Recap + open wound | One sentence on what last module delivered, one sentence on what it left broken |
+| 3 | Recap + open wound | One sentence on what last module delivered, one sentence on what it left broken. Renders as a `.thread` line on the same physical slide as slot 4, not its own slide |
 
 ### Act 1: MOTIVATE
 
 | # | Slide | Rule |
 |---|---|---|
-| 4 | The pain | Concrete broken scenario - real incident or realistic failure. **Zero jargon.** If a technical term appears here, the slide is wrong |
-| 5 | Cost of not knowing | What breaks downstream (outages, breaches, failed labs) *and* where this bites in industry (interviews, job postings, real incidents) |
+| 4 | The pain | Concrete broken scenario - real incident or realistic failure. **Zero jargon.** If a technical term appears here, the slide is wrong. Physically one slide with slot 3 (`_class: callout`, vertically centered - see Enforcement) |
+| 5 | Cost of not knowing | What breaks downstream (outages, breaches, failed labs) *and* where this bites in industry (interviews, job postings, real incidents). Its own slide, `_class: callout` |
 | 6 | Driving question | One sentence the module must answer |
 | 7 | Learning outcomes | 3–5 verbs, each traceable to the module's Learning Outcomes in the book |
 
@@ -68,7 +68,7 @@ the pain slide (4) is too abstract - fix it instead of breaking the rule.
 | # | Slide | Rule |
 |---|---|---|
 | N+1 | Limits | What this module's technique cannot do. **This text becomes next module's slot 4** |
-| N+2 | Bridge | "Module N leaves X unsolved → Module N+1 addresses it." Explicit, one sentence |
+| N+2 | Bridge | "Module N leaves X unsolved; Module N+1 addresses it." Explicit, one sentence. Physically one slide with slot N+1 (`_class: callout`) - the bridge sentence renders as a `.thread` line under the limits box |
 | N+3 | Summary | Deliverables + assessment weight, condensed from the book |
 | N+4 | Thank You | Template end slide, link back to the book chapter |
 
@@ -81,3 +81,13 @@ the pain slide (4) is too abstract - fix it instead of breaking the rule.
   the Introduction deck only, outside the spine numbering.
 - Full step-by-step lab instructions, deliverable checklists, and rubrics
   stay in the book (`book/src/`) - slides summarize, they never duplicate.
+- `_class: callout` (`themes/hankyong.css`): vertically centers a slide that
+  holds only an H1 and one short pain/why/limits box, so it doesn't render
+  with dead space in the lower half. Mark it on slots 3+4, 5, and N+1+N+2.
+  Don't use it on content-heavy slides (tables, multi-item lists) - those
+  read better top-aligned.
+- No decorative arrows (`→`, `->`) in slide or chain-document prose. Use
+  plain connectors ("to", "leads to", a semicolon) instead. Mermaid diagram
+  syntax and UI click-path breadcrumbs in the book are exempt - that's
+  required rendering code and standard technical-writing convention, not
+  decoration.

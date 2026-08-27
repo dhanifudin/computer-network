@@ -42,18 +42,12 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 ---
 
-<!-- SLOT 3: Recap + open wound -->
-
-# Last Time, This Time
-
-- **Module 3 delivered:** a hardened, password-protected router
-- **It left broken:** you still can't read what's actually happening inside it when something goes wrong
-
----
-
-<!-- SLOT 4: The pain -->
+<!-- SLOT 3+4: Recap and the pain -->
+<!-- _class: callout -->
 
 # The Midnight Call
+
+<span class="thread">Last time: you still can't read what's actually happening inside the router when something goes wrong.</span>
 
 <div class="pain">
 
@@ -67,6 +61,7 @@ see inside the device, right now, without guessing.
 ---
 
 <!-- SLOT 5: Cost of not knowing -->
+<!-- _class: callout -->
 
 # What This Actually Costs
 
@@ -196,7 +191,8 @@ decrements TTL to 0 replies "Time Exceeded," revealing the path hop by hop.
 
 ---
 
-<!-- SLOT N+1: Limits -->
+<!-- SLOT N+1+N+2: Limits and bridge -->
+<!-- _class: callout -->
 
 # What `show` Commands Cannot Do
 
@@ -206,14 +202,7 @@ can't reach each other, because nobody has told either router how to get
 traffic to the other's network.
 </div>
 
----
-
-<!-- SLOT N+2: Bridge -->
-
-# Next Module
-
-Module 4 leaves **inter-site connectivity** unsolved. **Module 5** addresses
-it: static routing.
+<span class="thread">Next: Module 5 addresses inter-site connectivity - static routing.</span>
 
 ---
 
@@ -234,4 +223,4 @@ it: static routing.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-04.html">Open Module 4 in the Book →</a></div>
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-04.html">Open Module 4 in the Book</a></div>

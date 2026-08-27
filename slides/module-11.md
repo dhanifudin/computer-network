@@ -42,18 +42,12 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 ---
 
-<!-- SLOT 3: Recap + open wound -->
-
-# Last Time, This Time
-
-- **Module 10 delivered:** authenticated WAN links and address-shared internet access
-- **It left broken:** a large multi-building campus still needs routing that converges faster and scales further than RIP or EIGRP
-
----
-
-<!-- SLOT 4: The pain -->
+<!-- SLOT 3+4: Recap and the pain -->
+<!-- _class: callout -->
 
 # Two Minutes of Black-Holed Traffic
+
+<span class="thread">Last time: a large multi-building campus still needs routing that converges faster and scales further than RIP or EIGRP.</span>
 
 <div class="pain">
 
@@ -67,6 +61,7 @@ of routers, that's not a rare event; it's a daily one.
 ---
 
 <!-- SLOT 5: Cost of not knowing -->
+<!-- _class: callout -->
 
 # What This Actually Costs
 
@@ -185,7 +180,8 @@ still *advertise* the network; they just don't Hello on that port.
 
 ---
 
-<!-- SLOT N+1: Limits -->
+<!-- SLOT N+1+N+2: Limits and bridge -->
+<!-- _class: callout -->
 
 # What OSPF Cannot Do
 
@@ -195,14 +191,7 @@ have an IP address, a gateway, or a DNS server configured - until someone
 sets each one up by hand.
 </div>
 
----
-
-<!-- SLOT N+2: Bridge -->
-
-# Next Module
-
-Module 11 leaves **address assignment at scale** unsolved. **Module 12**
-addresses it: DHCP.
+<span class="thread">Next: Module 12 addresses address assignment at scale - DHCP.</span>
 
 ---
 
@@ -223,4 +212,4 @@ addresses it: DHCP.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-11.html">Open Module 11 in the Book →</a></div>
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-11.html">Open Module 11 in the Book</a></div>

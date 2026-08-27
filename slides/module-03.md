@@ -42,18 +42,12 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 ---
 
-<!-- SLOT 3: Recap + open wound -->
-
-# Last Time, This Time
-
-- **Module 2 delivered:** the ability to trace a packet through every layer
-- **It left broken:** the router in your topology has no hostname, no password, nothing configured
-
----
-
-<!-- SLOT 4: The pain -->
+<!-- SLOT 3+4: Recap and the pain -->
+<!-- _class: callout -->
 
 # An Open Door
+
+<span class="thread">Last time: the router in your topology has no hostname, no password, nothing configured.</span>
 
 <div class="pain">
 
@@ -67,6 +61,7 @@ for unconfigured routers, because default credentials are public knowledge.
 ---
 
 <!-- SLOT 5: Cost of not knowing -->
+<!-- _class: callout -->
 
 # What This Actually Costs
 
@@ -189,7 +184,8 @@ password, VTY password, `enable secret`, save config, `reload` and observe
 
 ---
 
-<!-- SLOT N+1: Limits -->
+<!-- SLOT N+1+N+2: Limits and bridge -->
+<!-- _class: callout -->
 
 # What Basic Hardening Cannot Do
 
@@ -199,14 +195,7 @@ know the vocabulary of <code>show</code> commands needed to diagnose what's
 actually happening inside it when something goes wrong.
 </div>
 
----
-
-<!-- SLOT N+2: Bridge -->
-
-# Next Module
-
-Module 3 leaves you **unable to read the router's live internal state**.
-**Module 4** addresses it: the `show` command toolkit.
+<span class="thread">Next: Module 4 addresses it - the `show` command toolkit.</span>
 
 ---
 
@@ -227,4 +216,4 @@ Module 3 leaves you **unable to read the router's live internal state**.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-03.html">Open Module 3 in the Book →</a></div>
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-03.html">Open Module 3 in the Book</a></div>

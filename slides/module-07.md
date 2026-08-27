@@ -42,18 +42,12 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 ---
 
-<!-- SLOT 3: Recap + open wound -->
-
-# Last Time, This Time
-
-- **Module 6 delivered:** routes that reroute themselves automatically around failures
-- **It left broken:** nothing stops an unauthorized source from reaching a vulnerable service in the first place
-
----
-
-<!-- SLOT 4: The pain -->
+<!-- SLOT 3+4: Recap and the pain -->
+<!-- _class: callout -->
 
 # One Open Port, One Death
+
+<span class="thread">Last time: nothing stops an unauthorized source from reaching a vulnerable service in the first place.</span>
 
 <div class="pain">
 
@@ -67,6 +61,7 @@ could connect and exploit it. Routing got them there; nothing stopped them.
 ---
 
 <!-- SLOT 5: Cost of not knowing -->
+<!-- _class: callout -->
 
 # What This Actually Costs
 
@@ -189,7 +184,9 @@ the traffic you meant to block.
 
 ---
 
-<!-- SLOT N+1: Limits -->
+<!-- SLOT N+1+N+2: Limits and bridge -->
+<!-- _class: callout -->
+<!-- Week 8 is the midterm - no deck, no chain link before Module 9 -->
 
 # What ACLs Cannot Do
 
@@ -199,16 +196,7 @@ broadcast storm inside one flat Layer 2 network - an ACL never even sees
 traffic that never needed to be routed in the first place.
 </div>
 
----
-
-<!-- SLOT N+2: Bridge -->
-
-# Next Module
-
-<!-- Week 8 is the midterm - no deck, no chain link here -->
-
-Module 7 leaves **Layer 2 broadcast isolation** unsolved. **Module 9**
-(after the Week 8 midterm) addresses it: VLANs.
+<span class="thread">Next: Module 9 (after the Week 8 midterm) addresses Layer 2 broadcast isolation - VLANs.</span>
 
 ---
 
@@ -229,4 +217,4 @@ Module 7 leaves **Layer 2 broadcast isolation** unsolved. **Module 9**
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-07.html">Open Module 7 in the Book →</a></div>
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-07.html">Open Module 7 in the Book</a></div>

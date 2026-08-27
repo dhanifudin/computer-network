@@ -6,14 +6,14 @@ Deployed via GitHub Pages, see `.github/workflows/deploy.yml`.
 
 Read `SPINE.md` first: it defines the pedagogical structure every lecture
 deck follows (motivation before definition, modules chained via a
-Limits → Pain handoff). `OUTLINE.md` has the full 15-week plan and chain
+Limits-to-Pain handoff). `OUTLINE.md` has the full 15-week plan and chain
 table.
 
 ## Layout
 
 ```
 SPINE.md                  standard lecture structure, read this first
-OUTLINE.md                 15-week plan + Limits -> Pain chain
+OUTLINE.md                 15-week plan + Limits-to-Pain chain
 themes/hankyong.css        Marp theme, HKNU colors
 assets/hankyong-*.png      university logo (color + white variants)
 book/                      mdBook lab manual - full guided labs, rubrics
@@ -71,7 +71,7 @@ npm run build:pptx    # -> dist/slides/*.pptx
 
 ## Adding a new module deck
 
-1. Copy `slides/_template/module-XX.md` → `slides/moduleNN-topic.md`, fill
+1. Copy `slides/_template/module-XX.md` to `slides/moduleNN-topic.md`, fill
    in all 17 spine slots (see `SPINE.md`).
 2. Paste the roadmap `<div>` from `slides/_shared/roadmap.md` into slot 2,
    mark the new current module's `.wk` div `class="wk now"`.

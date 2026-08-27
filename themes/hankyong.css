@@ -289,6 +289,15 @@ section.title .meta {
   color: var(--deep);
 }
 
+/* Callout slide: H1 + one short pain/why/limits box and nothing else -
+   vertically center so it doesn't sit pinned to the top with dead space
+   below (same technique as section.section). */
+section.callout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* Section / driving-question divider */
 section.section {
   background: linear-gradient(135deg, var(--navy), var(--brand));

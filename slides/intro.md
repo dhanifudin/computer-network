@@ -110,4 +110,4 @@ Lab reports (실습결과보고서) due on the LMS within one week of each sessi
 
 # Let's Begin
 
-<div class="meta">Module 1 - Orientation & Lab Environment.<br>Full lab manual: <a href="../book/introduction.html">Open the Book →</a></div>
+<div class="meta">Module 1 - Orientation & Lab Environment.<br>Full lab manual: <a href="../book/introduction.html">Open the Book</a></div>

@@ -42,18 +42,12 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 ---
 
-<!-- SLOT 3: Recap + open wound -->
-
-# Last Time, This Time
-
-- **Module 11 delivered:** routes to every subnet in seconds, at any scale
-- **It left broken:** none of those devices have an IP address until someone configures each one by hand
-
----
-
-<!-- SLOT 4: The pain -->
+<!-- SLOT 3+4: Recap and the pain -->
+<!-- _class: callout -->
 
 # 300 Manual Configurations Before Class Starts
+
+<span class="thread">Last time: none of those devices have an IP address until someone configures each one by hand.</span>
 
 <div class="pain">
 
@@ -67,6 +61,7 @@ gateway, and DNS entered by hand - 300 manual setups before a single
 ---
 
 <!-- SLOT 5: Cost of not knowing -->
+<!-- _class: callout -->
 
 # What This Actually Costs
 
@@ -184,7 +179,8 @@ interface.
 
 ---
 
-<!-- SLOT N+1: Limits -->
+<!-- SLOT N+1+N+2: Limits and bridge -->
+<!-- _class: callout -->
 
 # What DHCP Cannot Do
 
@@ -195,16 +191,7 @@ whether you can design, build, and defend a network at realistic scale,
 end to end, on your own.
 </div>
 
----
-
-<!-- SLOT N+2: Bridge -->
-
-# Next: The Capstone
-
-Module 12 completes the toolkit - diagnostics, config, routing (static and
-dynamic), filtering, segmentation, WAN, and addressing. **Weeks 13–14**
-address the real gap: designing and defending a complete network of your
-own, at realistic scale.
+<span class="thread">Next: Weeks 13-14, the capstone - designing and defending a complete network of your own, at realistic scale.</span>
 
 ---
 
@@ -224,4 +211,4 @@ own, at realistic scale.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-12.html">Open Module 12 in the Book →</a></div>
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-12.html">Open Module 12 in the Book</a></div>

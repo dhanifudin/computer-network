@@ -42,18 +42,12 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 ---
 
-<!-- SLOT 3: Recap + open wound -->
-
-# Last Time, This Time
-
-- **Before the midterm:** you could filter Layer 3 traffic between subnets with ACLs
-- **It left broken:** ACLs never see traffic that never needed to be routed - a flat Layer 2 network has no isolation at all
-
----
-
-<!-- SLOT 4: The pain -->
+<!-- SLOT 3+4: Recap and the pain -->
+<!-- _class: callout -->
 
 # One Bad Program, One Dead Floor
+
+<span class="thread">Before the midterm: ACLs never see traffic that never needed to be routed - a flat Layer 2 network has no isolation at all.</span>
 
 <div class="pain">
 
@@ -67,6 +61,7 @@ cycles left for anything else. The entire floor stops responding.
 ---
 
 <!-- SLOT 5: Cost of not knowing -->
+<!-- _class: callout -->
 
 # What This Actually Costs
 
@@ -192,7 +187,8 @@ routes, and re-tags for the destination VLAN.
 
 ---
 
-<!-- SLOT N+1: Limits -->
+<!-- SLOT N+1+N+2: Limits and bridge -->
+<!-- _class: callout -->
 
 # What VLANs Cannot Do
 
@@ -203,14 +199,7 @@ enough public IP addresses for everyone - is a completely different
 problem.
 </div>
 
----
-
-<!-- SLOT N+2: Bridge -->
-
-# Next Module
-
-Module 9 leaves **inter-site WAN connectivity** unsolved. **Module 10**
-addresses it: PPP and NAT.
+<span class="thread">Next: Module 10 addresses inter-site WAN connectivity - PPP and NAT.</span>
 
 ---
 
@@ -230,4 +219,4 @@ addresses it: PPP and NAT.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-09.html">Open Module 9 in the Book →</a></div>
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-09.html">Open Module 9 in the Book</a></div>

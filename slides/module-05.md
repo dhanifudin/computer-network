@@ -42,18 +42,12 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 ---
 
-<!-- SLOT 3: Recap + open wound -->
-
-# Last Time, This Time
-
-- **Module 4 delivered:** the ability to read a router's live state perfectly
-- **It left broken:** two sites still can't reach each other, because nobody has told either router how
-
----
-
-<!-- SLOT 4: The pain -->
+<!-- SLOT 3+4: Recap and the pain -->
+<!-- _class: callout -->
 
 # Seoul Can't Reach Busan
+
+<span class="thread">Last time: two sites still can't reach each other, because nobody has told either router how.</span>
 
 <div class="pain">
 
@@ -67,6 +61,7 @@ physically connected - the router just doesn't know to use it.
 ---
 
 <!-- SLOT 5: Cost of not knowing -->
+<!-- _class: callout -->
 
 # What This Actually Costs
 
@@ -197,7 +192,8 @@ This heuristic saves real diagnostic time in the field.
 
 ---
 
-<!-- SLOT N+1: Limits -->
+<!-- SLOT N+1+N+2: Limits and bridge -->
+<!-- _class: callout -->
 
 # What Static Routing Cannot Do
 
@@ -207,14 +203,7 @@ of buildings can't be hand-updated the moment a link fails at 3 AM - every
 affected site stays isolated until someone notices and logs in manually.
 </div>
 
----
-
-<!-- SLOT N+2: Bridge -->
-
-# Next Module
-
-Module 5 leaves **routing at scale** unsolved. **Module 6** addresses it:
-dynamic routing protocols that update automatically.
+<span class="thread">Next: Module 6 addresses routing at scale - dynamic routing protocols that update automatically.</span>
 
 ---
 
@@ -235,4 +224,4 @@ dynamic routing protocols that update automatically.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-05.html">Open Module 5 in the Book →</a></div>
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-05.html">Open Module 5 in the Book</a></div>

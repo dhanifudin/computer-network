@@ -33,39 +33,39 @@ Format" section for the full breakdown.
 | 14 | Project Results Presentations | - | Student presentation day |
 | 15 | Final Exam (Wk 1–14) | - | Practical + written, no deck |
 
-## Chain (Limits → Pain), see SPINE.md for full text
+## Chain (Limits to Pain), see SPINE.md for full text
 
 1. **Orientation** - you can read a live host's diagnostic state and build a
    2-PC LAN, but you don't yet know what happens to a packet moving through
-   OSI layers on a switch/router path → **W2**
+   OSI layers on a switch/router path. Continues in **W2**.
 2. **Network Review 1** - you can trace a packet layer by layer, but the router in
-   your topology has no hostname, no password, nothing configured → **W3**
+   your topology has no hostname, no password, nothing configured. Continues in **W3**.
 3. **Basic Config** - the router is hardened, but you don't yet know the
-   vocabulary of `show` commands to diagnose it at 3 AM → **W4**
+   vocabulary of `show` commands to diagnose it at 3 AM. Continues in **W4**.
 4. **IOS Management** - you can read a router's live state perfectly, but two
-   sites still can't reach each other because nobody told the router how
-   → **W5**
+   sites still can't reach each other because nobody told the router how.
+   Continues in **W5**.
 5. **Static Routing** - static routes connect two or three sites, but a
    network with dozens of buildings can't be hand-updated the moment a link
-   dies at 3 AM → **W6**
+   dies at 3 AM. Continues in **W6**.
 6. **Dynamic Routing** - RIP/EIGRP find alternate paths automatically, but
    nothing stops an unauthorized source from reaching a vulnerable service in
-   the first place → **W7**
+   the first place. Continues in **W7**.
 7. **ACLs** - ACLs filter Layer 3 traffic between subnets, but they can't
-   stop a broadcast storm inside one flat Layer 2 network → **W9**
+   stop a broadcast storm inside one flat Layer 2 network. Continues in **W9**.
    *(Week 8 midterm: no chain link)*
 8. **VLANs** - VLANs isolate broadcast domains across campus switches, but
    connecting to a remote site over a WAN - with authentication, and enough
-   public IPs for everyone - is a different problem → **W10**
+   public IPs for everyone - is a different problem. Continues in **W10**.
 9. **WAN: PPP & NAT** - PAT lets a whole office share one public IP outward,
    but a large multi-building campus still needs routing that converges
-   faster and scales further than RIP/EIGRP → **W11**
+   faster and scales further than RIP/EIGRP. Continues in **W11**.
 10. **OSPF** - OSPF gets routes to every subnet in seconds, but none of those
-    devices have an IP address until someone configures each one by hand
-    → **W12**
+    devices have an IP address until someone configures each one by hand.
+    Continues in **W12**.
 11. **DHCP** - DHCP automates addressing for thousands of devices, but this
     course has only shown small topologies - the capstone project must
-    design and defend a network at realistic scale → **W13–14**
+    design and defend a network at realistic scale. Continues in **W13-14**.
 
 ## Running case study
 

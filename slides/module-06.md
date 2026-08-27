@@ -42,18 +42,12 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 ---
 
-<!-- SLOT 3: Recap + open wound -->
-
-# Last Time, This Time
-
-- **Module 5 delivered:** working static routes between two or three sites
-- **It left broken:** a link failure at 3 AM still requires a human to log in and fix every affected router by hand
-
----
-
-<!-- SLOT 4: The pain -->
+<!-- SLOT 3+4: Recap and the pain -->
+<!-- _class: callout -->
 
 # One Misconfiguration, Global Outage
+
+<span class="thread">Last time: a link failure at 3 AM still requires a human to log in and fix every affected router by hand.</span>
 
 <div class="pain">
 
@@ -68,6 +62,7 @@ Instagram, WhatsApp, and Oculus worldwide for six hours.
 ---
 
 <!-- SLOT 5: Cost of not knowing -->
+<!-- _class: callout -->
 
 # What This Actually Costs
 
@@ -199,7 +194,8 @@ a dead route.
 
 ---
 
-<!-- SLOT N+1: Limits -->
+<!-- SLOT N+1+N+2: Limits and bridge -->
+<!-- _class: callout -->
 
 # What Dynamic Routing Cannot Do
 
@@ -210,14 +206,7 @@ service in the first place - routing gets a packet somewhere; it doesn't
 ask whether it should.
 </div>
 
----
-
-<!-- SLOT N+2: Bridge -->
-
-# Next Module
-
-Module 6 leaves **traffic filtering** unaddressed. **Module 7** addresses
-it: Access Control Lists.
+<span class="thread">Next: Module 7 addresses traffic filtering - Access Control Lists.</span>
 
 ---
 
@@ -237,4 +226,4 @@ it: Access Control Lists.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-06.html">Open Module 6 in the Book →</a></div>
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-06.html">Open Module 6 in the Book</a></div>

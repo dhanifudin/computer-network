@@ -26,18 +26,12 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 ---
 
-<!-- SLOT 3: Recap + open wound (Act 0 / LOCATE) -->
-
-# Last Module, This Module
-
-- **Last module delivered:** <one sentence>
-- **Last module left broken:** <one sentence, this IS this module's pain, restated>
-
----
-
-<!-- SLOT 4: The pain (Act 1 / MOTIVATE), ZERO jargon -->
+<!-- SLOT 3+4: Recap and the pain (Act 0 LOCATE + Act 1 MOTIVATE), ZERO jargon -->
+<!-- _class: callout -->
 
 # <Concrete broken scenario>
+
+<span class="thread">Last time: <one sentence, what last module left broken - this IS this module's pain, restated></span>
 
 <div class="pain">
 
@@ -49,6 +43,7 @@ plain language. No technical terms yet.>
 ---
 
 <!-- SLOT 5: Cost of not knowing (Act 1 / MOTIVATE) -->
+<!-- _class: callout -->
 
 # What This Actually Costs
 
@@ -142,7 +137,8 @@ stays in the book - link to it on the closing slide.>
 
 ---
 
-<!-- SLOT N+1: Limits (Act 4 / CLOSE), becomes next module's slot 4 -->
+<!-- SLOT N+1+N+2: Limits and bridge (Act 4 / CLOSE), becomes next module's slot 3+4 -->
+<!-- _class: callout -->
 
 # What <This Module's Technique> Cannot Do
 
@@ -150,13 +146,7 @@ stays in the book - link to it on the closing slide.>
 <the gap this module's technique leaves open>
 </div>
 
----
-
-<!-- SLOT N+2: Bridge (Act 4 / CLOSE) -->
-
-# Next Module
-
-Module XX leaves **<gap>** unsolved. **Module XX+1** addresses it: <next topic>.
+<span class="thread">Next: Module XX+1 addresses <gap> - <next topic>.</span>
 
 ---
 
@@ -175,4 +165,4 @@ Module XX leaves **<gap>** unsolved. **Module XX+1** addresses it: <next topic>.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-XX.html">Open in the Book →</a></div>
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-XX.html">Open in the Book</a></div>

@@ -42,18 +42,12 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 ---
 
-<!-- SLOT 3: Recap + open wound -->
-
-# Last Time, This Time
-
-- **Course intro delivered:** the 15-week map and the tools you'll use all semester
-- **It left open:** you know the theory of packets, but not how to interrogate a *live* system when it breaks
-
----
-
-<!-- SLOT 4: The pain -->
+<!-- SLOT 3+4: Recap and the pain -->
+<!-- _class: callout -->
 
 # You Can't Open a Textbook Diagram at 3 AM
+
+<span class="thread">Last time: you know the theory of packets, but not how to interrogate a live system when it breaks.</span>
 
 <div class="pain">
 
@@ -67,6 +61,7 @@ decisions, the path a packet takes, what names resolve to what addresses.
 ---
 
 <!-- SLOT 5: Cost of not knowing -->
+<!-- _class: callout -->
 
 # What This Actually Costs
 
@@ -193,7 +188,8 @@ with `ping`
 
 ---
 
-<!-- SLOT N+1: Limits -->
+<!-- SLOT N+1+N+2: Limits and bridge -->
+<!-- _class: callout -->
 
 # What This Module's Tools Cannot Do
 
@@ -203,14 +199,7 @@ know what happens to a packet's headers as it crosses a switch and a
 router - the OSI/TCP-IP mechanics are still a black box.
 </div>
 
----
-
-<!-- SLOT N+2: Bridge -->
-
-# Next Module
-
-Module 1 leaves **layer-by-layer packet behavior** unexplained. **Module 2**
-opens the box: the OSI/TCP-IP models, watched live in Simulation Mode.
+<span class="thread">Next: Module 2 opens the box - the OSI/TCP-IP models, watched live in Simulation Mode.</span>
 
 ---
 
@@ -231,4 +220,4 @@ opens the box: the OSI/TCP-IP models, watched live in Simulation Mode.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-01.html">Open Module 1 in the Book →</a></div>
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-01.html">Open Module 1 in the Book</a></div>
