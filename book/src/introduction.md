@@ -6,6 +6,8 @@
 **Unit:** Software Convergence 001  
 **Instructor:** Amalia
 
+*Prefer PDF? Every chapter of this manual is also released individually - see the [chapter PDF index](pdf/).*
+
 ---
 
 ## Course Goal

@@ -36,6 +36,9 @@ jobs:
       - name: Build slides
         run: npx --yes @marp-team/marp-cli --input-dir slides --output "$GITHUB_WORKSPACE/_site/slides" --theme-set themes/hankyong.css --html --allow-local-files
 
+      - name: Build book chapter PDFs
+        run: node scripts/build-book-pdfs.js "$GITHUB_WORKSPACE/_site/book" "$GITHUB_WORKSPACE/_site/book/pdf"
+
       - name: Copy shared assets
         run: cp -r assets "$GITHUB_WORKSPACE/_site/assets"
 

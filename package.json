@@ -7,7 +7,8 @@
     "preview": "npx --yes @marp-team/marp-cli -s slides --theme-set themes/hankyong.css --html",
     "build:html": "npx --yes @marp-team/marp-cli -I slides --theme-set themes/hankyong.css --html --allow-local-files -o dist/slides",
     "build:pdf": "npx --yes @marp-team/marp-cli -I slides --theme-set themes/hankyong.css --html --pdf --allow-local-files -o dist/slides",
-    "build:pptx": "npx --yes @marp-team/marp-cli -I slides --theme-set themes/hankyong.css --html --pptx --allow-local-files -o dist/slides"
+    "build:pptx": "npx --yes @marp-team/marp-cli -I slides --theme-set themes/hankyong.css --html --pptx --allow-local-files -o dist/slides",
+    "build:book-pdfs": "mdbook build book && node scripts/build-book-pdfs.js"
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^4.0.1"

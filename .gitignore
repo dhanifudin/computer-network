@@ -1,4 +1,5 @@
 book/book/
+book/pdf/
 _site/
 dist/
 node_modules/

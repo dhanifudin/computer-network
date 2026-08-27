@@ -61,6 +61,19 @@ Code settings:
 mdbook build book   # -> book/book/, open book/book/index.html
 ```
 
+## Release the book as per-chapter PDFs
+
+```bash
+npm run build:book-pdfs   # -> book/pdf/*.pdf, one per SUMMARY.md chapter, + book/pdf/index.html
+```
+
+Renders each already-built chapter page to its own PDF via headless
+Chrome/Chromium (`scripts/build-book-pdfs.js`). Needs a `google-chrome` or
+`chromium` binary on PATH (or `$CHROME_PATH`) - GitHub Actions'
+`ubuntu-latest` runners ship Chrome preinstalled, so CI needs no extra
+install step. Wired into `.github/workflows/deploy.yml`, published at
+`/book/pdf/` on the live site.
+
 ## Build the slides
 
 ```bash
