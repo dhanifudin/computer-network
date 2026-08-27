@@ -1,57 +1,138 @@
 ---
 marp: true
-theme: default
+theme: hankyong
 paginate: true
-size: 16:9
+footer: 'School of Computer & Applied Mathematics'
 ---
 
-<!-- _class: lead -->
+<!-- SLOT 1: Title -->
+<!-- _class: title -->
 
-# Module 10
-## WAN: PPP & NAT
+# Module 10: WAN — PPP & NAT
 
----
+<span class="subtitle">Intelligent Network Design (지능형네트워크설계)</span>
 
-## Why This Matters
-
-IPv4 has 4.3 billion addresses. In **2011**, IANA allocated the last remaining blocks. Today a new public IPv4 address costs real money or a long wait.
-
-**NAT** is the fix that has kept IPv4 alive 25 years past its expected lifespan: your ISP gives you *one* public IP, and your router rewrites the source address of every outgoing packet so hundreds of devices can share it.
-
-Meanwhile, WAN links between sites need **PPP** — adding authentication, error detection, and multilink bonding that raw IP can't provide.
+<div class="meta">
+Amalia · School of Computer & Applied Mathematics · 한경국립대학교
+</div>
 
 ---
 
-## Learning Outcomes
+<!-- SLOT 2: Where we are -->
 
-1. Configure PPP encapsulation and CHAP authentication
-2. Verify PPP link state
-3. Configure static NAT (1:1) and PAT/overload (many:1)
-4. Use `show ip nat translations` / `statistics`
-5. Explain inside/outside, local/global NAT terms
+# Where We Are
+
+<div class="roadmap">
+<div class="wk"><div class="n">Wk 1</div><div class="t">Orientation</div></div>
+<div class="wk"><div class="n">Wk 2</div><div class="t">OSI Review</div></div>
+<div class="wk"><div class="n">Wk 3</div><div class="t">Basic Config</div></div>
+<div class="wk"><div class="n">Wk 4</div><div class="t">IOS Management</div></div>
+<div class="wk"><div class="n">Wk 5</div><div class="t">Static Routing</div></div>
+<div class="wk"><div class="n">Wk 6</div><div class="t">Dynamic Routing</div></div>
+<div class="wk"><div class="n">Wk 7</div><div class="t">ACLs</div></div>
+<div class="wk review"><div class="n">Wk 8</div><div class="t">Midterm Exam</div></div>
+<div class="wk"><div class="n">Wk 9</div><div class="t">VLANs</div></div>
+<div class="wk now"><div class="n">Wk 10</div><div class="t">WAN: PPP &amp; NAT</div></div>
+<div class="wk"><div class="n">Wk 11</div><div class="t">OSPF</div></div>
+<div class="wk"><div class="n">Wk 12</div><div class="t">DHCP</div></div>
+<div class="wk review"><div class="n">Wk 13</div><div class="t">Proposal Presentation</div></div>
+<div class="wk review"><div class="n">Wk 14</div><div class="t">Results Presentation</div></div>
+<div class="wk review"><div class="n">Wk 15</div><div class="t">Final Exam</div></div>
+</div>
 
 ---
 
-## Theory Review — CHAP Authentication
+<!-- SLOT 3: Recap + open wound -->
 
-**Three-way handshake:**
-1. Authenticator sends a **Challenge** (random value + hostname)
-2. Responder sends a **Response** — MD5 hash of (challenge + password + sequence number)
-3. Authenticator verifies the hash locally; sends Success/Failure
+# Last Time, This Time
 
-**The password never crosses the link in cleartext** — unlike PAP, which should be avoided.
-
-> Same principle as `enable secret` (Module 3): never send or store passwords in plaintext.
+- **Module 9 delivered:** isolated broadcast domains across campus switches
+- **It left broken:** connecting to a remote site over a WAN — with authentication, and enough public IPs for everyone — is a different problem entirely
 
 ---
 
-## Theory Review — NAT Terminology
+<!-- SLOT 4: The pain -->
+
+# The Internet Ran Out of Addresses
+
+<div class="pain">
+
+IPv4 has 4.3 billion addresses. In 2011, the last remaining blocks were
+allocated to the world's registries. Today, a new public IPv4 address
+costs real money or a long wait — impossible for every device in an office
+to have its own.
+
+</div>
+
+---
+
+<!-- SLOT 5: Cost of not knowing -->
+
+# What This Actually Costs
+
+- Without address sharing, an entire office cannot get online on a single internet connection
+- WAN links without authentication let anyone who taps the line masquerade as the other site
+
+<div class="why">
+<strong>In industry:</strong> NAT/PAT runs on nearly every home router and enterprise edge device in the world — it is the single most-deployed IPv4 workaround in networking history.
+</div>
+
+---
+
+<!-- SLOT 6: Driving question -->
+<!-- _class: section -->
+
+# This Module's Question
+
+<div class="driving-q">"How can hundreds of devices share one public IP address, safely and authenticated?"</div>
+
+---
+
+<!-- SLOT 7: Learning outcomes -->
+
+# By the End of This Module, You Can
+
+1. Configure PPP encapsulation and CHAP authentication on a serial WAN link
+2. Configure static NAT (one-to-one) and PAT/NAT overload (many-to-one)
+3. Verify NAT operation with `show ip nat translations`
+4. Explain inside/outside, local/global NAT terminology
+
+---
+
+<!-- SLOT 8: Origin -->
+
+# Where This Idea Came From
+
+**PPP (RFC 1661, 1994)** replaced the earlier SLIP protocol, adding
+authentication and error detection that raw serial links lacked. **NAT
+(RFC 1631, 1994)** was proposed the same year as an explicit *stopgap*
+while IPv6 was developed — thirty years later, it's still the primary
+mechanism keeping IPv4 alive.
+
+---
+
+<!-- SLOT 9: Core concept -->
+
+# CHAP Authentication: Definition
+
+> **CHAP** authenticates a WAN link without ever sending the password
+> across it: the authenticator sends a random challenge, the responder
+> replies with an MD5 hash of (challenge + password), and the
+> authenticator verifies the hash locally.
+
+Same principle as `enable secret` (Module 3): never send or store
+passwords in plaintext.
+
+---
+
+<!-- Act 3 / BUILD -->
+
+# NAT Terminology
 
 | Term | Meaning | Example |
 |------|---------|---------|
 | Inside local | Private IP of an inside host | 192.168.1.10 |
 | Inside global | Public IP representing that host outside | 203.0.113.5 |
-| Outside global | Public IP of an external server | 8.8.8.8 |
 
 | | Static NAT | PAT (Overload) |
 |---|---|---|
@@ -60,40 +141,82 @@ Meanwhile, WAN links between sites need **PPP** — adding authentication, error
 
 ---
 
-## Guided Lab Overview
+<!-- SLOT N-2: Worked example -->
 
-**Part A** — PPP & CHAP: configure encapsulation, matching usernames/passwords; deliberately break the password and observe link failure, then recover
+# Guided Lab at a Glance
 
-**Part B** — Static NAT: map an inside server to a public IP, verify with `show ip nat translations`
+**Part A** — PPP & CHAP: configure encapsulation and matching credentials; break the password deliberately, observe, then recover
 
-**Part C** — PAT (overload): an entire LAN shares one public IP; verify port-multiplexed translation table entries
+**Part B** — static NAT: map an inside server to a public IP
 
----
-
-## Key Insight — How PAT Distinguishes Hosts
-
-Static NAT is one-to-one — simple, but doesn't scale.
-
-PAT tracks each inside host's connection by **port number**, not just IP — so 200 devices can share one public IP address, each connection uniquely identified by its source port.
+**Part C** — PAT (overload): an entire LAN shares one public IP, verified with port-multiplexed translation entries
 
 ---
 
-## Deliverables & Assessment
+<!-- SLOT N-1: Common mistakes -->
 
-PPP config (Encapsulation PPP, LCP Open), CHAP failure/recovery, static NAT translation table, PAT translation table with ports, static-vs-PAT explanation.
+# Common Mistakes
 
-| Criterion | Points |
-|-----------|--------|
-| PPP + CHAP configured & verified | 25 |
-| CHAP failure/recovery demonstrated | 20 |
-| Static NAT correct | 20 |
-| PAT, port-multiplexed translations | 25 |
-| NAT terminology explained | 10 |
+- **CHAP username mismatch:** the username configured on each router must
+  match the **hostname of the other router**, not its own — a common
+  reversal
+- **Forgetting `ip nat inside`/`outside`:** NAT rules exist but do nothing
+  until both the inside and outside interfaces are explicitly marked
 
 ---
 
-<!-- _class: lead -->
+<!-- SLOT N: Check yourself -->
 
-## Full step-by-step lab instructions:
+# Check Yourself
 
-**[Open Module 10 in the Book →](../book/module-10.html)**
+1. What does PPP provide that raw serial encapsulation does not?
+2. How does PAT allow multiple inside hosts to share one outside IP address?
+
+---
+
+# Answers
+
+1. Authentication (CHAP/PAP), error detection, and negotiated Layer 3 protocol support via NCP
+2. Each connection is distinguished by a unique source port number, multiplexed onto the single shared outside IP
+
+---
+
+<!-- SLOT N+1: Limits -->
+
+# What PPP & NAT Cannot Do
+
+<div class="limits">
+PAT now lets a whole office share one public IP outward. But a large
+multi-building campus still needs routing that converges faster and
+scales further than RIP or EIGRP — the WAN link works, the campus core
+still doesn't scale.
+</div>
+
+---
+
+<!-- SLOT N+2: Bridge -->
+
+# Next Module
+
+Module 10 leaves **large-scale routing convergence** unsolved. **Module
+11** addresses it: OSPF.
+
+---
+
+<!-- SLOT N+3: Summary -->
+
+# Summary
+
+- PPP/CHAP secures the link; NAT/PAT solves address scarcity
+- Static NAT is one-to-one; PAT is many-to-one via port multiplexing
+- **Deliverables & assessment:** PPP/CHAP failure-and-recovery, static NAT
+  and PAT translation tables — see the book for the full rubric
+
+---
+
+<!-- SLOT N+4: Thank You -->
+<!-- _class: end -->
+
+# Thank You
+
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-10.html">Open Module 10 in the Book →</a></div>

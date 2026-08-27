@@ -50,10 +50,6 @@ Good network design starts with counting all IP-consuming devices before opening
 
 ---
 
-*References: Capacity-planning methodology adapted from Arief Sofyan, "Modul Praktikum 11 — Analisis Desain Jaringan" (Modul Praktikum Jaringan Komputer, Politeknik Negeri Malang, 2021).*
-
----
-
 ## Project Scenarios
 
 Choose one of the following real-world scenarios. Each gives you a different organizational context, but all share the same technical requirements above.

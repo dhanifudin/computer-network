@@ -1,54 +1,138 @@
 ---
 marp: true
-theme: default
+theme: hankyong
 paginate: true
-size: 16:9
+footer: 'School of Computer & Applied Mathematics'
 ---
 
-<!-- _class: lead -->
+<!-- SLOT 1: Title -->
+<!-- _class: title -->
 
-# Module 3
-## Network Review 2 & Router/Switch Basic Config
+# Module 3: Network Review 2 & Router/Switch Basic Config
 
----
+<span class="subtitle">Intelligent Network Design (지능형네트워크설계)</span>
 
-## Why This Matters
-
-Every Cisco device ships factory-default: no hostname, no passwords, no IPs, every interface shut down.
-
-The moment a device goes live, it's a target — attackers scan for unconfigured routers with publicly documented default credentials.
-
-The **2016 Bangladesh Bank heist** ($81M stolen via SWIFT) began with attackers who had already compromised router-level access.
-
-A router with no console password, no enable password, no management restrictions is an **open door**. This module closes it.
+<div class="meta">
+Amalia · School of Computer & Applied Mathematics · 한경국립대학교
+</div>
 
 ---
 
-## Learning Outcomes
+<!-- SLOT 2: Where we are -->
 
-1. Access a router/switch via the Console port in PT
+# Where We Are
+
+<div class="roadmap">
+<div class="wk"><div class="n">Wk 1</div><div class="t">Orientation</div></div>
+<div class="wk"><div class="n">Wk 2</div><div class="t">OSI Review</div></div>
+<div class="wk now"><div class="n">Wk 3</div><div class="t">Basic Config</div></div>
+<div class="wk"><div class="n">Wk 4</div><div class="t">IOS Management</div></div>
+<div class="wk"><div class="n">Wk 5</div><div class="t">Static Routing</div></div>
+<div class="wk"><div class="n">Wk 6</div><div class="t">Dynamic Routing</div></div>
+<div class="wk"><div class="n">Wk 7</div><div class="t">ACLs</div></div>
+<div class="wk review"><div class="n">Wk 8</div><div class="t">Midterm Exam</div></div>
+<div class="wk"><div class="n">Wk 9</div><div class="t">VLANs</div></div>
+<div class="wk"><div class="n">Wk 10</div><div class="t">WAN: PPP &amp; NAT</div></div>
+<div class="wk"><div class="n">Wk 11</div><div class="t">OSPF</div></div>
+<div class="wk"><div class="n">Wk 12</div><div class="t">DHCP</div></div>
+<div class="wk review"><div class="n">Wk 13</div><div class="t">Proposal Presentation</div></div>
+<div class="wk review"><div class="n">Wk 14</div><div class="t">Results Presentation</div></div>
+<div class="wk review"><div class="n">Wk 15</div><div class="t">Final Exam</div></div>
+</div>
+
+---
+
+<!-- SLOT 3: Recap + open wound -->
+
+# Last Time, This Time
+
+- **Module 2 delivered:** the ability to trace a packet through every layer
+- **It left broken:** the router in your topology has no hostname, no password, nothing configured
+
+---
+
+<!-- SLOT 4: The pain -->
+
+# An Open Door
+
+<div class="pain">
+
+Every Cisco device leaves the factory the same way: no hostname, no
+passwords, no IP addresses, every interface shut down. The moment it's
+installed in a real network, it becomes a target — attackers actively scan
+for unconfigured routers, because default credentials are public knowledge.
+
+</div>
+
+---
+
+<!-- SLOT 5: Cost of not knowing -->
+
+# What This Actually Costs
+
+- The 2016 Bangladesh Bank heist — $81 million stolen via SWIFT — began with attackers who had already compromised router-level access
+- A router with no console password, no enable password, no management restrictions is an open door to everything behind it
+
+<div class="why">
+<strong>In industry:</strong> device hardening (passwords, banners, disabling unused services) is the first line item in almost every network security audit checklist.
+</div>
+
+---
+
+<!-- SLOT 6: Driving question -->
+<!-- _class: section -->
+
+# This Module's Question
+
+<div class="driving-q">"What's the first thing you must do to a factory-default router before it touches a real network?"</div>
+
+---
+
+<!-- SLOT 7: Learning outcomes -->
+
+# By the End of This Module, You Can
+
+1. Access a router/switch via the Console port in Packet Tracer
 2. Navigate the IOS mode hierarchy
 3. Apply hardening: hostname, console password, VTY password, enable secret, MOTD banner
 4. Verify the active configuration with `show` commands
-5. Recognize straight-through vs crossover vs rollover cables
 
 ---
 
-## Theory Review — IOS Mode Hierarchy
+<!-- SLOT 8: Origin -->
+
+# Where This Idea Came From
+
+Cisco IOS (1986) was one of the first commercial router operating systems,
+and its earliest versions supported only a plaintext `enable password`.
+Once operators realized that password showed up in cleartext in any
+`show running-config` printout — readable by anyone who could see the
+screen — Cisco added `enable secret`, storing the password as an MD5 hash
+instead.
+
+---
+
+<!-- SLOT 9: Core concept -->
+
+# IOS Mode Hierarchy: Definition
+
+> Cisco IOS uses a hierarchical command structure. The **prompt** tells you
+> exactly where you are: `Router>` (User EXEC) → `Router#` (Privileged EXEC)
+> → `Router(config)#` (Global Config) → `Router(config-if)#` (Interface
+> Config).
 
 ```
 Router> enable                     → Privileged EXEC
 Router# configure terminal         → Global Config
 Router(config)# interface Fa0/0    → Interface Config
-Router(config-if)# exit            → back to Global Config
 Router(config)# end  (Ctrl+Z)      → back to Privileged EXEC
 ```
 
-The **prompt** tells you exactly where you are: `Router>` (User) vs `Router#` (Privileged) vs `Router(config)#` (Global) vs `Router(config-if)#` (Interface).
-
 ---
 
-## Theory Review — Config Storage
+<!-- Act 3 / BUILD -->
+
+# Config Storage: RAM vs NVRAM
 
 | Store | Memory | Contents | Persists reboot? |
 |-------|--------|----------|-------------------|
@@ -57,44 +141,90 @@ The **prompt** tells you exactly where you are: `Router>` (User) vs `Router#` (P
 
 Save with: `copy running-config startup-config` (or `wr`)
 
-**Why `enable secret` not `enable password`:** stored as an MD5 hash, not cleartext — resistant to shoulder-surfing off a `show running-config`.
+Anything only in `running-config` — hostname, passwords, interface
+config — is **lost** on reload unless it's saved first.
 
 ---
 
-## Guided Lab Overview
+<!-- SLOT N-2: Worked example -->
 
-**Part A** — physical UTP crimping (if hardware available) *or* subnetting review drills
+# Guided Lab at a Glance
 
-**Part B** — IOS mode navigation: observe the prompt change through all four modes
+**Part A** — physical UTP crimping (if hardware available) *or* subnetting
+review drills
 
-**Part C** — Basic router hardening: hostname, MOTD banner, console password, VTY password, `enable secret`, save config, `reload` and observe
+**Part B** — IOS mode navigation: observe the prompt change through all
+four modes
 
----
-
-## Key Insight — What `reload` Without Saving Does
-
-Anything only in `running-config` (RAM) is **lost** on reload: hostname, passwords, interface config — everything since the last `copy running-config startup-config`.
-
-This is why "save your work constantly" applies to routers too, not just Packet Tracer files.
+**Part C** — basic router hardening: hostname, MOTD banner, console
+password, VTY password, `enable secret`, save config, `reload` and observe
 
 ---
 
-## Deliverables & Assessment
+<!-- SLOT N-1: Common mistakes -->
 
-Subnetting table / cabling photo, all four IOS prompts, hardening commands applied, `show running-config` with encrypted enable secret, save confirmation, reload-consequences explanation.
+# Common Mistakes
 
-| Criterion | Points |
-|-----------|--------|
-| IOS mode navigation | 25 |
-| Hardening commands applied | 30 |
-| running-config w/ encrypted secret | 20 |
-| Reload consequences explanation | 15 |
-| Challenge Task | 10 |
+- **Using `enable password` instead of `enable secret`:** the former stores
+  the password in cleartext in the config file — always use `enable secret`
+- **Forgetting to save before `reload`:** every hardening command you just
+  typed lives only in `running-config` until `copy running-config
+  startup-config` runs
 
 ---
 
-<!-- _class: lead -->
+<!-- SLOT N: Check yourself -->
 
-## Full step-by-step lab instructions:
+# Check Yourself
 
-**[Open Module 3 in the Book →](../book/module-03.html)**
+1. What is the difference between `enable password` and `enable secret`? Which should always be used in production?
+2. What happens to unsaved configuration changes if a router loses power?
+
+---
+
+# Answers
+
+1. `enable password` stores the password in cleartext; `enable secret` stores an MD5 hash. Always use `enable secret`
+2. They are lost — `running-config` lives in volatile RAM and is not preserved across a power loss or reload
+
+---
+
+<!-- SLOT N+1: Limits -->
+
+# What Basic Hardening Cannot Do
+
+<div class="limits">
+The router is now hardened with passwords and a hostname. But you don't yet
+know the vocabulary of <code>show</code> commands needed to diagnose what's
+actually happening inside it when something goes wrong.
+</div>
+
+---
+
+<!-- SLOT N+2: Bridge -->
+
+# Next Module
+
+Module 3 leaves you **unable to read the router's live internal state**.
+**Module 4** addresses it: the `show` command toolkit.
+
+---
+
+<!-- SLOT N+3: Summary -->
+
+# Summary
+
+- Factory-default devices are insecure by design — hardening is step one
+- `running-config` (RAM) vs `startup-config` (NVRAM) — save or lose it
+- **Deliverables & assessment:** all four IOS prompts, hardening commands
+  applied, encrypted `enable secret` visible in running-config — see the
+  book for the full rubric
+
+---
+
+<!-- SLOT N+4: Thank You -->
+<!-- _class: end -->
+
+# Thank You
+
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-03.html">Open Module 3 in the Book →</a></div>

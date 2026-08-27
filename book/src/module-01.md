@@ -185,10 +185,6 @@ ping 192.168.1.20
 3. In Packet Tracer, switch to **Simulation Mode** and send a ping from PC0 to PC1. Click through each event and identify which protocol appears at the Data Link layer. Does it match what you expected?
 4. **Cable-type diagnosis:** In your PT topology from Part C, delete the cable between PC0 and PC1. Reconnect them using a **Copper Straight-Through** cable instead of a crossover. Does PT accept it? Observe the link LED. Now try "Copper Auto" — what happens? Explain what Auto-MDIX does and why a red link light is the symptom of a wrong cable type rather than a failed interface.
 
----
-
-*References: Cable selection rules and T-568A/B standards adapted from Arief Sofyan, "Modul Praktikum 1 — Media Jaringan" (Modul Praktikum Jaringan Komputer, Politeknik Negeri Malang, 2021).*
-
 ## Deliverables
 
 For your lab report, include the following numbered items:

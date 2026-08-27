@@ -197,10 +197,6 @@ PC0> arp -a
 3. Add a second router (Router1) between Router0 and Switch1. Explore what happens to the event count in the simulation list. Does the number of ARP events change? Why?
 4. **Personalized subnetting drill:** Take the IP address `10.10.XX.YY/24` where XX = the last two digits of your student ID and YY = 40 + your roll number in class (e.g., student ID 2023-0042, roll number 5 → `10.10.42.45/24`). Calculate: (a) the network address, (b) the broadcast address, (c) the first and last usable host addresses, (d) total usable hosts. Then find a classmate and compare your network addresses — do your addresses fall in the same /24 network? In the same /16? At what prefix length do you first land in the *same* network?
 
----
-
-*References: ARP cause-and-effect exercise adapted from Arief Sofyan, "Modul Praktikum 11 — Perintah ARP" (Modul Praktikum Jaringan Komputer, Politeknik Negeri Malang, 2021). Subnetting drill structure from "Modul 7 — Subnetting" (same series).*
-
 ## Deliverables
 
 1. Screenshot of the complete topology in PT (all devices labeled and visible).

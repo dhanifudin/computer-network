@@ -1,54 +1,134 @@
 ---
 marp: true
-theme: default
+theme: hankyong
 paginate: true
-size: 16:9
+footer: 'School of Computer & Applied Mathematics'
 ---
 
-<!-- _class: lead -->
+<!-- SLOT 1: Title -->
+<!-- _class: title -->
 
-# Module 4
-## IOS Management Commands
+# Module 4: IOS Management Commands
 
----
+<span class="subtitle">Intelligent Network Design (지능형네트워크설계)</span>
 
-## Why This Matters
-
-Midnight call: a branch office can't reach headquarters. You log in remotely. Running config looks fine — but something's wrong.
-
-Interface down? Duplicate IP? Stray ACL? Missing route?
-
-IOS `show` commands are the **MRI scan** of a router: they reveal live internal state of every subsystem in seconds.
-
-Engineers who memorize the ten most important `show` commands — and know how to read them — fix what stumps everyone else.
+<div class="meta">
+Amalia · School of Computer & Applied Mathematics · 한경국립대학교
+</div>
 
 ---
 
-## Learning Outcomes
+<!-- SLOT 2: Where we are -->
 
-1. Use `?` (context-sensitive help) to discover commands
+# Where We Are
+
+<div class="roadmap">
+<div class="wk"><div class="n">Wk 1</div><div class="t">Orientation</div></div>
+<div class="wk"><div class="n">Wk 2</div><div class="t">OSI Review</div></div>
+<div class="wk"><div class="n">Wk 3</div><div class="t">Basic Config</div></div>
+<div class="wk now"><div class="n">Wk 4</div><div class="t">IOS Management</div></div>
+<div class="wk"><div class="n">Wk 5</div><div class="t">Static Routing</div></div>
+<div class="wk"><div class="n">Wk 6</div><div class="t">Dynamic Routing</div></div>
+<div class="wk"><div class="n">Wk 7</div><div class="t">ACLs</div></div>
+<div class="wk review"><div class="n">Wk 8</div><div class="t">Midterm Exam</div></div>
+<div class="wk"><div class="n">Wk 9</div><div class="t">VLANs</div></div>
+<div class="wk"><div class="n">Wk 10</div><div class="t">WAN: PPP &amp; NAT</div></div>
+<div class="wk"><div class="n">Wk 11</div><div class="t">OSPF</div></div>
+<div class="wk"><div class="n">Wk 12</div><div class="t">DHCP</div></div>
+<div class="wk review"><div class="n">Wk 13</div><div class="t">Proposal Presentation</div></div>
+<div class="wk review"><div class="n">Wk 14</div><div class="t">Results Presentation</div></div>
+<div class="wk review"><div class="n">Wk 15</div><div class="t">Final Exam</div></div>
+</div>
+
+---
+
+<!-- SLOT 3: Recap + open wound -->
+
+# Last Time, This Time
+
+- **Module 3 delivered:** a hardened, password-protected router
+- **It left broken:** you still can't read what's actually happening inside it when something goes wrong
+
+---
+
+<!-- SLOT 4: The pain -->
+
+# The Midnight Call
+
+<div class="pain">
+
+A branch office can't reach headquarters. You log into the router
+remotely. Nothing looks obviously wrong. Is an interface down? Is there a
+duplicate IP? Did someone apply a filter? Is a route missing? You need to
+see inside the device, right now, without guessing.
+
+</div>
+
+---
+
+<!-- SLOT 5: Cost of not knowing -->
+
+# What This Actually Costs
+
+- Without a systematic set of diagnostic commands, "nothing looks wrong" is where troubleshooting stalls
+- Engineers who don't know these commands cold spend hours where others spend minutes
+
+<div class="why">
+<strong>In industry:</strong> reading <code>show ip route</code> / <code>show interfaces</code> output correctly is the single most common on-the-job skill tested in networking role interviews.
+</div>
+
+---
+
+<!-- SLOT 6: Driving question -->
+<!-- _class: section -->
+
+# This Module's Question
+
+<div class="driving-q">"How do you see a router's live internal state in seconds, without external documentation?"</div>
+
+---
+
+<!-- SLOT 7: Learning outcomes -->
+
+# By the End of This Module, You Can
+
+1. Use `?` (context-sensitive help) to discover commands without memorizing them
 2. Execute and interpret key `show` commands
-3. Configure all interfaces (IP, `no shutdown`) and verify
-4. Back up running config to NVRAM; explain RAM/NVRAM
-5. Compare running-config vs startup-config
+3. Configure all interfaces (IP address, `no shutdown`) and verify them
+4. Compare running-config vs startup-config and explain the implications
 
 ---
 
-## Theory Review — Interface States
+<!-- SLOT 8: Origin -->
+
+# Where This Idea Came From
+
+Cisco's IOS CLI was designed around one goal: an operator should be able to
+diagnose a device without memorizing hundreds of commands or having a
+manual on hand. The `?` context-help system and the layered `show` command
+family both trace back to that same 1980s design principle — discoverable
+over memorized.
+
+---
+
+<!-- SLOT 9: Core concept -->
+
+# Interface State: Definition
+
+> Every Cisco interface reports two independent status indicators:
+> **physical** (up/down/administratively down) and **data link** (up/down).
+> If Layer 1 is down, Layer 2 is always down too — but Layer 1 up with
+> Layer 2 down often signals an encapsulation mismatch.
 
 ```
 FastEthernet0/0 is up, line protocol is up
 ```
 
-- **First status** — Physical layer: is there a cable/signal?
-  - `administratively down` → someone ran `shutdown` (fix: `no shutdown`)
-- **Second status** — Data Link layer: is the keepalive/protocol working?
-  - L1 down ⇒ L2 always down
-  - L1 up, L2 down → often an encapsulation mismatch (WAN links)
-
 ---
 
-## Theory Review — Key `show` Commands
+<!-- Act 3 / BUILD -->
+
+# Key `show` Commands
 
 | Command | Reveals |
 |---------|---------|
@@ -59,32 +139,29 @@ FastEthernet0/0 is up, line protocol is up
 | `show arp` | IP-to-MAC mappings learned |
 | `show cdp neighbors` | Directly connected Cisco devices |
 
-Use `?` at any prompt level — never memorize, discover.
-
 ---
 
-## Ping & Traceroute as Diagnostic Tools
+# Ping & Traceroute as Diagnostic Tools
 
 IOS ping symbol patterns:
 
-- `!!!!!` — full connectivity
-- `.....` — no route on the router nearest the **source**
-- `U....` — "no route to host" from the router nearest the **destination**
-- `!!!!.` — intermittent loss
+- `!!!!!` full connectivity · `.....` no route near the **source**
+- `U....` "no route to host" from the router near the **destination**
 
-**Traceroute:** sends probes with increasing TTL; each router that decrements TTL to 0 replies "Time Exceeded," revealing the path hop by hop.
-
-⚠️ IOS traceroute timeout is in **seconds**; Windows `tracert -w` is in **milliseconds**.
+**Traceroute** sends probes with increasing TTL; each router that
+decrements TTL to 0 replies "Time Exceeded," revealing the path hop by hop.
 
 ---
 
-## Guided Lab Overview
+<!-- SLOT N-2: Worked example -->
+
+# Guided Lab at a Glance
 
 **Part A** — `?` context-help at every mode level
 
 **Part B** — configure both interfaces with student-ID-based addressing
 
-**Part C** — `show` command deep-dive: interface brief, interfaces, version, arp, ip route, cdp neighbors
+**Part C** — `show` command deep-dive across the full toolkit
 
 **Part D** — extended ping/traceroute options
 
@@ -92,23 +169,69 @@ IOS ping symbol patterns:
 
 ---
 
-## Deliverables & Assessment
+<!-- SLOT N-1: Common mistakes -->
 
-`?` help screenshots, interface brief (both up/up), annotated `show interfaces`, `show ip route` (C/L explained), `show arp` before/after, extended ping/traceroute, RAM vs NVRAM explanation.
+# Common Mistakes
 
-| Criterion | Points |
-|-----------|--------|
-| show commands + screenshots | 25 |
-| Interface brief, student-ID addressing | 15 |
-| show interfaces, annotated | 15 |
-| Extended ping/traceroute, correct interpretation | 25 |
-| RAM/NVRAM reload explanation | 10 |
-| Challenge Task | 10 |
+- **Reading "administratively down" as a cable fault:** it means someone ran
+  `shutdown` — the fix is `no shutdown`, not a new cable
+- **Trusting `running-config` alone:** a config that looks correct on screen
+  can vanish on reload if it was never saved to `startup-config`
 
 ---
 
-<!-- _class: lead -->
+<!-- SLOT N: Check yourself -->
 
-## Full step-by-step lab instructions:
+# Check Yourself
 
-**[Open Module 4 in the Book →](../book/module-04.html)**
+1. What does `show ip interface brief` show that `show interfaces` does not?
+2. An interface shows `up, line protocol is down`. What does this suggest?
+
+---
+
+# Answers
+
+1. A compact one-line-per-interface summary of IP and state — `show interfaces` gives deep per-interface detail (counters, errors, MTU) but not an at-a-glance table of all interfaces
+2. Layer 1 (physical) is fine, but Layer 2 isn't — often an encapsulation mismatch on WAN links
+
+---
+
+<!-- SLOT N+1: Limits -->
+
+# What `show` Commands Cannot Do
+
+<div class="limits">
+You can now read a router's live state perfectly. But two sites still
+can't reach each other, because nobody has told either router how to get
+traffic to the other's network.
+</div>
+
+---
+
+<!-- SLOT N+2: Bridge -->
+
+# Next Module
+
+Module 4 leaves **inter-site connectivity** unsolved. **Module 5** addresses
+it: static routing.
+
+---
+
+<!-- SLOT N+3: Summary -->
+
+# Summary
+
+- `?` and `show` commands turn a black box into a readable device
+- running-config vs startup-config: what's live vs what survives a reboot
+- **Deliverables & assessment:** annotated `show` command screenshots,
+  student-ID-based interface addressing, RAM/NVRAM explanation — see the
+  book for the full rubric
+
+---
+
+<!-- SLOT N+4: Thank You -->
+<!-- _class: end -->
+
+# Thank You
+
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-04.html">Open Module 4 in the Book →</a></div>

@@ -1,53 +1,135 @@
 ---
 marp: true
-theme: default
+theme: hankyong
 paginate: true
-size: 16:9
+footer: 'School of Computer & Applied Mathematics'
 ---
 
-<!-- _class: lead -->
+<!-- SLOT 1: Title -->
+<!-- _class: title -->
 
-# Module 5
-## Routing Fundamentals & Static Routing
+# Module 5: Routing Fundamentals & Static Routing
 
----
+<span class="subtitle">Intelligent Network Design (지능형네트워크설계)</span>
 
-## Why This Matters
-
-Two offices — Seoul and Busan — each with their own LAN. Every PC can ping its own router, but no one in Seoul can reach Busan. Orders never arrive. Email fails silently.
-
-A router doesn't automatically know that Busan-bound traffic should go out its WAN interface — **nobody told it**.
-
-A **static route** is an explicit instruction: "to reach this network, send traffic out this interface, toward this next hop." Without it, packets die at the router.
+<div class="meta">
+Amalia · School of Computer & Applied Mathematics · 한경국립대학교
+</div>
 
 ---
 
-## Learning Outcomes
+<!-- SLOT 2: Where we are -->
 
-1. Explain how a router makes a forwarding decision
+# Where We Are
+
+<div class="roadmap">
+<div class="wk"><div class="n">Wk 1</div><div class="t">Orientation</div></div>
+<div class="wk"><div class="n">Wk 2</div><div class="t">OSI Review</div></div>
+<div class="wk"><div class="n">Wk 3</div><div class="t">Basic Config</div></div>
+<div class="wk"><div class="n">Wk 4</div><div class="t">IOS Management</div></div>
+<div class="wk now"><div class="n">Wk 5</div><div class="t">Static Routing</div></div>
+<div class="wk"><div class="n">Wk 6</div><div class="t">Dynamic Routing</div></div>
+<div class="wk"><div class="n">Wk 7</div><div class="t">ACLs</div></div>
+<div class="wk review"><div class="n">Wk 8</div><div class="t">Midterm Exam</div></div>
+<div class="wk"><div class="n">Wk 9</div><div class="t">VLANs</div></div>
+<div class="wk"><div class="n">Wk 10</div><div class="t">WAN: PPP &amp; NAT</div></div>
+<div class="wk"><div class="n">Wk 11</div><div class="t">OSPF</div></div>
+<div class="wk"><div class="n">Wk 12</div><div class="t">DHCP</div></div>
+<div class="wk review"><div class="n">Wk 13</div><div class="t">Proposal Presentation</div></div>
+<div class="wk review"><div class="n">Wk 14</div><div class="t">Results Presentation</div></div>
+<div class="wk review"><div class="n">Wk 15</div><div class="t">Final Exam</div></div>
+</div>
+
+---
+
+<!-- SLOT 3: Recap + open wound -->
+
+# Last Time, This Time
+
+- **Module 4 delivered:** the ability to read a router's live state perfectly
+- **It left broken:** two sites still can't reach each other, because nobody has told either router how
+
+---
+
+<!-- SLOT 4: The pain -->
+
+# Seoul Can't Reach Busan
+
+<div class="pain">
+
+Two branch offices, each with its own local network. Every PC can ping its
+own router — but no one in Seoul can ping anyone in Busan. Orders never
+reach the warehouse. Email fails silently. The link between the offices is
+physically connected — the router just doesn't know to use it.
+
+</div>
+
+---
+
+<!-- SLOT 5: Cost of not knowing -->
+
+# What This Actually Costs
+
+- Two perfectly healthy local networks stay functionally isolated from each other
+- The failure is silent — no error, no alarm, just packets that quietly go nowhere
+
+<div class="why">
+<strong>In industry:</strong> misrouted or missing static routes are one of the most common real-world multi-site outage causes — and one of the fastest to fix, once diagnosed correctly.
+</div>
+
+---
+
+<!-- SLOT 6: Driving question -->
+<!-- _class: section -->
+
+# This Module's Question
+
+<div class="driving-q">"How does a router know where to send a packet it isn't directly connected to?"</div>
+
+---
+
+<!-- SLOT 7: Learning outcomes -->
+
+# By the End of This Module, You Can
+
+1. Explain how a router makes a forwarding decision using its routing table
 2. Configure static routes: next-hop IP syntax and exit-interface syntax
 3. Configure a default route (gateway of last resort)
-4. Verify routing table entries — static, connected, local
-5. Diagnose and fix broken inter-network connectivity
+4. Diagnose and fix broken inter-network connectivity
 
 ---
 
-## Theory Review — Forwarding Decision
+<!-- SLOT 8: Origin -->
 
-1. Look at destination IP
-2. Search the routing table for the **longest prefix match**
-3. Forward out the matching interface / next hop
-4. No match → use the **default route** (`0.0.0.0/0`) if present; else drop
+# Where This Idea Came From
+
+Static routing is the oldest form of inter-network routing — before any
+dynamic protocol existed, every router in the early ARPANET era needed an
+operator to hand-enter which networks were reachable through which
+neighbor. Every dynamic protocol that came later (Modules 6 and 11) exists
+to automate exactly this manual step.
+
+---
+
+<!-- SLOT 9: Core concept -->
+
+# Forwarding Decision: Definition
+
+> When a packet arrives, the router looks at the destination IP, searches
+> its routing table for the **longest prefix match**, and forwards out the
+> matching interface or next hop. No match → use the **default route**
+> (`0.0.0.0/0`) if one exists; otherwise, drop the packet.
 
 ```
 ip route <network> <mask> <next-hop-IP>
-ip route <network> <mask> <exit-interface>
 ip route 0.0.0.0 0.0.0.0 <next-hop-IP>   ← default route
 ```
 
 ---
 
-## Theory Review — Routing Table Codes
+<!-- Act 3 / BUILD -->
+
+# Routing Table Codes
 
 | Code | Meaning |
 |------|---------|
@@ -55,29 +137,30 @@ ip route 0.0.0.0 0.0.0.0 <next-hop-IP>   ← default route
 | `L` | Local (router's own interface, /32) |
 | `S` | Static route |
 | `S*` | Static default route |
-| `R` / `O` | RIP / OSPF learned (later modules) |
 
-**Routing is never one-way** — request *and* reply packets each need a path, so both routers need a route to the other's LAN.
+**Routing is never one-way** — request *and* reply packets each need a
+path, so both routers need a route to the other's LAN.
 
 ---
 
-## Key Insight — Reading Ping Failures
+# Reading Ping Failures
 
 | Ping Output | Meaning | Fix Where? |
 |-------------|---------|-----------|
 | `Destination Host Unreachable` | Source's gateway couldn't forward | Router **nearest the source** |
 | `Request Timed Out` | Reached destination, no reply came back | Router **nearest the destination** |
-| `Success` | Both directions have valid routes | — |
 
 This heuristic saves real diagnostic time in the field.
 
 ---
 
-## Guided Lab Overview
+<!-- SLOT N-2: Worked example -->
 
-**Part A** — build a two-site topology, observe the failed cross-site ping (the problem state)
+# Guided Lab at a Glance
 
-**Part B** — add static routes on both routers, verify with `show ip route`, test successful ping
+**Part A** — build a two-site topology, observe the failed cross-site ping
+
+**Part B** — add static routes on both routers, verify, test successful ping
 
 **Part C** — add an ISP-gateway router, configure a default route (`S*`)
 
@@ -85,23 +168,71 @@ This heuristic saves real diagnostic time in the field.
 
 ---
 
-## Deliverables & Assessment
+<!-- SLOT N-1: Common mistakes -->
 
-Topology diagram, failed-ping screenshot + bidirectional-routing explanation, both routing tables, successful ping, `S*` default route, break-and-fix diagnostic narrative.
+# Common Mistakes
 
-| Criterion | Points |
-|-----------|--------|
-| Topology, student-ID addressing | 10 |
-| Failed-ping explanation | 15 |
-| Both routing tables correct | 25 |
-| Successful end-to-end ping | 20 |
-| Default route / `S*` | 15 |
-| Break-and-fix narrative | 15 |
+- **Configuring only one direction:** a route on the source router without
+  a matching route on the destination router — the request arrives, the
+  reply has nowhere to go
+- **Confusing next-hop IP with exit-interface syntax:** both work, but
+  mixing up which one you meant to type produces a route to the wrong
+  place, not an error
 
 ---
 
-<!-- _class: lead -->
+<!-- SLOT N: Check yourself -->
 
-## Full step-by-step lab instructions:
+# Check Yourself
 
-**[Open Module 5 in the Book →](../book/module-05.html)**
+1. What is the difference between `ip route 192.168.2.0 255.255.255.0 10.0.0.2` and `ip route 192.168.2.0 255.255.255.0 Serial0/0`?
+2. What is a default route, and when is it used?
+
+---
+
+# Answers
+
+1. The first specifies a next-hop IP (router still ARPs to find the MAC); the second specifies an exit interface directly
+2. A route matching `0.0.0.0/0`, used when no more specific route matches — the "gateway of last resort"
+
+---
+
+<!-- SLOT N+1: Limits -->
+
+# What Static Routing Cannot Do
+
+<div class="limits">
+Static routes connect two or three sites fine. But a network with dozens
+of buildings can't be hand-updated the moment a link fails at 3 AM — every
+affected site stays isolated until someone notices and logs in manually.
+</div>
+
+---
+
+<!-- SLOT N+2: Bridge -->
+
+# Next Module
+
+Module 5 leaves **routing at scale** unsolved. **Module 6** addresses it:
+dynamic routing protocols that update automatically.
+
+---
+
+<!-- SLOT N+3: Summary -->
+
+# Summary
+
+- Routing is bidirectional — both ends need a path
+- Ping failure symptoms tell you *which side* is missing a route
+- **Deliverables & assessment:** both routing tables, successful cross-site
+  ping, default route, break-and-fix diagnostic narrative — see the book
+  for the full rubric
+
+---
+
+<!-- SLOT N+4: Thank You -->
+<!-- _class: end -->
+
+# Thank You
+
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-05.html">Open Module 5 in the Book →</a></div>

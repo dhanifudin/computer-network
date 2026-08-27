@@ -2,7 +2,9 @@
 
 **Course:** 지능형네트워크설계 (Intelligent Network Design)  
 **Department:** School of Computer & Applied Mathematics (컴퓨터응용수학부)  
-**Unit:** Software Convergence 001
+**University:** 한경국립대학교 Hankyong National University  
+**Unit:** Software Convergence 001  
+**Instructor:** Amalia
 
 ---
 

@@ -318,7 +318,3 @@ R0# show ip dhcp binding
 | DHCP relay configured and working | 25 |
 | giaddr explanation | 10 |
 | **Total** | **100** |
-
----
-
-*References: DORA before/after observation technique and DHCP client state verification adapted from Arief Sofyan, "Modul Praktikum 2 — Identifikasi Hardware Jaringan dan Konfigurasi IP Dinamis-Statis" (Modul Praktikum Jaringan Komputer, Politeknik Negeri Malang, 2021).*

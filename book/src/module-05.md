@@ -282,7 +282,3 @@ R0# show ip route
 | Default route configured and `S*` identified | 15 |
 | Break-and-fix diagnostic narrative | 15 |
 | **Total** | **100** |
-
----
-
-*References: Ping failure diagnosis heuristic ("Destination Unreachable vs Request Timeout") and 3-router chain exercise adapted from Arief Sofyan, "Konfigurasi Routing Statis Pada Cisco" and "Modul Praktikum 5 — Ping dan Route" (Modul Praktikum Jaringan Komputer, Politeknik Negeri Malang, 2021).*

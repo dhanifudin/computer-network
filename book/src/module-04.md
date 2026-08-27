@@ -310,7 +310,3 @@ Router# show ip interface brief
 | RAM/NVRAM reload explanation | 10 |
 | Challenge Task (any one, with explanation) | 10 |
 | **Total** | **100** |
-
----
-
-*References: Ping and traceroute diagnostic techniques adapted from Arief Sofyan, "Modul Praktikum 5 — Ping dan Route" and "Modul Praktikum 10 — Traceroute" (Modul Praktikum Jaringan Komputer, Politeknik Negeri Malang, 2021).*

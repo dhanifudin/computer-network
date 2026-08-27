@@ -1,26 +1,60 @@
 ---
 marp: true
-theme: default
+theme: hankyong
 paginate: true
-size: 16:9
+footer: 'School of Computer & Applied Mathematics'
 ---
 
-<!-- _class: lead -->
+<!-- _class: title -->
 
 # Intelligent Network Design
-### 지능형네트워크설계 (Software Convergence 001)
+<span class="subtitle">지능형네트워크설계 (Software Convergence 001)</span>
 
-School of Computer & Applied Mathematics
+<div class="meta">
+Amalia · School of Computer & Applied Mathematics · 한경국립대학교 Hankyong National University
+</div>
 
 ---
 
-## Course Goal
+# Where We Are
+
+<div class="roadmap">
+<div class="wk"><div class="n">Wk 1</div><div class="t">Orientation</div></div>
+<div class="wk"><div class="n">Wk 2</div><div class="t">OSI Review</div></div>
+<div class="wk"><div class="n">Wk 3</div><div class="t">Basic Config</div></div>
+<div class="wk"><div class="n">Wk 4</div><div class="t">IOS Management</div></div>
+<div class="wk"><div class="n">Wk 5</div><div class="t">Static Routing</div></div>
+<div class="wk"><div class="n">Wk 6</div><div class="t">Dynamic Routing</div></div>
+<div class="wk"><div class="n">Wk 7</div><div class="t">ACLs</div></div>
+<div class="wk review"><div class="n">Wk 8</div><div class="t">Midterm Exam</div></div>
+<div class="wk"><div class="n">Wk 9</div><div class="t">VLANs</div></div>
+<div class="wk"><div class="n">Wk 10</div><div class="t">WAN: PPP &amp; NAT</div></div>
+<div class="wk"><div class="n">Wk 11</div><div class="t">OSPF</div></div>
+<div class="wk"><div class="n">Wk 12</div><div class="t">DHCP</div></div>
+<div class="wk review"><div class="n">Wk 13</div><div class="t">Proposal Presentation</div></div>
+<div class="wk review"><div class="n">Wk 14</div><div class="t">Results Presentation</div></div>
+<div class="wk review"><div class="n">Wk 15</div><div class="t">Final Exam</div></div>
+</div>
+
+---
+
+# Course Goal
 
 Build and operate computer networks using **Cisco Packet Tracer**.
 
-This course builds on your prior Computer Networks course — you already understand the theory. Here you **implement, observe failures, and fix them**.
+This course builds on your prior Computer Networks course — you already
+understand the theory. Here you **implement, observe failures, and fix
+them**.
 
-By the end of the semester: design, build, and present a complete simulated network integrating every technology covered in the weekly labs.
+By the end of the semester: design, build, and present a complete simulated
+network integrating every technology covered in the weekly labs.
+
+---
+
+<!-- _class: section -->
+
+# Course Logistics
+<div class="driving-q">Read once now, use all semester.</div>
 
 ---
 
@@ -49,35 +83,6 @@ Lab reports (실습결과보고서) due on the LMS within one week of each sessi
 
 ---
 
-## 15-Week Schedule (1/2)
-
-| Week | Topic |
-|------|-------|
-| 1 | Orientation & Lab Environment Setup |
-| 2 | Network Review (1) & Packet Tracer Intro |
-| 3 | Network Review (2) & Router/Switch Basic Config |
-| 4 | IOS Management Commands |
-| 5 | Routing Protocols & Static Routing |
-| 6 | Dynamic Routing: RIP & EIGRP |
-| 7 | Access Control List |
-| 8 | **Midterm Exam** — practical + written |
-
----
-
-## 15-Week Schedule (2/2)
-
-| Week | Topic |
-|------|-------|
-| 9 | Switching & VLAN |
-| 10 | PPP & NAT |
-| 11 | OSPF (Advanced Routing) |
-| 12 | DHCP |
-| 13 | **Project Proposal Presentations** |
-| 14 | **Project Results Presentations** |
-| 15 | **Final Exam** — practical + written |
-
----
-
 ## Lab Rules
 
 1. **Save constantly** — Packet Tracer does not auto-save. `StudentID_ModuleN.pka`
@@ -92,18 +97,17 @@ Lab reports (실습결과보고서) due on the LMS within one week of each sessi
 
 | Section | Purpose |
 |---------|---------|
-| Why This Matters | The real-world problem this week's tech solves |
-| Learning Outcomes | What you can do after the lab |
-| Pre-Lab | Reading + questions due before class |
-| Theory Review | Concise concept summary |
-| Guided Lab | Step-by-step activity, observe-and-explain |
-| Challenge Tasks | Unguided extensions |
-| Deliverables / Rubric | Lab report checklist and grading |
+| The pain | The real-world problem this week's technology solves |
+| Learning outcomes | What you can do after the lab |
+| Origin & core concept | Where the idea came from, its first formal definition |
+| Mechanics & worked example | Configuration patterns, applied to the running lab topology |
+| Common mistakes / check yourself | Pitfalls, then a quick recall check |
+| Limits | What this technique cannot do — next week's pain |
 
 ---
 
-<!-- _class: lead -->
+<!-- _class: end -->
 
-## Full lab manual, step-by-step instructions, and assessment rubrics:
+# Let's Begin
 
-**[Open the Book →](../book/introduction.html)**
+<div class="meta">Module 1 — Orientation & Lab Environment.<br>Full lab manual: <a href="../book/introduction.html">Open the Book →</a></div>

@@ -1,0 +1,15 @@
+{
+  "name": "intelligent-network-design-slides",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Marp slide decks for Intelligent Network Design (지능형네트워크설계)",
+  "scripts": {
+    "preview": "marp -s slides --theme-set themes/hankyong.css --html",
+    "build:html": "marp -I slides --theme-set themes/hankyong.css --html --allow-local-files -o dist/slides",
+    "build:pdf": "marp -I slides --theme-set themes/hankyong.css --html --pdf --allow-local-files -o dist/slides",
+    "build:pptx": "marp -I slides --theme-set themes/hankyong.css --html --pptx --allow-local-files -o dist/slides"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.0.1"
+  }
+}

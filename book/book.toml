@@ -1,7 +1,7 @@
 [book]
 title = "Intelligent Network Design — Lab Manual"
-authors = ["Department of Computer & Applied Mathematics"]
-description = "지능형네트워크설계 (Software Convergence 001) — Hands-on lab modules using Cisco Packet Tracer"
+authors = ["Amalia"]
+description = "지능형네트워크설계 (Software Convergence 001), 한경국립대학교 Hankyong National University — Hands-on lab modules using Cisco Packet Tracer"
 language = "en"
 
 [output.html]

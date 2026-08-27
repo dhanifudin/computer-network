@@ -1,2 +1,4 @@
 book/book/
 _site/
+dist/
+node_modules/

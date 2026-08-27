@@ -1,40 +1,129 @@
 ---
 marp: true
-theme: default
+theme: hankyong
 paginate: true
-size: 16:9
+footer: 'School of Computer & Applied Mathematics'
 ---
 
-<!-- _class: lead -->
+<!-- SLOT 1: Title -->
+<!-- _class: title -->
 
-# Module 9
-## Switching & VLANs
+# Module 9: Switching & VLANs
 
----
+<span class="subtitle">Intelligent Network Design (지능형네트워크설계)</span>
 
-## Why This Matters
-
-A department buys 80 PCs, all on the same switches. Day one, a poorly written program floods the network with broadcast frames.
-
-Every PC must process every broadcast — 80 PCs processing an endless flood means no CPU cycles for anything else. A **broadcast storm** on a flat network can take down an entire floor.
-
-**The fix: segmentation.** VLANs divide one physical switch infrastructure into multiple isolated broadcast domains — Finance, Student, Faculty — each behaving as if on separate switches. Traffic crosses between them only through a router **you** control.
+<div class="meta">
+Amalia · School of Computer & Applied Mathematics · 한경국립대학교
+</div>
 
 ---
 
-## Learning Outcomes
+<!-- SLOT 2: Where we are -->
+
+# Where We Are
+
+<div class="roadmap">
+<div class="wk"><div class="n">Wk 1</div><div class="t">Orientation</div></div>
+<div class="wk"><div class="n">Wk 2</div><div class="t">OSI Review</div></div>
+<div class="wk"><div class="n">Wk 3</div><div class="t">Basic Config</div></div>
+<div class="wk"><div class="n">Wk 4</div><div class="t">IOS Management</div></div>
+<div class="wk"><div class="n">Wk 5</div><div class="t">Static Routing</div></div>
+<div class="wk"><div class="n">Wk 6</div><div class="t">Dynamic Routing</div></div>
+<div class="wk"><div class="n">Wk 7</div><div class="t">ACLs</div></div>
+<div class="wk review"><div class="n">Wk 8</div><div class="t">Midterm Exam</div></div>
+<div class="wk now"><div class="n">Wk 9</div><div class="t">VLANs</div></div>
+<div class="wk"><div class="n">Wk 10</div><div class="t">WAN: PPP &amp; NAT</div></div>
+<div class="wk"><div class="n">Wk 11</div><div class="t">OSPF</div></div>
+<div class="wk"><div class="n">Wk 12</div><div class="t">DHCP</div></div>
+<div class="wk review"><div class="n">Wk 13</div><div class="t">Proposal Presentation</div></div>
+<div class="wk review"><div class="n">Wk 14</div><div class="t">Results Presentation</div></div>
+<div class="wk review"><div class="n">Wk 15</div><div class="t">Final Exam</div></div>
+</div>
+
+---
+
+<!-- SLOT 3: Recap + open wound -->
+
+# Last Time, This Time
+
+- **Before the midterm:** you could filter Layer 3 traffic between subnets with ACLs
+- **It left broken:** ACLs never see traffic that never needed to be routed — a flat Layer 2 network has no isolation at all
+
+---
+
+<!-- SLOT 4: The pain -->
+
+# One Bad Program, One Dead Floor
+
+<div class="pain">
+
+A department connects 80 PCs to the same switches. A poorly written
+program floods the network with broadcast frames. Every single PC must
+process every broadcast — 80 PCs processing an endless flood means no CPU
+cycles left for anything else. The entire floor stops responding.
+
+</div>
+
+---
+
+<!-- SLOT 5: Cost of not knowing -->
+
+# What This Actually Costs
+
+- A flat network means one misbehaving device can take down every device sharing its switches
+- No isolation between departments that shouldn't be able to reach each other at all
+
+<div class="why">
+<strong>In industry:</strong> VLAN design is one of the first things a network engineer touches on any campus or enterprise deployment — it's assumed baseline knowledge.
+</div>
+
+---
+
+<!-- SLOT 6: Driving question -->
+<!-- _class: section -->
+
+# This Module's Question
+
+<div class="driving-q">"How do you divide one physical switch infrastructure into isolated logical networks?"</div>
+
+---
+
+<!-- SLOT 7: Learning outcomes -->
+
+# By the End of This Module, You Can
 
 1. Explain what a VLAN is and how it differs from a physical LAN
 2. Create VLANs, assign ports
 3. Configure a trunk link, verify VLAN propagation
 4. Implement inter-VLAN routing — router-on-a-stick
-5. Verify with `show vlan brief`, `show interfaces trunk`, `show ip route`
 
 ---
 
-## Theory Review — VLANs & Port Types
+<!-- SLOT 8: Origin -->
 
-A VLAN is a logical partition: frames tagged VLAN 10 only forward to other VLAN-10 ports — broadcasts stay inside the VLAN.
+# Where This Idea Came From
+
+Before VLANs, logical segmentation meant physically separate switches and
+cabling for every department. **IEEE 802.1Q (1998)** standardized a way to
+tag frames with a VLAN ID, letting one physical switch infrastructure
+behave as many isolated logical ones — no rewiring required.
+
+---
+
+<!-- SLOT 9: Core concept -->
+
+# VLAN: Definition
+
+> A VLAN is a logical partition of a switched network: frames tagged VLAN
+> 10 only forward to other VLAN-10 ports — broadcasts stay inside the
+> VLAN. A PC in VLAN 10 cannot directly reach a PC in VLAN 20, even on the
+> same physical switch.
+
+---
+
+<!-- Act 3 / BUILD -->
+
+# Access Ports vs Trunk Ports
 
 | Port Type | Belongs To | Tagging |
 |-----------|------------|---------|
@@ -45,61 +134,100 @@ Trunks connect switch-to-switch and switch-to-router.
 
 ---
 
-## Theory Review — Router-on-a-Stick
+# Router-on-a-Stick
 
-Inter-VLAN routing needs a Layer 3 device. One physical router interface, divided into **sub-interfaces**, one per VLAN:
+One physical router interface, divided into **sub-interfaces**, one per
+VLAN:
 
 ```
 interface FastEthernet0/0.10
  encapsulation dot1Q 10
  ip address 192.168.10.1 255.255.255.0
-
-interface FastEthernet0/0.20
- encapsulation dot1Q 20
- ip address 192.168.20.1 255.255.255.0
 ```
 
-The trunk carries tagged frames for both VLANs to the router; it strips, routes, and re-tags for the destination VLAN.
+The trunk carries tagged frames for every VLAN to the router; it strips,
+routes, and re-tags for the destination VLAN.
 
 ---
 
-## Guided Lab Overview
+<!-- SLOT N-2: Worked example -->
 
-**Part A** — create VLANs 10 & 20, assign ports; same-VLAN pings succeed, cross-VLAN pings **fail** (isolated, as expected)
+# Guided Lab at a Glance
 
-**Part B** — add a second switch, configure a trunk link, verify VLAN propagation across switches
+**Part A** — create VLANs, assign ports; same-VLAN pings succeed, cross-VLAN pings fail (isolated, as expected)
 
-**Part C** — router-on-a-stick: configure sub-interfaces, watch cross-VLAN ping **succeed**
+**Part B** — add a second switch, configure a trunk link, verify propagation
+
+**Part C** — router-on-a-stick: configure sub-interfaces, cross-VLAN ping succeeds
 
 **Part D** — verification: `show vlan brief`, `show interfaces trunk`, `show ip route`
 
 ---
 
-## Key Insight — Broadcasts Never Cross VLANs
+<!-- SLOT N-1: Common mistakes -->
 
-A student in the Student VLAN cannot flood the Faculty or Finance VLAN — broadcasts in VLAN 10 never reach VLAN 20.
+# Common Mistakes
 
-The router is the **only** path between VLANs — and it's the only place you need to apply filtering (ACLs) to control which VLANs can talk to which.
-
----
-
-## Deliverables & Assessment
-
-`show vlan brief` (annotated), within/cross-VLAN ping evidence, `show interfaces trunk`, sub-interface config, successful inter-VLAN ping, 802.1Q tag observation.
-
-| Criterion | Points |
-|-----------|--------|
-| VLANs created, ports assigned | 20 |
-| Trunk configured | 15 |
-| Router-on-a-stick sub-interfaces | 25 |
-| Inter-VLAN ping succeeds | 20 |
-| 802.1Q simulation observation | 10 |
-| Challenge Task | 10 |
+- **Forgetting the trunk's allowed-VLAN list:** a trunk with no explicit
+  `switchport trunk allowed vlan` may still work by default, but silently
+  carries VLANs you never intended to extend between switches
+- **Sub-interface encapsulation mismatch:** the `dot1Q` VLAN number on the
+  sub-interface must match the VLAN configured on the switch exactly
 
 ---
 
-<!-- _class: lead -->
+<!-- SLOT N: Check yourself -->
 
-## Full step-by-step lab instructions:
+# Check Yourself
 
-**[Open Module 9 in the Book →](../book/module-09.html)**
+1. What is the difference between an access port and a trunk port?
+2. What is "router-on-a-stick" inter-VLAN routing? Why is it called that?
+
+---
+
+# Answers
+
+1. An access port belongs to one VLAN and carries untagged frames; a trunk port carries tagged frames from multiple VLANs
+2. One physical router interface (the "stick"), divided into per-VLAN sub-interfaces, handles routing for every VLAN through a single trunk link
+
+---
+
+<!-- SLOT N+1: Limits -->
+
+# What VLANs Cannot Do
+
+<div class="limits">
+VLANs isolate broadcast domains across your campus switches. But
+connecting to a remote site over a WAN link — with authentication, and
+enough public IP addresses for everyone — is a completely different
+problem.
+</div>
+
+---
+
+<!-- SLOT N+2: Bridge -->
+
+# Next Module
+
+Module 9 leaves **inter-site WAN connectivity** unsolved. **Module 10**
+addresses it: PPP and NAT.
+
+---
+
+<!-- SLOT N+3: Summary -->
+
+# Summary
+
+- One flat network is one big failure domain — VLANs fix that
+- Router-on-a-stick lets one interface route for every VLAN
+- **Deliverables & assessment:** `show vlan brief`, trunk verification,
+  successful inter-VLAN ping — see the book for the full rubric
+
+---
+
+<!-- SLOT N+4: Thank You -->
+<!-- _class: end -->
+
+# Thank You
+
+<div class="meta">Full step-by-step lab instructions: <a href="../book/module-09.html">Open Module 9 in the Book →</a></div>
