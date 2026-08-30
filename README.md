@@ -79,8 +79,16 @@ install step. Wired into `.github/workflows/deploy.yml`, published at
 ```bash
 npm run build:html   # -> dist/slides/*.html, self-contained
 npm run build:pdf     # -> dist/slides/*.pdf
-npm run build:pptx    # -> dist/slides/*.pptx
+npm run build:pptx    # -> dist/pptx/*.pptx, one per deck, + dist/pptx/index.html
 ```
+
+`build:pptx` runs `scripts/build-slides-pptx.js`, which converts each deck
+to PPTX one at a time via marp-cli (PPTX export drives headless Chrome,
+same as the book PDFs above). Each deck gets a 120-second timeout - a
+single hung conversion is killed and logged as a failure without taking
+the rest of the batch down with it. Wired into
+`.github/workflows/deploy.yml`, published at `/slides/pptx/` on the live
+site.
 
 ## Adding a new module deck
 
