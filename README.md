@@ -79,16 +79,18 @@ install step. Wired into `.github/workflows/deploy.yml`, published at
 ```bash
 npm run build:html   # -> dist/slides/*.html, self-contained
 npm run build:pdf     # -> dist/slides/*.pdf
-npm run build:pptx    # -> dist/pptx/*.pptx, one per deck, + dist/pptx/index.html
+npm run build:pptx    # -> dist/slides/*.pptx, editable in PowerPoint/Impress
 ```
 
-`build:pptx` runs `scripts/build-slides-pptx.js`, which converts each deck
-to PPTX one at a time via marp-cli (PPTX export drives headless Chrome,
-same as the book PDFs above). Each deck gets a 120-second timeout - a
-single hung conversion is killed and logged as a failure without taking
-the rest of the batch down with it. Wired into
-`.github/workflows/deploy.yml`, published at `/slides/pptx/` on the live
-site.
+`build:pptx` passes marp-cli's `--pptx-editable` flag (experimental), which
+produces a PPTX with real, editable text boxes instead of one slide image
+per page - it needs LibreOffice (`soffice`) on PATH to do the conversion.
+CI installs it (`libreoffice`, ubuntu-latest does not ship it) and runs the
+same conversion with `--parallel 1 --browser-timeout 120`, serializing
+decks so concurrent Chrome/LibreOffice instances do not collide, and
+bounding each one so a stuck conversion cannot hang the whole batch.
+Wired into `.github/workflows/deploy.yml`, published alongside each
+deck's `.html` under `/slides/` on the live site.
 
 ## Adding a new module deck
 

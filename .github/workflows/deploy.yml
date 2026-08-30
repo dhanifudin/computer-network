@@ -36,11 +36,14 @@ jobs:
       - name: Build slides
         run: npx --yes @marp-team/marp-cli --input-dir slides --output "$GITHUB_WORKSPACE/_site/slides" --theme-set themes/hankyong.css --html --allow-local-files
 
+      - name: Install LibreOffice (for PPTX export)
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libreoffice
+
+      - name: Build slides (PPTX)
+        run: npx --yes @marp-team/marp-cli --input-dir slides --output "$GITHUB_WORKSPACE/_site/slides" --theme-set themes/hankyong.css --html --pptx --pptx-editable --allow-local-files --parallel 1 --browser-timeout 120
+
       - name: Build book chapter PDFs
         run: node scripts/build-book-pdfs.js "$GITHUB_WORKSPACE/_site/book" "$GITHUB_WORKSPACE/_site/book/pdf"
-
-      - name: Build slide PPTX decks
-        run: node scripts/build-slides-pptx.js "$GITHUB_WORKSPACE/_site/slides/pptx"
 
       - name: Copy shared assets
         run: cp -r assets "$GITHUB_WORKSPACE/_site/assets"
