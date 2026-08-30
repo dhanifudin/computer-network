@@ -166,6 +166,8 @@ dig google.com
 
 Open Cisco Packet Tracer.
 
+![Schematic diagram of the Packet Tracer window layout, labeling the menu bar, Logical/Physical tabs, workspace canvas, Physical/Config/CLI tabs, device category bar, device list, cable palette, and Realtime/Simulation toggle](images/pt-interface-overview.svg)
+
 **Step 9.** Identify each panel area:
 
 | Panel | Name | Purpose |
@@ -235,6 +237,8 @@ ping 192.168.1.20
 3. In Packet Tracer, switch to **Simulation Mode** and send a ping from PC0 to PC1. Click through each event and identify which protocol appears at the Data Link layer. Does it match what you expected?
 4. **Cable-type diagnosis:** In your PT topology from Part D, delete the cable between PC0 and PC1. Reconnect them using a **Copper Straight-Through** cable instead of a crossover. Does PT accept it? Observe the link LED. Now try "Copper Auto" - what happens? Explain what Auto-MDIX does and why a red link light is the symptom of a wrong cable type rather than a failed interface.
 5. **Grow the architecture:** Replace the direct PC0-PC1 cable with a Cisco 2960 switch in between (two straight-through cables: PC0-switch, PC1-switch). Re-verify the ping. This is the same star-shaped pattern Module 2's topology builds on a larger scale - confirm you understand why a switch in the middle changes the cable type needed at each end.
+
+**Want more practice?** [Appendix F](appendix/resources.md) lists free official and community Packet Tracer resources beyond this book's own labs.
 
 ## Deliverables
 

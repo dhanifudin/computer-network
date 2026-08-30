@@ -36,3 +36,4 @@
 - [Packet Tracer Tips & Tricks](appendix/packet-tracer-tips.md)
 - [Lab Report Template](appendix/report-template.md)
 - [References](appendix/references.md)
+- [Open Resources for Packet Tracer Practice](appendix/resources.md)

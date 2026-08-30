@@ -117,6 +117,8 @@ Device addressing:
 
 ### Part B - ICMP in Simulation Mode
 
+![Schematic diagram of Packet Tracer's Simulation Mode: the workspace with a packet mid-hop, the Event List panel with sample ARP and ICMP rows, and the Play / Next / Auto Capture / Reset Simulation controls](images/pt-simulation-mode.svg)
+
 **Step 5.** Switch to **Simulation Mode** (clock icon, bottom right). Set the Event List filter to show only **ICMP** and **ARP**.
 
 **Step 6.** From PC0's command prompt, send a single ping to PC1: `ping 192.168.1.20 -n 1` (Windows PT syntax).

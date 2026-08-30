@@ -6,7 +6,7 @@
 **Unit:** Software Convergence 001  
 **Instructor:** Amalia
 
-*Prefer PDF? Every chapter of this manual is also released individually - see the [chapter PDF index](pdf/). Unfamiliar abbreviation in a lab step? Check the [Glossary](appendix/glossary.md) - it works standalone, chapter by chapter.*
+*Prefer PDF? Every chapter of this manual is also released individually - see the [chapter PDF index](pdf/). Unfamiliar abbreviation in a lab step? Check the [Glossary](appendix/glossary.md) - it works standalone, chapter by chapter. Want extra practice beyond the weekly labs? See [Appendix F](appendix/resources.md).*
 
 ---
 
