@@ -10,7 +10,7 @@ By the end of this lab, students are able to:
 
 1. Install Cisco Packet Tracer on their own machine and confirm it launches correctly.
 2. Use `ipconfig`/`ip addr`, `ping`, `tracert`/`traceroute`, and `nslookup`/`dig` on their own machine to read network state.
-3. Explain what each command's output means and identify the layer it queries (L3, DNS, ICMP).
+3. Explain what each command's output means and identify the layer it queries (L3 - the OSI Network layer; DNS - Domain Name System; ICMP - Internet Control Message Protocol).
 4. Name and use every core panel of the Packet Tracer workspace: device categories, the canvas, the cabling tool, and the Logical/Physical workspace toggle.
 5. Build a small topology from scratch - one device at a time - and verify connectivity with `ping`.
 
@@ -22,8 +22,8 @@ By the end of this lab, students are able to:
 
 **Answer these questions before the session (submit on LMS):**
 
-1. What is the purpose of an IP address? How is it different from a MAC address?
-2. What layer of the OSI model does the `ping` command operate at, and what protocol does it use?
+1. What is the purpose of an IP address? How is it different from a MAC (Media Access Control) address?
+2. What layer of the OSI (Open Systems Interconnection) model does the `ping` command operate at, and what protocol does it use?
 3. What does a subnet mask tell you about a host's network?
 4. What is a default gateway, and what happens to a packet destined for a remote network when no gateway is configured?
 5. What is DNS, and why would a website be unreachable by name but reachable by IP?
@@ -49,11 +49,11 @@ By the end of this lab, students are able to:
 
 ## Theory Review
 
-A network interface has at minimum three pieces of L3 state: its **IP address**, its **subnet mask** (defining the local network boundary), and its **default gateway** (the router to use for everything outside the local network). The operating system maintains a **routing table** - a list of destination networks and where to send packets for each.
+A network interface has at minimum three pieces of L3 (Layer 3, the OSI/TCP-IP Network layer) state: its **IP address**, its **subnet mask** (defining the local network boundary), and its **default gateway** (the router to use for everything outside the local network). A subnet mask is also written in prefix notation - `/24` means `255.255.255.0` (the first 24 bits are network bits); you will see addresses written this way (`192.168.1.10/24`) throughout this book. The operating system maintains a **routing table** - a list of destination networks and where to send packets for each.
 
-When you run `ping`, the OS sends an **ICMP Echo Request** to the target IP. If the target is on the same subnet, the OS sends directly (using ARP to resolve MAC); if not, it forwards to the default gateway. `tracert`/`traceroute` exploits the IP TTL field: each probe's TTL is incremented by one, causing each successive router to respond with a "Time Exceeded" ICMP message, revealing the hop-by-hop path.
+When you run `ping`, the OS sends an **ICMP (Internet Control Message Protocol) Echo Request** to the target IP. If the target is on the same subnet, the OS sends directly (using ARP - Address Resolution Protocol - to resolve the destination's MAC address); if not, it forwards to the default gateway. `tracert`/`traceroute` exploits the IP TTL (Time To Live) field: each probe's TTL is incremented by one, causing each successive router to respond with a "Time Exceeded" ICMP message, revealing the hop-by-hop path.
 
-`nslookup`/`dig` query a **DNS resolver** - usually your router or ISP - which translates a hostname into an IP address using a distributed hierarchical database. If DNS fails, name resolution fails even though the IP network is perfectly healthy.
+`nslookup`/`dig` query a **DNS (Domain Name System) resolver** - usually your router or ISP (Internet Service Provider) - which translates a hostname into an IP address using a distributed hierarchical database. If DNS fails, name resolution fails even though the IP network is perfectly healthy.
 
 This is the mechanism that fixes "the website works by IP but not by name": DNS is broken, not the network.
 
@@ -105,7 +105,7 @@ If you already installed Packet Tracer before class using the Pre-Lab instructio
 
 📸 Screenshot the About window showing your installed version number.
 
-> **Note:** Packet Tracer updates every few months. A version mismatch between you and a lab partner (e.g. 8.2 vs 8.3) can occasionally make a shared `.pka` file open with a warning - if that happens, whoever has the older version should update.
+> **Note:** Packet Tracer updates every few months. A version mismatch between you and a lab partner (e.g. 8.2 vs 8.3) can occasionally make a shared `.pka` (Packet Tracer Activity) file open with a warning - if that happens, whoever has the older version should update.
 
 ---
 
@@ -176,6 +176,8 @@ Open Cisco Packet Tracer.
 | Bottom right | Cable palette | Different cable types (only visible when **Connections** is the selected category) |
 | Right side | Physical/Config/CLI tabs | Device management, opened by clicking a placed device |
 | Top right | Simulation/Realtime toggle | Simulation Mode switch |
+
+> **CLI** = Command Line Interface, the text-based configuration screen for routers and switches (used from Module 3 onward). **WAN** = Wide Area Network, the category holding cloud/serial-link emulation devices for connecting sites over a distance.
 
 **Step 10.** Find the **Logical / Physical workspace tabs** at the top-left of the canvas. Everything in this course happens in the **Logical** workspace, which draws devices as icons connected by cable lines - it ignores physical placement (which rack, which building). The **Physical** workspace instead models real-world placement (a device sits in a room, a room sits in a building) and is used for wireless signal propagation and cable-length exercises, which this course does not cover. Confirm you are on **Logical** before continuing.
 

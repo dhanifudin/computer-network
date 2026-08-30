@@ -1,4 +1,4 @@
-# Appendix D - References
+# Appendix E - References
 
 The following sources informed the theory, exercises, and addressing conventions used throughout this lab manual.
 

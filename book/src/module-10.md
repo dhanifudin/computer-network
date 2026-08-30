@@ -29,7 +29,7 @@ By the end of this lab, students are able to:
 ## Equipment & Materials
 
 - Cisco Packet Tracer 8.x
-- Two routers with serial interfaces (2811 or 1841 with WIC-2T module), one switch, two PCs, one server
+- Two routers with serial interfaces (2811 or 1841 with a WIC-2T module - a WAN Interface Card adding two serial ports), one switch, two PCs, one server
 
 ## Estimated Time (In-Class Lab, ~2 hrs)
 
@@ -49,7 +49,7 @@ By the end of this lab, students are able to:
 PPP is a Layer 2 protocol designed for point-to-point serial links. Over Cisco's default HDLC encapsulation, PPP adds:
 - **LCP (Link Control Protocol):** Negotiates link parameters, options, and authentication method.
 - **NCP (Network Control Protocol):** Negotiates which Layer 3 protocols run over the link (e.g., IPCP for IPv4).
-- **Authentication:** Supports PAP (password in cleartext - avoid) and **CHAP** (challenge-response with MD5 hash - preferred).
+- **Authentication:** Supports PAP - Password Authentication Protocol (password in cleartext - avoid) - and **CHAP** - Challenge Handshake Authentication Protocol (challenge-response with MD5 hash - preferred).
 
 CHAP three-way handshake:
 1. Authenticator sends a Challenge (random value + authenticator hostname).
@@ -69,7 +69,7 @@ The password never crosses the link in cleartext.
 
 ### Static NAT vs. PAT
 
-| | Static NAT | PAT (NAT Overload) |
+| | Static NAT | PAT - Port Address Translation (NAT Overload) |
 |---|---|---|
 | Mapping | One inside-local ↔ one inside-global | Many inside-local ↔ one inside-global (port-multiplexed) |
 | Use case | Hosting a server accessible from internet | Sharing one public IP for many outgoing clients |
@@ -111,6 +111,8 @@ architecture-beta
 | R0 | Se0/0/0 | 10.0.0.1/30 | Serial WAN (DCE) |
 | R1 | Se0/0/0 | 10.0.0.2/30 | Serial WAN (DTE) |
 | R1 | Fa0/0 | 192.168.2.1/24 | LAN B gateway |
+
+> **DCE/DTE** = Data Communications Equipment / Data Terminal Equipment - on a serial link, the DCE end supplies clocking (`clock rate`, Step 1 below) and the DTE end receives it; right-click the serial cable in Packet Tracer to see which end is which. **Se0/0/0** = Serial0/0/0, the same type+slot/port shorthand as `Fa0/0` from earlier modules, just for a serial interface.
 
 **Step 1.** Configure interface IPs. On the serial interfaces, add `clock rate 64000` on the DCE side (the router with the DCE cable end - in PT, right-click the serial cable to see which end is DCE):
 

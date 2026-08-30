@@ -129,6 +129,8 @@ architecture-beta
 | PC1 | NIC | 192.168.2.10/24 | Workstation, GW .2.1 |
 > Left LAN: 192.168.1.0/24 · WAN link: 10.0.0.0/30 · Right LAN: 192.168.2.0/24
 
+> **WAN** = Wide Area Network, the link connecting the two sites across a distance (as opposed to each side's LAN). Part C below adds an **ISP** (Internet Service Provider) gateway to the same topology.
+
 > **Student addressing:** Replace the last two digits of each LAN's third octet with your student ID last two digits. E.g., ID 2023-0042 → use 192.168.142.0/24 and 192.168.242.0/24. The WAN link stays `10.0.0.0/30`.
 
 **Step 1.** Place devices and cable them. Configure all interface IPs and `no shutdown` on both routers (as in Module 4).

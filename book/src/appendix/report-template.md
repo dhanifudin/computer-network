@@ -1,4 +1,4 @@
-# Appendix C - Lab Report Template (실습결과보고서)
+# Appendix D - Lab Report Template (실습결과보고서)
 
 Submit one report per module, per student, via the course LMS within one week of the lab session.
 

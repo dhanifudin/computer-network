@@ -32,6 +32,7 @@
 # Appendices
 
 - [IOS Command Reference](appendix/command-reference.md)
+- [Abbreviations & Glossary](appendix/glossary.md)
 - [Packet Tracer Tips & Tricks](appendix/packet-tracer-tips.md)
 - [Lab Report Template](appendix/report-template.md)
 - [References](appendix/references.md)

@@ -23,7 +23,7 @@ By the end of this lab, students are able to:
 1. What algorithm does OSPF use to calculate the shortest path? What data structure does it build first?
 2. What is a router-id in OSPF? How does a router choose one if not manually configured?
 3. What is an OSPF area? Why was the concept of areas introduced?
-4. What is the DR/BDR election and why does OSPF need it on multi-access networks (like Ethernet)?
+4. What is the DR/BDR (Designated Router / Backup Designated Router) election and why does OSPF need it on multi-access networks (like Ethernet)?
 5. What is a passive interface in OSPF? Why would you configure one on a LAN-facing interface?
 
 ## Equipment & Materials

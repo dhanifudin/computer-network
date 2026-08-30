@@ -6,7 +6,7 @@
 **Unit:** Software Convergence 001  
 **Instructor:** Amalia
 
-*Prefer PDF? Every chapter of this manual is also released individually - see the [chapter PDF index](pdf/).*
+*Prefer PDF? Every chapter of this manual is also released individually - see the [chapter PDF index](pdf/). Unfamiliar abbreviation in a lab step? Check the [Glossary](appendix/glossary.md) - it works standalone, chapter by chapter.*
 
 ---
 
@@ -22,7 +22,7 @@ By the end of the semester, you will have designed and presented a complete simu
 |--------|-------------|
 | Lecture (강의) | Brief concept intro at the start of each session |
 | Lab Practice (실험·실습) | Hands-on Packet Tracer guided labs - the majority of class time |
-| PBL | Each module begins with a real-world problem your configuration must solve |
+| PBL (Problem-Based Learning) | Each module begins with a real-world problem your configuration must solve |
 | Capstone Design | Weeks 13–14: design, build, and present a complete network project |
 
 ## Class Format
@@ -46,7 +46,7 @@ The lecture covers *Why This Matters*, *Learning Outcomes*, and *Theory Review* 
 | Lab Reports / Assignments (과제) | 10% |
 | Other (project, participation) | 20% |
 
-**Lab Reports (실습결과보고서)** must be submitted via the course LMS within one week of each lab session. Use the template in [Appendix C](appendix/report-template.md).
+**Lab Reports (실습결과보고서)** must be submitted via the course LMS (Learning Management System) within one week of each lab session. Use the template in [Appendix D](appendix/report-template.md).
 
 ## 15-Week Schedule
 

@@ -9,7 +9,7 @@ Every Cisco device leaves the factory in the same state: no hostname, no passwor
 By the end of this lab, students are able to:
 
 1. Access a Cisco router/switch via the Console port in Packet Tracer.
-2. Navigate the IOS mode hierarchy (User EXEC → Privileged EXEC → Global Configuration → Specific Configuration).
+2. Navigate the IOS (Internetwork Operating System - the OS Cisco routers and switches run) mode hierarchy (User EXEC → Privileged EXEC → Global Configuration → Specific Configuration).
 3. Apply basic security hardening: hostname, console password, VTY password, enable secret, and MOTD banner.
 4. Verify the active configuration with `show` commands.
 5. Recognize the difference between straight-through, crossover, and rollover (console) cables.
@@ -29,7 +29,7 @@ By the end of this lab, students are able to:
 ## Equipment & Materials
 
 - Cisco Packet Tracer 8.x
-- Physical lab (if available): UTP Cat5e cable, RJ-45 connectors, crimping tool (tang RJ-45), cable tester
+- Physical lab (if available): UTP (Unshielded Twisted Pair) Cat5e cable, RJ-45 (Registered Jack 45) connectors, crimping tool (tang RJ-45), cable tester
 
 ## Estimated Time (In-Class Lab, ~2 hrs)
 
@@ -86,6 +86,8 @@ Router(config)# end  (or Ctrl+Z) → back to Privileged EXEC
 |-------|-------------|----------|------------------------|
 | running-config | RAM (volatile) | Currently active config | No |
 | startup-config | NVRAM (non-volatile) | Config loaded at boot | Yes |
+
+> **RAM** = Random Access Memory, cleared on power loss. **NVRAM** = Non-Volatile RAM, retains its contents across a reboot - this is why `startup-config` survives a `reload` and `running-config` does not, unless you copy one into the other.
 
 To save: `copy running-config startup-config` (or `wr` as shorthand).
 

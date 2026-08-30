@@ -1,4 +1,4 @@
-# Appendix B - Packet Tracer Tips & Tricks
+# Appendix C - Packet Tracer Tips & Tricks
 
 ---
 

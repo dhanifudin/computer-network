@@ -265,7 +265,7 @@ Configure routing (static routes) between R0 and R1.
 
 Set PC3 and PC4 to DHCP. They should fail to get an IP - because DHCP Discover can't cross R1 to reach R0.
 
-📸 Screenshot of failed DHCP assignment (PC shows 0.0.0.0 or APIPA 169.254.x.x).
+📸 Screenshot of failed DHCP assignment (PC shows 0.0.0.0 or an APIPA address - Automatic Private IP Addressing, a `169.254.x.x` address Windows self-assigns when no DHCP server answers).
 
 **Step 10.** Configure the relay on R1's client-facing interface:
 

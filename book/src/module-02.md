@@ -23,7 +23,7 @@ By the end of this lab, students are able to:
 2. Which two OSI layers does the TCP/IP Application layer correspond to?
 3. What is encapsulation? Describe it in one sentence without using the word "wrap."
 4. A frame is received by a switch. Does the switch look at the IP header? Why or why not?
-5. What is the PDU name at each layer (bit, frame, packet, segment, data/message)?
+5. What is the PDU (Protocol Data Unit - the name for a chunk of data at a given layer) at each layer (bit, frame, packet, segment, data/message)?
 
 ## Equipment & Materials
 
@@ -55,6 +55,8 @@ The **OSI model** has 7 layers; the **TCP/IP model** has 4. Each layer adds a **
 | Network (3) | Internet | Packet | IP, ICMP, ARP |
 | Data Link (2) | Network Access | Frame | Ethernet, PPP, Wi-Fi |
 | Physical (1) | Network Access | Bit | Cables, signals, NIC |
+
+> **NIC** = Network Interface Card, the hardware a device's IP address is bound to - what "PC0's interface" refers to in the addressing table below.
 
 A **switch** operates at Layer 2: it reads the destination MAC address in the Ethernet frame and forwards it to the correct port - it never looks at the IP header. A **router** operates at Layer 3: it strips the Ethernet frame, reads the IP destination, makes a routing decision, and re-encapsulates into a new Ethernet frame for the next hop. Understanding this explains why routing is needed between subnets but not within them.
 
@@ -94,6 +96,8 @@ Device addressing:
 | Router0 | Fa0/0 | 192.168.1.1 | 255.255.255.0 | - |
 | Router0 | Fa0/1 | 192.168.2.1 | 255.255.255.0 | - |
 | PC2 | NIC | 192.168.2.10 | 255.255.255.0 | 192.168.2.1 |
+
+> **Fa0/0** = FastEthernet0/0, the router's first FastEthernet interface - Cisco's interface-naming shorthand (type + slot/port). This abbreviated form recurs in every addressing table from here on. **LAN 1** / **LAN 2** in the diagram above are each a Local Area Network - a network confined to one side of the router.
 
 > **Note:** We will configure the router interfaces in Module 3. For now, PCs on the **same switch** should be able to ping each other; cross-router pings will fail - and that is expected and intentional.
 

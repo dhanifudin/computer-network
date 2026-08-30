@@ -171,7 +171,7 @@ Router# show interfaces FastEthernet 0/0
 ```
 
 📸 Screenshot.
-> **Identify:** Find and annotate: (a) the line/protocol status, (b) the IP address, (c) the MTU value, (d) the input/output packet counters.
+> **Identify:** Find and annotate: (a) the line/protocol status, (b) the IP address, (c) the MTU (Maximum Transmission Unit - the largest packet size the interface forwards without fragmenting it), (d) the input/output packet counters.
 
 ```
 Router# show version
