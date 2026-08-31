@@ -63,6 +63,10 @@ Use **Automatic** cable type (the lightning bolt icon) if you are unsure - PT wi
 
 ![Schematic diagram of Packet Tracer link-light states (green up/up, amber negotiating, red down) and a cable-type legend for straight-through, crossover, console, and serial DCE/DTE](../images/pt-cabling-link-lights.svg)
 
+![RJ-45 pinout reference diagram comparing T-568A and T-568B wire color order, pins 1-8](../images/pt-ethernet-pinout.svg)
+
+![Pin-mapping diagram comparing straight-through and crossover Ethernet cable wiring, showing the 1-3 and 2-6 pin swap](../images/pt-straight-vs-crossover.svg)
+
 ---
 
 ## Configuring Devices

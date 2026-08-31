@@ -77,6 +77,10 @@ Choosing the wrong cable type is one of the most common hardware mistakes. In ol
 
 **T-568A vs T-568B:** Both are valid Ethernet wiring standards that define which color wire goes on which pin. A **straight-through** cable uses the same standard (A–A or B–B) on both ends. A **crossover** cable uses T-568A on one end and T-568B on the other - this swaps the transmit and receive pairs, which is what like-device connections require.
 
+![RJ-45 pinout reference diagram comparing T-568A and T-568B wire color order, pins 1-8](images/pt-ethernet-pinout.svg)
+
+![Pin-mapping diagram comparing straight-through and crossover Ethernet cable wiring, showing the 1-3 and 2-6 pin swap](images/pt-straight-vs-crossover.svg)
+
 Modern switches include **Auto-MDIX**, which electronically detects the cable type and corrects it - so a straight-through cable between two switches still works. Packet Tracer's "Copper Auto" cable option simulates this. However, understanding the underlying rule is essential for working with older hardware or for troubleshooting link failures.
 
 ## Guided Lab

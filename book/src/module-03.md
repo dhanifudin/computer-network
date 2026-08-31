@@ -112,9 +112,13 @@ Pin: 1    2    3    4    5    6    7    8
      W/Or Or  W/Gr Bl  W/Bl Gr  W/Br Br
 ```
 
+![RJ-45 pinout reference diagram comparing T-568A and T-568B wire color order, pins 1-8](images/pt-ethernet-pinout.svg)
+
 **Step 4.** Trim to equal length, insert into RJ-45 connector, crimp firmly.
 
-**Step 5.** Repeat on the other end (same order for straight-through; reverse orange and green pairs for crossover).
+**Step 5.** Repeat on the other end (same order for straight-through; reverse orange and green pairs for crossover - swap to **T568A** order on this end instead).
+
+![Pin-mapping diagram comparing straight-through and crossover Ethernet cable wiring, showing the 1-3 and 2-6 pin swap](images/pt-straight-vs-crossover.svg)
 
 **Step 6.** Test with a cable tester. All 8 LEDs should light in order for a straight-through cable.
 
