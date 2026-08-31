@@ -79,11 +79,13 @@ Choosing the wrong cable type is one of the most common hardware mistakes. In ol
 
 **T-568A vs T-568B:** Both are valid Ethernet wiring standards that define which color wire goes on which pin. A **straight-through** cable uses the same standard (A–A or B–B) on both ends. A **crossover** cable uses T-568A on one end and T-568B on the other - this swaps the transmit and receive pairs, which is what like-device connections require.
 
+**Rollover, the odd one out:** unlike straight-through and crossover, a rollover cable has nothing to do with T-568A/B - it does not carry Ethernet data at all. Every pin reverses end to end (pin 1 to pin 8, pin 2 to pin 7, pin 3 to pin 6, pin 4 to pin 5), which is why it is also called a "rolled" cable. It carries an RS-232 serial signal, connecting your computer's COM/USB port (via a console adapter) to a router or switch's dedicated **console port** - a physically separate interface from the FastEthernet ports this whole table otherwise covers. This is how you manage a device *before* it has any IP configuration at all, or when its network interfaces are down and unreachable - the scenario Module 3 introduces.
+
 ![RJ-45 pinout reference diagram comparing T-568A and T-568B wire color order, pins 1-8](images/pt-ethernet-pinout.svg)
 
-![Pin-mapping diagram comparing straight-through and crossover Ethernet cable wiring, showing the 1-3 and 2-6 pin swap](images/pt-straight-vs-crossover.svg)
+![Pin-mapping diagram comparing straight-through, crossover, and rollover cable wiring, showing the 1-3/2-6 crossover swap and the full 1-8/2-7/3-6/4-5 rollover reversal](images/pt-straight-vs-crossover.svg)
 
-Modern switches include **Auto-MDIX**, which electronically detects the cable type and corrects it - so a straight-through cable between two switches still works. Packet Tracer's "Copper Auto" cable option simulates this. However, understanding the underlying rule is essential for working with older hardware or for troubleshooting link failures.
+Modern switches include **Auto-MDIX**, which electronically detects the cable type and corrects it - so a straight-through cable between two switches still works. Packet Tracer's "Copper Auto" cable option simulates this. However, understanding the underlying rule is essential for working with older hardware or for troubleshooting link failures. Auto-MDIX applies only to straight-through/crossover Ethernet cabling - it has no effect on rollover, since console cables are not Ethernet.
 
 ## Guided Lab
 

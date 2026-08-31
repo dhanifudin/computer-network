@@ -57,6 +57,8 @@ In Simulation Mode:
 | Router → Router (Serial) | Serial DCE/DTE |
 | Console access | Console (light blue rollover cable in PT) |
 
+**What makes a rollover cable different:** it is not an Ethernet cable at all - every pin reverses end to end (1-8, 2-7, 3-6, 4-5) and it carries RS-232 serial, not network traffic. It connects your computer's COM/USB port to a router or switch's dedicated console port, which is how you manage a device before it has any IP configuration, or when its network interfaces are unreachable. Auto-MDIX and the Automatic cable tool don't apply to it - there's no "wrong way round" to auto-correct, since a console port isn't an Ethernet port.
+
 Use **Automatic** cable type (the lightning bolt icon) if you are unsure - PT will pick the correct cable. For learning purposes, choosing manually builds the habit.
 
 **Which serial end is DCE?** Right-click the serial cable in the workspace - the DCE end is labeled. The DCE side must configure `clock rate`.
@@ -65,7 +67,7 @@ Use **Automatic** cable type (the lightning bolt icon) if you are unsure - PT wi
 
 ![RJ-45 pinout reference diagram comparing T-568A and T-568B wire color order, pins 1-8](../images/pt-ethernet-pinout.svg)
 
-![Pin-mapping diagram comparing straight-through and crossover Ethernet cable wiring, showing the 1-3 and 2-6 pin swap](../images/pt-straight-vs-crossover.svg)
+![Pin-mapping diagram comparing straight-through, crossover, and rollover cable wiring, showing the 1-3/2-6 crossover swap and the full 1-8/2-7/3-6/4-5 rollover reversal](../images/pt-straight-vs-crossover.svg)
 
 ---
 

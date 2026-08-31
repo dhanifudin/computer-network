@@ -220,6 +220,10 @@ ports need the *cable* to cross instead.
 ends; crossover = A on one end, B on the other, swapping TX/RX pairs.
 Modern hardware uses **Auto-MDIX** to detect and correct automatically.
 
+**Rollover is different in kind, not degree:** every pin reverses (1-8,
+2-7, 3-6, 4-5) and it carries RS-232 serial, not Ethernet - it manages a
+device through its console port, not the network.
+
 ---
 
 <!-- SLOT N-2: Worked example -->

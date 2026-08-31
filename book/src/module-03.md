@@ -24,7 +24,7 @@ By the end of this lab, students are able to:
 2. What is the difference between `enable password` and `enable secret`? Which one should always be used in production, and why?
 3. What is the `running-config` and where is it stored? What is the `startup-config` and where is it stored?
 4. What happens to unsaved configuration changes if a router loses power?
-5. What is the purpose of a console cable (rollover cable)? When would you use it instead of Telnet?
+5. What is the purpose of a console cable (rollover cable)? When would you use it instead of Telnet? (See Module 1's Cable Selection Rules if you need a refresher.)
 
 ## Equipment & Materials
 
