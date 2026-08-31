@@ -28,7 +28,7 @@ By the end of this lab, students are able to:
 
 ## Equipment & Materials
 
-- Cisco Packet Tracer 8.x
+- Cisco Packet Tracer 9.x
 - Physical lab (if available): UTP (Unshielded Twisted Pair) Cat5e cable, RJ-45 (Registered Jack 45) connectors, crimping tool (tang RJ-45), cable tester
 
 ## Estimated Time (In-Class Lab, ~2 hrs)
@@ -145,7 +145,7 @@ Show your binary working for at least one row.
 
 ### Part B - IOS Mode Navigation
 
-**Step 1.** Open the topology file from Module 2 (or rebuild a single router with two PCs). Click the router → **CLI** tab.
+**Step 1.** Open the topology file from Module 2 (or rebuild a single router with two PCs). Double-click the router → **CLI** tab.
 
 **Step 2.** Press **Enter** to activate the console. Observe the initial prompt:
 

@@ -27,7 +27,7 @@ By the end of this lab, students are able to:
 
 ## Equipment & Materials
 
-- Cisco Packet Tracer 8.x
+- Cisco Packet Tracer 9.x
 - Your own machine (for the optional Wireshark companion task)
 - Wireshark (optional, free download from [wireshark.org](https://www.wireshark.org))
 
@@ -146,7 +146,7 @@ Device addressing:
 **Step 9.** Add a **Server-PT** to the topology, connected to Switch1 with a straight-through cable.
 
 - Server IP: `192.168.2.100 / 255.255.255.0`, gateway `192.168.2.1`
-- Click the server → **Services** tab → **HTTP** → verify it is **On**.
+- Double-click the server → **Services** tab → **HTTP** → verify it is **On**.
 
 **Step 10.** On PC0, open **Desktop → Web Browser**. In the URL bar type: `http://192.168.2.100`
 

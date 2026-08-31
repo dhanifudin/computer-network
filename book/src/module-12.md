@@ -28,7 +28,7 @@ By the end of this lab, students are able to:
 
 ## Equipment & Materials
 
-- Cisco Packet Tracer 8.x
+- Cisco Packet Tracer 9.x
 - Two routers, two switches, three PCs (configured as DHCP clients)
 
 ## Estimated Time (In-Class Lab, ~2 hrs)
@@ -113,7 +113,7 @@ architecture-beta
 
 > **Student addressing:** Replace the third octet with the last two digits of your student ID.
 
-**Step 1.** Verify PCs are set to DHCP: Click PC0 → Desktop → IP Configuration → select **DHCP**.
+**Step 1.** Verify PCs are set to DHCP: Double-click PC0 → Desktop → IP Configuration → select **DHCP**.
 
 > If you need a reminder of what the IP Configuration panel looks like and the three DHCP client states (obtaining / assigned / no response), see the [diagram in Appendix C](appendix/packet-tracer-tips.md) or Module 1's Step 16.
 

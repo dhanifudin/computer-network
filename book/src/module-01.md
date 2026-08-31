@@ -31,7 +31,7 @@ By the end of this lab, students are able to:
 ## Equipment & Materials
 
 - A free Cisco Networking Academy / Skills for All account (see Pre-Lab)
-- Cisco Packet Tracer 8.x installer, downloaded during Part A below
+- Cisco Packet Tracer 9.x installer, downloaded during Part A below
 - Your own computer (Windows, Linux, or macOS)
 - This lab manual
 
@@ -41,11 +41,11 @@ By the end of this lab, students are able to:
 |-------|------|
 | Part A: Install Packet Tracer | 15 min |
 | Part B: Real-machine commands | 25 min |
-| Part C: Packet Tracer orientation | 30 min |
+| Part C: Packet Tracer orientation | 35 min |
 | Part D: Build your first architecture | 30 min |
 | Report writeup / wrap-up | 10 min |
 
-*Guided Lab activities above run about 110 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup. If you installed Packet Tracer before class (recommended), skip straight to Part B and use the saved time on the Challenge Tasks.*
+*Guided Lab activities above run about 115 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup. If you installed Packet Tracer before class (recommended), skip straight to Part B and use the saved time on the Challenge Tasks.*
 
 ## Theory Review
 
@@ -95,21 +95,21 @@ If you already installed Packet Tracer before class using the Pre-Lab instructio
 
 | OS | Installer file |
 |----|-----------------|
-| Windows | `Packet_Tracer_8xx_amd64_setup.exe` |
-| macOS | `Packet_Tracer_8xx.dmg` |
-| Linux (Ubuntu/Debian) | `Packet_Tracer_8xx_amd64_signed.deb` |
+| Windows | `Packet_Tracer_9xx_amd64_setup.exe` |
+| macOS | `Packet_Tracer_9xx.dmg` |
+| Linux (Ubuntu/Debian) | `Packet_Tracer_9xx_amd64_signed.deb` |
 
 **Step 3.** Install:
 
 - **Windows:** Run the `.exe`, accept the license, keep the default install path, finish, and launch from the Start Menu.
 - **macOS:** Open the `.dmg`, drag Packet Tracer into **Applications**, then launch it. The first launch will ask you to allow it under **System Settings → Privacy & Security** - approve it, then relaunch.
-- **Linux:** Install the `.deb` with `sudo apt install ./Packet_Tracer_8xx_amd64_signed.deb`, then launch with `packettracer` from a terminal, or from your application menu.
+- **Linux:** Install the `.deb` with `sudo apt install ./Packet_Tracer_9xx_amd64_signed.deb`, then launch with `packettracer` from a terminal, or from your application menu.
 
 **Step 4.** On first launch, Packet Tracer asks you to sign in with the same Skills for All account. Sign in, then confirm the version: **Help → About Packet Tracer**.
 
 📸 Screenshot the About window showing your installed version number.
 
-> **Note:** Packet Tracer updates every few months. A version mismatch between you and a lab partner (e.g. 8.2 vs 8.3) can occasionally make a shared `.pka` (Packet Tracer Activity) file open with a warning - if that happens, whoever has the older version should update.
+> **Note:** Packet Tracer updates every few months. A version mismatch between you and a lab partner (e.g. 9.0 vs 9.1) can occasionally make a shared `.pka` (Packet Tracer Activity) file open with a warning - if that happens, whoever has the older version should update.
 
 ---
 
@@ -180,10 +180,12 @@ Open Cisco Packet Tracer.
 | Bottom left | Device category bar | Groups devices: Routers, Switches, End Devices, WAN Emulation, Connections, and more |
 | Bottom, next to categories | Device list | Specific models within the selected category |
 | Bottom right | Cable palette | Different cable types (only visible when **Connections** is the selected category) |
-| Right side | Physical/Config/CLI tabs | Device management, opened by clicking a placed device |
+| Right side | Physical/Config/CLI tabs | Device management, opened by double-clicking a placed device |
 | Top right | Simulation/Realtime toggle | Simulation Mode switch |
 
 > **CLI** = Command Line Interface, the text-based configuration screen for routers and switches (used from Module 3 onward). **WAN** = Wide Area Network, the category holding cloud/serial-link emulation devices for connecting sites over a distance.
+
+> **Single-click vs. double-click:** a **single click** on a placed device only *selects* it - use this to move it, delete it, or select several at once. A **double-click** *opens* its management window - the Desktop tab on a PC, the CLI tab on a router or switch, the Services tab on a server. Every step in this book that says "open," "configure," or names a specific tab means double-click; steps that say "select," "move," or "delete" mean single-click.
 
 **Step 10.** Find the **Logical / Physical workspace tabs** at the top-left of the canvas. Everything in this course happens in the **Logical** workspace, which draws devices as icons connected by cable lines - it ignores physical placement (which rack, which building). The **Physical** workspace instead models real-world placement (a device sits in a room, a room sits in a building) and is used for wireless signal propagation and cable-length exercises, which this course does not cover. Confirm you are on **Logical** before continuing.
 
@@ -191,9 +193,18 @@ Open Cisco Packet Tracer.
 
 > **Observe:** Notice the two modes in the lower-right corner - **Realtime** and **Simulation**. In Simulation Mode, packets move step-by-step and you can inspect each layer. We will use this extensively from Module 2 onward.
 
-**Step 12.** Place a router and a switch, for real this time (not just placement practice - you will delete these two afterward and place them again deliberately from Module 2 onward): click **Routers** in the device category bar, click the **Cisco 1841** (or 2811) in the device list, then click once on the canvas. Click the device once to select it and notice the **Physical / Config / CLI** tabs appear on the right - these are how you manage a router or switch, unlike a PC's **Desktop** tab. Repeat with **Switches → Cisco 2960**. Select both devices (drag a box around them, or `Ctrl`+click each) and press `Delete` to remove them.
+**Step 12.** Place a router and a switch, for real this time (not just placement practice - you will delete these two afterward and place them again deliberately from Module 2 onward): click **Routers** in the device category bar, click the **Cisco 1841** (or 2811) in the device list, then click once on the canvas. Double-click the device to open it and see the **Physical / Config / CLI** tabs appear - these are how you manage a router or switch, unlike a PC's **Desktop** tab. Repeat with **Switches → Cisco 2960**. Select both devices (drag a box around them, or `Ctrl`+click each) and press `Delete` to remove them.
 
-**Step 12b.** Packet Tracer also has a device meant to represent an ISP's WAN connection directly: click the **WAN Emulation** category in the device category bar, place a **Generic Cloud** (Cloud-PT) device, click it, and open its **Config** or **Physical** tab. You will see port options for different WAN media (Serial, DSL, Cable, Coax) - this is Packet Tracer's tool for emulating what a real Internet Service Provider's last-mile connection looks like. Delete it when you are done looking - this course does not use Cloud-PT again. Instead, from Module 5 onward, "the Internet" is represented by an ordinary router acting as an ISP gateway: a deliberate, more realistic choice for practicing routing, NAT, and ACLs (a real router is what your own home or office actually connects to, not a generic cloud icon). See [Appendix C](appendix/packet-tracer-tips.md) if you want to explore Cloud-PT further on your own.
+**Step 12b. See why nothing reaches "the internet" by default.** Packet Tracer never ships any internet connectivity for free - there is no implicit cloud behind your topology until you build the whole path to it yourself. Prove it:
+
+1. Place one **PC-PT**, one **Switch** (2960), and one **Router** (1841 or 2811) - the same placements as Steps 11-12.
+2. Cable PC → Switch and Switch → Router with **Copper Straight-Through** (the same cabling action from Step 15, a few steps ahead - you already know the rule: unlike devices, straight-through).
+3. Click the **WAN Emulation** category in the device category bar and place a **Generic Cloud** (Cloud-PT) device - this is Packet Tracer's model of an ISP's last-mile equipment. Double-click it to open its **Config** or **Physical** tab: notice its ports are WAN media types (Serial, DSL, Cable, Coax), not plain copper Ethernet.
+4. Try to cable Router → Cloud-PT. Nothing here is configured to make that link operational - the cloud's port type and the router's matching interface both need explicit setup first.
+
+> **The lesson:** every hop between a PC and "the internet" - end device, switch, router, and the ISP's own equipment - has to be explicitly placed, cabled, and configured by you. Nothing arrives pre-connected. This is true whether that last hop is a real Cloud-PT device (as here) or an ordinary router standing in for an ISP gateway, which is the pattern the rest of this course uses.
+
+Delete all four devices when you are done looking - this course does not build on Cloud-PT again. Instead, from Module 5 onward, "the Internet" is represented by an ordinary router acting as an ISP gateway: a deliberate, more realistic choice for practicing routing, NAT, and ACLs (a real router is what your own home or office actually connects to, not a generic cloud icon). See [Appendix C](appendix/packet-tracer-tips.md) if you want to explore Cloud-PT further on your own.
 
 ---
 
@@ -221,7 +232,7 @@ architecture-beta
 
 > **Note:** moving a device on the canvas never breaks its cables either - Packet Tracer automatically redraws the cable line to follow the device. Feel free to drag devices around to keep your topology readable; you only need to re-cable when you actually want to change *what* connects to *what*.
 
-**Step 16. Configure IP addresses.** Click PC0 → **Desktop** tab → **IP Configuration**:
+**Step 16. Configure IP addresses.** Double-click PC0 → **Desktop** tab → **IP Configuration**:
 - IP Address: `192.168.1.10`
 - Subnet Mask: `255.255.255.0`
 - (Leave gateway blank for now)

@@ -40,9 +40,9 @@ In Simulation Mode:
 | Server-PT | End Devices → Server |
 | Generic Cloud | WAN Emulation |
 
-**Serial interfaces on routers:** The 1841 does not have serial ports by default. Power it off (Config tab → Physical → power button), drag a WIC-2T module into an empty slot, power it back on. Serial interfaces appear as Se0/0/0 and Se0/0/1.
+**Serial interfaces on routers:** The 1841 does not have serial ports by default. Double-click the router to open it, then power it off (Config tab → Physical → power button), drag a WIC-2T module into an empty slot, power it back on. Serial interfaces appear as Se0/0/0 and Se0/0/1.
 
-**Adding an Ethernet expansion module (a third LAN port):** The 1841 and 2811 ship with only two onboard FastEthernet ports (Fa0/0, Fa0/1). Some topologies in this course (Modules 6 and 7) need a router with a *third* FastEthernet interface to attach two LANs plus a WAN link from one device. The procedure is the same shape as the serial module above: power off the router (Config tab → Physical → power button), drag an Ethernet network module (a Fast Ethernet NM or HWIC, depending on your Packet Tracer version) into an empty slot, power it back on. The new interface appears as the next FastEthernet number (e.g. Fa0/2). **Module names vary slightly by Packet Tracer version** - if the exact module named here isn't in your Modules list, look for anything labeled Ethernet/Fast Ethernet (not Serial/WIC) and use that instead.
+**Adding an Ethernet expansion module (a third LAN port):** The 1841 and 2811 ship with only two onboard FastEthernet ports (Fa0/0, Fa0/1). Some topologies in this course (Modules 6 and 7) need a router with a *third* FastEthernet interface to attach two LANs plus a WAN link from one device. The procedure is the same shape as the serial module above: double-click the router to open it, power it off (Config tab → Physical → power button), drag an Ethernet network module (a Fast Ethernet NM or HWIC, depending on your Packet Tracer version) into an empty slot, power it back on. The new interface appears as the next FastEthernet number (e.g. Fa0/2). **Module names vary slightly by Packet Tracer version** - if the exact module named here isn't in your Modules list, look for anything labeled Ethernet/Fast Ethernet (not Serial/WIC) and use that instead.
 
 ---
 
@@ -71,18 +71,18 @@ Use **Automatic** cable type (the lightning bolt icon) if you are unsure - PT wi
 
 ## Configuring Devices
 
-**PCs:** Click the PC → **Desktop** tab:
+**PCs:** Double-click the PC → **Desktop** tab:
 - **IP Configuration:** Set static IP or select DHCP
 - **Command Prompt:** Run `ping`, `ipconfig`, `tracert`, `nslookup`
 - **Web Browser:** Send HTTP requests to test server connectivity
 
 ![Schematic diagram of the Packet Tracer PC Desktop IP Configuration panel, showing the DHCP/Static radio buttons, IP/mask/gateway/DNS fields, and a reference of the three DHCP client states](../images/pt-ip-configuration.svg)
 
-**Routers and Switches:** Click the device → **CLI** tab. Press Enter to activate.
+**Routers and Switches:** Double-click the device → **CLI** tab. Press Enter to activate.
 
 ![Schematic diagram of the Packet Tracer router CLI console showing a configuration session and the four IOS prompt modes (User EXEC, Privileged EXEC, Global Config, Interface Config)](../images/pt-cli-console.svg)
 
-**Servers:** Click the server → **Services** tab → enable/disable HTTP, DNS, DHCP, FTP, etc.
+**Servers:** Double-click the server → **Services** tab → enable/disable HTTP, DNS, DHCP, FTP, etc.
 
 ---
 

@@ -28,7 +28,7 @@ By the end of this lab, students are able to:
 
 ## Equipment & Materials
 
-- Cisco Packet Tracer 8.x
+- Cisco Packet Tracer 9.x
 - Topology from Module 2 (or rebuild from scratch using the diagram below)
 
 ## Estimated Time (In-Class Lab, ~2 hrs)

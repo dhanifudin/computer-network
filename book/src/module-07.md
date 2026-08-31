@@ -28,7 +28,7 @@ By the end of this lab, students are able to:
 
 ## Equipment & Materials
 
-- Cisco Packet Tracer 8.x
+- Cisco Packet Tracer 9.x
 - Three routers, three switches, four PCs, one server
 - Module 5 or 6 topology as a starting point (already has routing configured)
 

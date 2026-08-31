@@ -28,7 +28,7 @@ By the end of this lab, students are able to:
 
 ## Equipment & Materials
 
-- Cisco Packet Tracer 8.x
+- Cisco Packet Tracer 9.x
 - Two routers with serial interfaces (2811 or 1841 with a WIC-2T module - a WAN Interface Card adding two serial ports), one switch, two PCs, one server
 
 ## Estimated Time (In-Class Lab, ~2 hrs)
@@ -119,7 +119,7 @@ architecture-beta
 **Step 0. Build the physical link first.** Neither the 1841 nor the 2811 has a serial port by default - you need to install one before you can cable this topology:
 
 1. Place R0 and R1 (Routers → 1841 or 2811), plus SW0, SW1, PC0, and PC1 as usual.
-2. For each router: click it, go to the **Physical** tab, click the power switch to turn it **off**, drag a **WIC-2T** module into an empty slot, then power it back on. (See [Appendix C](appendix/packet-tracer-tips.md) if you need the full walkthrough.) Two serial interfaces appear: Se0/0/0 and Se0/0/1.
+2. For each router: double-click it to open it, go to the **Physical** tab, click the power switch to turn it **off**, drag a **WIC-2T** module into an empty slot, then power it back on. (See [Appendix C](appendix/packet-tracer-tips.md) if you need the full walkthrough.) Two serial interfaces appear: Se0/0/0 and Se0/0/1.
 3. Cable PC0-SW0-R0 and PC1-SW1-R1 with **Copper Straight-Through**, as in earlier modules.
 4. Cable R0-R1 with a **Serial DCE/DTE** cable (Connections category → Serial DCE). Right-click the new serial cable to confirm which end is DCE - you will need that in Step 1.
 

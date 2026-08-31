@@ -13,7 +13,7 @@ The following sources informed the theory, exercises, and addressing conventions
 ## Cisco References
 
 - **Cisco Systems.** *CCNA Exploration: Network Fundamentals* - referenced for IOS command syntax, interface state descriptions, and DHCP/routing protocol theory.
-- **Cisco Systems.** *Packet Tracer 8.x Documentation* - referenced for device behavior, simulation mode, and PT-specific CLI syntax.
+- **Cisco Systems.** *Packet Tracer 9.x Documentation* - referenced for device behavior, simulation mode, and PT-specific CLI syntax.
 - **RFC 2131** - *Dynamic Host Configuration Protocol* (R. Droms, 1997). Consulted for DORA message fields (Transaction ID, giaddr, flags).
 
 ---

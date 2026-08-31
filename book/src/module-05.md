@@ -30,7 +30,7 @@ By the end of this lab, students are able to:
 
 ## Equipment & Materials
 
-- Cisco Packet Tracer 8.x
+- Cisco Packet Tracer 9.x
 - Two 1841 (or 2811) routers, two switches, two PCs per site
 
 ## Estimated Time (In-Class Lab, ~2 hrs)
