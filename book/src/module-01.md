@@ -41,11 +41,11 @@ By the end of this lab, students are able to:
 |-------|------|
 | Part A: Install Packet Tracer | 15 min |
 | Part B: Real-machine commands | 25 min |
-| Part C: Packet Tracer orientation | 25 min |
-| Part D: Build your first architecture | 25 min |
+| Part C: Packet Tracer orientation | 30 min |
+| Part D: Build your first architecture | 30 min |
 | Report writeup / wrap-up | 10 min |
 
-*Guided Lab activities above run about 100 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup. If you installed Packet Tracer before class (recommended), skip straight to Part B and use the saved time on the Challenge Tasks.*
+*Guided Lab activities above run about 110 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup. If you installed Packet Tracer before class (recommended), skip straight to Part B and use the saved time on the Challenge Tasks.*
 
 ## Theory Review
 
@@ -187,7 +187,9 @@ Open Cisco Packet Tracer.
 
 > **Observe:** Notice the two modes in the lower-right corner - **Realtime** and **Simulation**. In Simulation Mode, packets move step-by-step and you can inspect each layer. We will use this extensively from Module 2 onward.
 
-**Step 12.** Explore device options: click on **Routers** in the device category bar and hover over each model. Note the Cisco 1841 and 2811 - these are the models you will configure in later modules. Click **Switches** and note the Cisco 2960.
+**Step 12.** Place a router and a switch, for real this time (not just placement practice - you will delete these two afterward and place them again deliberately from Module 2 onward): click **Routers** in the device category bar, click the **Cisco 1841** (or 2811) in the device list, then click once on the canvas. Click the device once to select it and notice the **Physical / Config / CLI** tabs appear on the right - these are how you manage a router or switch, unlike a PC's **Desktop** tab. Repeat with **Switches → Cisco 2960**. Select both devices (drag a box around them, or `Ctrl`+click each) and press `Delete` to remove them.
+
+**Step 12b.** Packet Tracer also has a device meant to represent an ISP's WAN connection directly: click the **WAN Emulation** category in the device category bar, place a **Generic Cloud** (Cloud-PT) device, click it, and open its **Config** or **Physical** tab. You will see port options for different WAN media (Serial, DSL, Cable, Coax) - this is Packet Tracer's tool for emulating what a real Internet Service Provider's last-mile connection looks like. Delete it when you are done looking - this course does not use Cloud-PT again. Instead, from Module 5 onward, "the Internet" is represented by an ordinary router acting as an ISP gateway: a deliberate, more realistic choice for practicing routing, NAT, and ACLs (a real router is what your own home or office actually connects to, not a generic cloud icon). See [Appendix C](appendix/packet-tracer-tips.md) if you want to explore Cloud-PT further on your own.
 
 ---
 
@@ -210,6 +212,10 @@ architecture-beta
 **Step 15. Cable them.** Click **Connections** in the category bar, then **Copper Cross-Over** in the cable palette (straight-through cables are for unlike devices; two PCs are like devices and need a crossover - or use **Automatic**, the lightning-bolt icon, and let PT choose). Click PC0, then click PC1, to complete the connection. A solid green dot at each end means the link is up; a red dot means the connection failed (wrong cable, or a device that is still booting).
 
 ![Schematic diagram of Packet Tracer link-light states (green up/up, amber negotiating, red down) and a cable-type legend for straight-through, crossover, console, and serial DCE/DTE](images/pt-cabling-link-lights.svg)
+
+**Step 15b. Practice removing and replacing a cable** - a skill you will need for real in later modules (Module 6 and Module 12 both require re-cabling an existing topology). Right-click the cable between PC0 and PC1 and select **Delete**. The link is gone but both PCs remain exactly where you placed them - deleting a cable never deletes a device. Reconnect them the same way as Step 15 (Copper Cross-Over, or **Automatic**).
+
+> **Note:** moving a device on the canvas never breaks its cables either - Packet Tracer automatically redraws the cable line to follow the device. Feel free to drag devices around to keep your topology readable; you only need to re-cable when you actually want to change *what* connects to *what*.
 
 **Step 16. Configure IP addresses.** Click PC0 → **Desktop** tab → **IP Configuration**:
 - IP Address: `192.168.1.10`

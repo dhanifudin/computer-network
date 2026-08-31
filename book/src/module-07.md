@@ -79,6 +79,8 @@ A standard ACL placed outbound on the router interface *facing the vulnerable se
 
 > Need a refresher on the CLI window and IOS prompt modes before you start? See the [CLI console diagram in Appendix C](appendix/packet-tracer-tips.md).
 
+> **R0 needs a third FastEthernet interface** for this topology (Fa0/0, Fa0/1, and Fa0/2). The 1841/2811 only ship with two onboard - see [Appendix C](appendix/packet-tracer-tips.md) for adding an Ethernet expansion module before you begin.
+
 Build or reuse this topology:
 
 ```mermaid

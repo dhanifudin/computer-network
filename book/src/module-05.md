@@ -211,6 +211,8 @@ architecture-beta
     r2:R -- L:inet
 ```
 
+> **Note:** the "Internet" box in this diagram is a label, not a device you need to build - R2 *is* the ISP gateway for this exercise. Some real deployments place a Packet Tracer Cloud-PT device beyond the last router to emulate the ISP's own WAN media (DSL, Cable, etc.); this course uses an ordinary router instead, since routing/NAT/ACL practice benefits more from a realistic router-as-CPE (Customer Premises Equipment) setup. See Module 1's orientation for hands-on exposure to Cloud-PT if you want to explore it further.
+
 **Step 8.** Configure addresses on the new link. On R0, add a default route pointing to R2:
 
 ```

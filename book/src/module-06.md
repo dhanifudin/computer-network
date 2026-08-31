@@ -85,6 +85,8 @@ Static routes are configured once and never change. If a link fails, the static 
 
 > Need a refresher on the CLI window and IOS prompt modes before you start? See the [CLI console diagram in Appendix C](appendix/packet-tracer-tips.md).
 
+> **R1 needs a third FastEthernet interface** for this topology (Fa0/0, Fa0/1, and Fa0/2). The 1841/2811 only ship with two onboard - see [Appendix C](appendix/packet-tracer-tips.md) for adding an Ethernet expansion module before you begin.
+
 ### Part A - Three-Router RIPv2 Topology
 
 Build the following topology:

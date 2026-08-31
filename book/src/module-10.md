@@ -35,7 +35,7 @@ By the end of this lab, students are able to:
 
 | Phase | Time |
 |-------|------|
-| Part A: PPP & CHAP | 30 min |
+| Part A: PPP & CHAP (incl. hardware/cabling setup) | 35 min |
 | Part B: Static NAT | 20 min |
 | Part C: PAT overload | 30 min |
 | Wrap-up | 10 min |
@@ -115,6 +115,13 @@ architecture-beta
 | R1 | Fa0/0 | 192.168.2.1/24 | LAN B gateway |
 
 > **DCE/DTE** = Data Communications Equipment / Data Terminal Equipment - on a serial link, the DCE end supplies clocking (`clock rate`, Step 1 below) and the DTE end receives it; right-click the serial cable in Packet Tracer to see which end is which. **Se0/0/0** = Serial0/0/0, the same type+slot/port shorthand as `Fa0/0` from earlier modules, just for a serial interface.
+
+**Step 0. Build the physical link first.** Neither the 1841 nor the 2811 has a serial port by default - you need to install one before you can cable this topology:
+
+1. Place R0 and R1 (Routers → 1841 or 2811), plus SW0, SW1, PC0, and PC1 as usual.
+2. For each router: click it, go to the **Physical** tab, click the power switch to turn it **off**, drag a **WIC-2T** module into an empty slot, then power it back on. (See [Appendix C](appendix/packet-tracer-tips.md) if you need the full walkthrough.) Two serial interfaces appear: Se0/0/0 and Se0/0/1.
+3. Cable PC0-SW0-R0 and PC1-SW1-R1 with **Copper Straight-Through**, as in earlier modules.
+4. Cable R0-R1 with a **Serial DCE/DTE** cable (Connections category → Serial DCE). Right-click the new serial cable to confirm which end is DCE - you will need that in Step 1.
 
 **Step 1.** Configure interface IPs. On the serial interfaces, add `clock rate 64000` on the DCE side (the router with the DCE cable end - in PT, right-click the serial cable to see which end is DCE):
 

@@ -42,6 +42,8 @@ In Simulation Mode:
 
 **Serial interfaces on routers:** The 1841 does not have serial ports by default. Power it off (Config tab → Physical → power button), drag a WIC-2T module into an empty slot, power it back on. Serial interfaces appear as Se0/0/0 and Se0/0/1.
 
+**Adding an Ethernet expansion module (a third LAN port):** The 1841 and 2811 ship with only two onboard FastEthernet ports (Fa0/0, Fa0/1). Some topologies in this course (Modules 6 and 7) need a router with a *third* FastEthernet interface to attach two LANs plus a WAN link from one device. The procedure is the same shape as the serial module above: power off the router (Config tab → Physical → power button), drag an Ethernet network module (a Fast Ethernet NM or HWIC, depending on your Packet Tracer version) into an empty slot, power it back on. The new interface appears as the next FastEthernet number (e.g. Fa0/2). **Module names vary slightly by Packet Tracer version** - if the exact module named here isn't in your Modules list, look for anything labeled Ethernet/Fast Ethernet (not Serial/WIC) and use that instead.
+
 ---
 
 ## Cabling Guide
@@ -92,6 +94,7 @@ Use **Automatic** cable type (the lightning bolt icon) if you are unsure - PT wi
 | `show cdp neighbors` shows nothing | CDP disabled or wrong cable | Verify `cdp run` in global config |
 | Serial interface down/down | No clock rate on DCE end | `clock rate 64000` on the DCE router |
 | PPP link down after config | Encapsulation mismatch or wrong CHAP credentials | Verify both ends use `encapsulation ppp`; verify usernames match hostnames |
+| Worried that rearranging devices will break cables | Common misconception - it won't | Drag devices freely; PT automatically redraws the cable line to follow. You only need to re-cable when changing *what* connects to *what*, not *where* it sits on the canvas |
 
 ---
 
