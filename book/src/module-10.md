@@ -83,6 +83,8 @@ PAT allows an entire office of 200 devices to share one public IP by using uniqu
 
 > Need a refresher on the CLI window and IOS prompt modes before you start? See the [CLI console diagram in Appendix C](appendix/packet-tracer-tips.md).
 
+> ⚠️ **Warning:** "reachable from the internet" and "public IP" below refer to *the other router's side* of the topology you build, standing in for a public network - not real internet access. Packet Tracer has no default connectivity to the actual internet; NAT/PAT here only translates addresses between the two simulated sides you configure yourself. See Module 1 Step 12b if you want to see why.
+
 ### Part A - PPP & CHAP Authentication
 
 Build this WAN topology:

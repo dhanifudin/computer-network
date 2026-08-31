@@ -213,6 +213,8 @@ architecture-beta
 
 > **Note:** the "Internet" box in this diagram is a label, not a device you need to build - R2 *is* the ISP gateway for this exercise. Some real deployments place a Packet Tracer Cloud-PT device beyond the last router to emulate the ISP's own WAN media (DSL, Cable, etc.); this course uses an ordinary router instead, since routing/NAT/ACL practice benefits more from a realistic router-as-CPE (Customer Premises Equipment) setup. See Module 1's orientation for hands-on exposure to Cloud-PT if you want to explore it further.
 
+> ⚠️ **Warning:** this topology gives you no real internet access. R2 has no route beyond itself unless you add one, so pinging a real address like `8.8.8.8` from PC0 will fail - there is no actual internet behind R2 in this simulation. Any "external" destination this course needs is something you build explicitly (another router, another LAN), never something that arrives for free. See Module 1 Step 12b for a hands-on demonstration of why.
+
 **Step 8.** Configure addresses on the new link. On R0, add a default route pointing to R2:
 
 ```

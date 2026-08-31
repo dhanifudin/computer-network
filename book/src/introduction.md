@@ -79,6 +79,7 @@ This lab manual is your primary course material (개인 강의 자료). Suppleme
 3. **Document as you go.** Take screenshots at each step marked 📸 - you will need them for your lab report. This manual includes schematic diagrams of Packet Tracer's interface (IP Configuration, CLI console, PDU details, link lights) so you know what to expect - but they are reference mockups, not your submission. Every 📸 still means: capture it from your own running Packet Tracer session.
 4. **Simulation Mode is your friend.** Use PT Simulation Mode (the clock icon) to watch packets travel hop-by-hop. Many lab questions require you to observe and explain packet behavior.
 5. **No late reports without prior approval.** Lab reports lose 20% per day late.
+6. **Packet Tracer has no internet connectivity by default.** There is no implicit "internet" behind any topology you build - every hop, including the ISP's own equipment, has to be explicitly placed, cabled, and configured by you. See Module 1's orientation for a hands-on demonstration of why.
 
 ## How Each Module is Structured
 
