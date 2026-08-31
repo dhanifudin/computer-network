@@ -2,7 +2,7 @@
 marp: true
 theme: hankyong
 paginate: true
-footer: 'School of Computer & Applied Mathematics'
+footer: '컴퓨터응용수학부 소프트웨어융합전공'
 ---
 
 <!-- SLOT 1: Title -->
@@ -13,7 +13,7 @@ footer: 'School of Computer & Applied Mathematics'
 <span class="subtitle">Intelligent Network Design (지능형네트워크설계)</span>
 
 <div class="meta">
-Amalia · School of Computer & Applied Mathematics · 한경국립대학교
+Amalia · 컴퓨터응용수학부 소프트웨어융합전공 · 한경국립대학교
 </div>
 
 ---

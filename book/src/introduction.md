@@ -1,7 +1,7 @@
 # Intelligent Network Design - Lab Manual
 
 **Course:** 지능형네트워크설계 (Intelligent Network Design)  
-**Department:** School of Computer & Applied Mathematics (컴퓨터응용수학부)  
+**Department:** 컴퓨터응용수학부 소프트웨어융합전공  
 **University:** 한경국립대학교 Hankyong National University  
 **Unit:** Software Convergence 001  
 **Instructor:** Amalia

@@ -1,7 +1,7 @@
 # Outline: Intelligent Network Design (지능형네트워크설계)
 
 Software Convergence 001, 한경국립대학교 Hankyong National University.
-Instructor: Amalia. Department: School of Computer & Applied Mathematics.
+Instructor: Amalia. Department: 컴퓨터응용수학부 소프트웨어융합전공.
 
 Full pedagogical rules (chain-linking, slot structure) live in `SPINE.md`;
 this file is the flat semester-level view. Full step-by-step lab content,

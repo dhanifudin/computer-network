@@ -20,4 +20,4 @@ The following sources informed the theory, exercises, and addressing conventions
 
 ## Course Specification
 
-**지능형네트워크설계 (Intelligent Network Design) - Software Convergence 001.** School of Computer & Applied Mathematics, 한경국립대학교 Hankyong National University. Course specification document (Korean), 2024–2025 academic year. This lab manual was designed to align with the course syllabus, weekly schedule, and grading policy defined in this document.
+**지능형네트워크설계 (Intelligent Network Design) - Software Convergence 001.** 컴퓨터응용수학부 소프트웨어융합전공, 한경국립대학교 Hankyong National University. Course specification document (Korean), 2024–2025 academic year. This lab manual was designed to align with the course syllabus, weekly schedule, and grading policy defined in this document.
