@@ -65,15 +65,17 @@ Packet Tracer is not a diagram tool - it is a **network simulator**. Every devic
 
 Choosing the wrong cable type is one of the most common hardware mistakes. In older equipment (no Auto-MDIX), the wrong cable prevents the link from coming up at all. Packet Tracer enforces these rules and shows a red link light if you use the wrong cable type.
 
-| Connection | Cable Type | Why |
-|------------|-----------|-----|
-| PC ↔ Switch | Straight-through | Unlike devices (transmit pins connect to receive pins across device types) |
-| PC ↔ Router | Straight-through | Unlike devices |
-| Switch ↔ Router | Straight-through | Unlike devices |
-| PC ↔ PC | Crossover | Like devices (transmit must connect to the other side's receive) |
-| Switch ↔ Switch | Crossover | Like devices |
-| Router ↔ Router (Ethernet) | Crossover | Like devices |
-| PC ↔ Router console port | Rollover (console) | Management only - not data |
+**The real reason, not just the rule:** every Ethernet port is wired internally as one of two types. **MDI** ports transmit on pins 1-2 and receive on pins 3-6 - this is how PC, server, and router NICs are built, because they're designed to *originate* traffic. **MDI-X** ports are wired the opposite way (transmit on 3-6, receive on 1-2) - this is how switch and hub ports are built, because they're designed to *receive* what an end station sends. A **straight-through** cable connects the same pin number end-to-end (pin 1 to pin 1, pin 2 to pin 2...) and does no crossing itself - it only works because one device's internal wiring already provides the swap. Connect two ports of the *same* type instead - two MDI devices, or two MDI-X devices - and neither side does that swap for you, so the *cable* has to: a **crossover** cable swaps pins 1↔3 and 2↔6 internally (see the pin-mapping diagram below).
+
+| Connection | Port Types | Cable Type |
+|------------|-----------|-----------|
+| PC ↔ Switch | MDI ↔ MDI-X | Straight-through |
+| PC ↔ Router | MDI ↔ MDI | Crossover |
+| Switch ↔ Router | MDI-X ↔ MDI | Straight-through |
+| PC ↔ PC | MDI ↔ MDI | Crossover |
+| Switch ↔ Switch | MDI-X ↔ MDI-X | Crossover |
+| Router ↔ Router (Ethernet) | MDI ↔ MDI | Crossover |
+| PC ↔ Router console port | n/a - management, not data | Rollover (console) |
 
 **T-568A vs T-568B:** Both are valid Ethernet wiring standards that define which color wire goes on which pin. A **straight-through** cable uses the same standard (A–A or B–B) on both ends. A **crossover** cable uses T-568A on one end and T-568B on the other - this swaps the transmit and receive pairs, which is what like-device connections require.
 
