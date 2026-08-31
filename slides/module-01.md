@@ -158,10 +158,10 @@ decisions, the path a packet takes, what names resolve to what addresses.
 
 # By the End of This Module, You Can
 
-1. Launch Packet Tracer and describe each workspace panel
-2. Use `ipconfig`/`ip addr`, `ping`, `tracert`/`traceroute`, `nslookup`/`dig` to read network state
+1. Explain what L3 state (IP, subnet mask, default gateway) a host needs before it can communicate
+2. Use `ipconfig`/`ip addr`, `ping`, `tracert`/`traceroute`, `nslookup`/`dig` to read that state on a live host
 3. Explain what each command's output means and which OSI layer it queries
-4. Build a minimal 2-PC topology and verify connectivity with `ping`
+4. Build a minimal two-host network and verify Layer 3 connectivity
 
 ---
 
@@ -203,31 +203,36 @@ the problem they solve never went away.
 
 # Cable Selection Rules
 
-| Connection | Cable Type | Why |
-|------------|-----------|-----|
-| PC ↔ Switch / Router | Straight-through | Unlike devices |
-| Switch ↔ Router | Straight-through | Unlike devices |
-| PC ↔ PC / Switch ↔ Switch | Crossover | Like devices |
-| PC ↔ Router console | Rollover | Management only |
+Every Ethernet port is wired as **MDI** (PCs, servers, routers - built to
+originate traffic) or **MDI-X** (switches, hubs - built to receive it). A
+straight-through cable connects the same pin end to end and only works
+when one side's wiring already crosses transmit to receive; two same-type
+ports need the *cable* to cross instead.
+
+| Connection | Port Types | Cable |
+|------------|-----------|-------|
+| PC/Router ↔ Switch | MDI ↔ MDI-X | Straight-through |
+| PC ↔ Router, PC ↔ PC, Router ↔ Router | MDI ↔ MDI | Crossover |
+| Switch ↔ Switch | MDI-X ↔ MDI-X | Crossover |
+| PC ↔ Router console | n/a - management | Rollover |
 
 **T-568A vs T-568B** (TIA/EIA-568): straight-through = same standard both
 ends; crossover = A on one end, B on the other, swapping TX/RX pairs.
-Modern switches use **Auto-MDIX** to detect and correct automatically.
+Modern hardware uses **Auto-MDIX** to detect and correct automatically.
 
 ---
 
 <!-- SLOT N-2: Worked example -->
 
-# Guided Lab at a Glance
+# Worked Example: A Minimal Two-Host Network
 
-**Part A** - interrogate your own machine: `ipconfig`/`ip addr`, ping the
-gateway, traceroute to 8.8.8.8, `nslookup`/`dig`
+Two hosts, directly cabled, each configured with an IP address in the same
+/24 network (`192.168.1.10` and `.20`) - no default gateway needed, since
+they're on the same subnet.
 
-**Part B** - Packet Tracer orientation: workspace, device list, Simulation
-vs Realtime mode
-
-**Part C** - first topology: two PCs, crossover cable, static IPs, verify
-with `ping`
+When PC0 pings PC1: **ARP** resolves PC1's IP to a MAC address first (same
+subnet, no gateway involved), *then* **ICMP** Echo Request/Reply confirms
+Layer 3 reachability. Full guided build: the book's Module 1.
 
 ---
 
@@ -280,9 +285,9 @@ router - the OSI/TCP-IP mechanics are still a black box.
 
 - Diagnostic commands read L3 state without needing a diagram
 - Cable type matters - Auto-MDIX doesn't excuse skipping the rule
-- **Deliverables & assessment:** 4 annotated command screenshots, PT topology
-  + successful ping, crossover cable explanation - see the book for the full
-  rubric
+- **Deliverables & assessment:** 4 annotated command screenshots, network
+  topology + successful ping, crossover cable explanation - see the book
+  for the full rubric
 
 ---
 

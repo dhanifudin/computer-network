@@ -87,7 +87,7 @@ for unconfigured routers, because default credentials are public knowledge.
 
 # By the End of This Module, You Can
 
-1. Access a router/switch via the Console port in Packet Tracer
+1. Access a router/switch's CLI via its Console port
 2. Navigate the IOS mode hierarchy
 3. Apply hardening: hostname, console password, VTY password, enable secret, MOTD banner
 4. Verify the active configuration with `show` commands

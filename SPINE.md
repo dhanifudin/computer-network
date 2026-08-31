@@ -82,6 +82,9 @@ the pain slide (4) is too abstract - fix it instead of breaking the rule.
   after slot 2 (roadmap), before slot 3+4 (pain hook).
 - Full step-by-step lab instructions, deliverable checklists, and rubrics
   stay in the book (`book/src/`) - slides summarize, they never duplicate.
+- Slides teach concepts in tool-agnostic language. Packet Tracer UI
+  mechanics (panels, click sequences, device categories, cable palette)
+  belong in the book's Guided Lab only, not the lecture deck.
 - `_class: callout` (`themes/hankyong.css`): vertically centers a slide that
   holds only an H1 and one short pain/why/limits box, so it doesn't render
   with dead space in the lower half. Mark it on slots 3+4, 5, and N+1+N+2.
