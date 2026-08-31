@@ -59,6 +59,8 @@ Use **Automatic** cable type (the lightning bolt icon) if you are unsure - PT wi
 
 **Which serial end is DCE?** Right-click the serial cable in the workspace - the DCE end is labeled. The DCE side must configure `clock rate`.
 
+![Schematic diagram of Packet Tracer link-light states (green up/up, amber negotiating, red down) and a cable-type legend for straight-through, crossover, console, and serial DCE/DTE](../images/pt-cabling-link-lights.svg)
+
 ---
 
 ## Configuring Devices
@@ -68,7 +70,11 @@ Use **Automatic** cable type (the lightning bolt icon) if you are unsure - PT wi
 - **Command Prompt:** Run `ping`, `ipconfig`, `tracert`, `nslookup`
 - **Web Browser:** Send HTTP requests to test server connectivity
 
+![Schematic diagram of the Packet Tracer PC Desktop IP Configuration panel, showing the DHCP/Static radio buttons, IP/mask/gateway/DNS fields, and a reference of the three DHCP client states](../images/pt-ip-configuration.svg)
+
 **Routers and Switches:** Click the device → **CLI** tab. Press Enter to activate.
+
+![Schematic diagram of the Packet Tracer router CLI console showing a configuration session and the four IOS prompt modes (User EXEC, Privileged EXEC, Global Config, Interface Config)](../images/pt-cli-console.svg)
 
 **Servers:** Click the server → **Services** tab → enable/disable HTTP, DNS, DHCP, FTP, etc.
 
@@ -117,6 +123,8 @@ When you click an envelope icon in Simulation Mode, the PDU window shows:
 
 - **OSI Model tab:** Each layer and what the device did at that layer (e.g., "The frame is sent to the next hop" at Layer 2)
 - **Inbound/Outbound PDU Details tab:** Raw header fields for each protocol
+
+![Schematic diagram of the Packet Tracer PDU Information window: the OSI Model layer ladder on the left and the Inbound/Outbound PDU Details header fields (Ethernet, IP, TCP/UDP, ICMP, 802.1Q, DHCP) on the right](../images/pt-pdu-details.svg)
 
 Key fields to watch:
 - Ethernet: Source MAC, Destination MAC

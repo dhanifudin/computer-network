@@ -209,12 +209,16 @@ architecture-beta
 
 **Step 15. Cable them.** Click **Connections** in the category bar, then **Copper Cross-Over** in the cable palette (straight-through cables are for unlike devices; two PCs are like devices and need a crossover - or use **Automatic**, the lightning-bolt icon, and let PT choose). Click PC0, then click PC1, to complete the connection. A solid green dot at each end means the link is up; a red dot means the connection failed (wrong cable, or a device that is still booting).
 
+![Schematic diagram of Packet Tracer link-light states (green up/up, amber negotiating, red down) and a cable-type legend for straight-through, crossover, console, and serial DCE/DTE](images/pt-cabling-link-lights.svg)
+
 **Step 16. Configure IP addresses.** Click PC0 → **Desktop** tab → **IP Configuration**:
 - IP Address: `192.168.1.10`
 - Subnet Mask: `255.255.255.0`
 - (Leave gateway blank for now)
 
 Do the same for PC1: IP `192.168.1.20`, mask `255.255.255.0`.
+
+![Schematic diagram of the Packet Tracer PC Desktop IP Configuration panel, showing the DHCP/Static radio buttons, IP/mask/gateway/DNS fields, and a reference of the three DHCP client states](images/pt-ip-configuration.svg)
 
 **Step 17. Verify.** On PC0 → **Desktop** → **Command Prompt**:
 

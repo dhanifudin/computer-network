@@ -94,6 +94,8 @@ This heuristic saves significant diagnostic time: "Destination Unreachable → f
 
 ## Guided Lab
 
+> Need a refresher on the CLI window and IOS prompt modes before you start? See the [CLI console diagram in Appendix C](appendix/packet-tracer-tips.md).
+
 ### Part A - Build the Problem
 
 Construct this two-site topology:

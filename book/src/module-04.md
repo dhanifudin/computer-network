@@ -89,6 +89,8 @@ You never need to memorize the full command; use `?` to discover it.
 
 ### Part A - Context-Sensitive Help
 
+![Schematic diagram of the Packet Tracer router CLI console showing a configuration session and the four IOS prompt modes (User EXEC, Privileged EXEC, Global Config, Interface Config)](images/pt-cli-console.svg)
+
 **Step 1.** On your router's CLI, practice the `?` system at each mode level:
 
 ```

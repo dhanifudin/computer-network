@@ -115,6 +115,8 @@ architecture-beta
 
 **Step 1.** Verify PCs are set to DHCP: Click PC0 → Desktop → IP Configuration → select **DHCP**.
 
+> If you need a reminder of what the IP Configuration panel looks like and the three DHCP client states (obtaining / assigned / no response), see the [diagram in Appendix C](appendix/packet-tracer-tips.md) or Module 1's Step 16.
+
 Before configuring the server, observe the PC's state immediately after switching to DHCP:
 
 ```

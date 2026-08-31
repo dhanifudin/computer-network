@@ -83,6 +83,8 @@ Static routes are configured once and never change. If a link fails, the static 
 
 ## Guided Lab
 
+> Need a refresher on the CLI window and IOS prompt modes before you start? See the [CLI console diagram in Appendix C](appendix/packet-tracer-tips.md).
+
 ### Part A - Three-Router RIPv2 Topology
 
 Build the following topology:

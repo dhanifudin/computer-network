@@ -135,6 +135,8 @@ Device addressing:
 - Source and destination IP (Layer 3)
 - ICMP type and code (Layer 3 / ICMP)
 
+![Schematic diagram of the Packet Tracer PDU Information window: the OSI Model layer ladder on the left and the Inbound/Outbound PDU Details header fields (Ethernet, IP, TCP/UDP, ICMP, 802.1Q, DHCP) on the right](images/pt-pdu-details.svg)
+
 > **Explain:** At which layers does the switch read headers? At which layers does the PC's NIC read headers?
 
 ---

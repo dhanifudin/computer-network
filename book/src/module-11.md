@@ -91,6 +91,8 @@ OSPF converges in seconds because routers exchange LSAs immediately when a topol
 
 ## Guided Lab
 
+> Need a refresher on the CLI window and IOS prompt modes before you start? See the [CLI console diagram in Appendix C](appendix/packet-tracer-tips.md).
+
 ### Part A - OSPF Configuration
 
 Use the same three-router topology from Module 6:

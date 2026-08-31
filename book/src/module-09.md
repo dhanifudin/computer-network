@@ -75,6 +75,8 @@ Broadcasts in VLAN 10 never reach VLAN 20. A student in the Student VLAN cannot 
 
 ## Guided Lab
 
+> Need a refresher on the CLI window and IOS prompt modes before you start? See the [CLI console diagram in Appendix C](appendix/packet-tracer-tips.md).
+
 ### Part A - VLAN Creation & Port Assignment
 
 Build this topology (single switch for Part A, add the second switch in Part B):

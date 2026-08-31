@@ -76,7 +76,7 @@ This lab manual is your primary course material (개인 강의 자료). Suppleme
 
 1. **Save your work constantly.** Packet Tracer does not auto-save. Use **File → Save As** at the beginning of every session with the filename format `StudentID_ModuleN.pka`.
 2. **Personalize your configurations.** Every module asks you to set your hostname to your name and use your student ID in IP addressing. Identical configurations across submissions will be treated as academic dishonesty.
-3. **Document as you go.** Take screenshots at each step marked 📸 - you will need them for your lab report.
+3. **Document as you go.** Take screenshots at each step marked 📸 - you will need them for your lab report. This manual includes schematic diagrams of Packet Tracer's interface (IP Configuration, CLI console, PDU details, link lights) so you know what to expect - but they are reference mockups, not your submission. Every 📸 still means: capture it from your own running Packet Tracer session.
 4. **Simulation Mode is your friend.** Use PT Simulation Mode (the clock icon) to watch packets travel hop-by-hop. Many lab questions require you to observe and explain packet behavior.
 5. **No late reports without prior approval.** Lab reports lose 20% per day late.
 

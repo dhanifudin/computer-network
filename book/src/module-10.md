@@ -81,6 +81,8 @@ PAT allows an entire office of 200 devices to share one public IP by using uniqu
 
 ## Guided Lab
 
+> Need a refresher on the CLI window and IOS prompt modes before you start? See the [CLI console diagram in Appendix C](appendix/packet-tracer-tips.md).
+
 ### Part A - PPP & CHAP Authentication
 
 Build this WAN topology:

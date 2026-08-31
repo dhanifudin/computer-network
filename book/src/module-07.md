@@ -77,6 +77,8 @@ A standard ACL placed outbound on the router interface *facing the vulnerable se
 
 ## Guided Lab
 
+> Need a refresher on the CLI window and IOS prompt modes before you start? See the [CLI console diagram in Appendix C](appendix/packet-tracer-tips.md).
+
 Build or reuse this topology:
 
 ```mermaid
