@@ -41,11 +41,11 @@ By the end of this lab, students are able to:
 |-------|------|
 | Part A: Install Packet Tracer | 15 min |
 | Part B: Real-machine commands | 25 min |
-| Part C: Packet Tracer orientation | 35 min |
+| Part C: Packet Tracer orientation | 30 min |
 | Part D: Build your first architecture | 30 min |
 | Report writeup / wrap-up | 10 min |
 
-*Guided Lab activities above run about 115 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup. If you installed Packet Tracer before class (recommended), skip straight to Part B and use the saved time on the Challenge Tasks.*
+*Guided Lab activities above run about 110 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup. If you installed Packet Tracer before class (recommended), skip straight to Part B and use the saved time on the Challenge Tasks.*
 
 ## Theory Review
 
@@ -85,6 +85,8 @@ Modern switches include **Auto-MDIX**, which electronically detects the cable ty
 
 ## Guided Lab
 
+> **Two "computers" in this lab, don't mix them up:** Part B runs commands on **your own real computer** - a real network, real internet, your actual terminal. Part C onward runs commands **inside the Packet Tracer application** - a self-contained simulated network with no connection to your real one, even though the commands (`ping`, etc.) look identical. Every part below tells you which one you're in - watch for it.
+
 ### Part A - Installing Cisco Packet Tracer
 
 If you already installed Packet Tracer before class using the Pre-Lab instructions, skip to Step 4 to confirm your install, then move on to Part B.
@@ -114,6 +116,8 @@ If you already installed Packet Tracer before class using the Pre-Lab instructio
 ---
 
 ### Part B - Interrogating Your Own Machine
+
+🖥️ *Everything in this part runs on your own computer's terminal - not Packet Tracer.*
 
 Open a terminal (Windows: `cmd` or PowerShell; Linux/macOS: any terminal).
 
@@ -168,6 +172,8 @@ dig google.com
 
 ### Part C - Packet Tracer Orientation
 
+📦 *From here through the end of Part D, everything happens inside the Packet Tracer application - not your computer's terminal.*
+
 Open Cisco Packet Tracer.
 
 ![Schematic diagram of the Packet Tracer window layout, labeling the menu bar, Logical/Physical tabs, workspace canvas, Physical/Config/CLI tabs, device category bar, device list, cable palette, and Realtime/Simulation toggle](images/pt-interface-overview.svg)
@@ -193,18 +199,15 @@ Open Cisco Packet Tracer.
 
 > **Observe:** Notice the two modes in the lower-right corner - **Realtime** and **Simulation**. In Simulation Mode, packets move step-by-step and you can inspect each layer. We will use this extensively from Module 2 onward.
 
-**Step 12.** Place a router and a switch, for real this time (not just placement practice - you will delete these two afterward and place them again deliberately from Module 2 onward): click **Routers** in the device category bar, click the **Cisco 1841** (or 2811) in the device list, then click once on the canvas. Double-click the device to open it and see the **Physical / Config / CLI** tabs appear - these are how you manage a router or switch, unlike a PC's **Desktop** tab. Repeat with **Switches → Cisco 2960**. Select both devices (drag a box around them, or `Ctrl`+click each) and press `Delete` to remove them.
+**Step 12.** Place a router and a switch, for real this time (not just placement practice - you will delete these two afterward and place them again deliberately from Module 2 onward): click **Routers** in the device category bar, click the **Cisco 1841** (or 2811) in the device list, then click once on the canvas. Double-click the device to open it and see the **Physical / Config / CLI** tabs appear - these are how you manage a router or switch, unlike a PC's **Desktop** tab. Repeat with **Switches → Cisco 2960**.
 
-**Step 12b. See why nothing reaches "the internet" by default.** Packet Tracer never ships any internet connectivity for free - there is no implicit cloud behind your topology until you build the whole path to it yourself. Prove it:
+**Step 12b. See why nothing reaches "the internet" by default.** Double-click the router again and look at its full list of interfaces (the **CLI** tab, or **Config** tab → interface list): most of them are empty - you only ever touch the ones you explicitly cable. Nothing else is plugged in.
 
-1. Place one **PC-PT**, one **Switch** (2960), and one **Router** (1841 or 2811) - the same placements as Steps 11-12.
-2. Cable PC → Switch and Switch → Router with **Copper Straight-Through** (the same cabling action from Step 15, a few steps ahead - you already know the rule: unlike devices, straight-through).
-3. Click the **WAN Emulation** category in the device category bar and place a **Generic Cloud** (Cloud-PT) device - this is Packet Tracer's model of an ISP's last-mile equipment. Double-click it to open its **Config** or **Physical** tab: notice its ports are WAN media types (Serial, DSL, Cable, Coax), not plain copper Ethernet.
-4. Try to cable Router → Cloud-PT. Nothing here is configured to make that link operational - the cloud's port type and the router's matching interface both need explicit setup first.
+> **The lesson:** Packet Tracer never fills in a connection you didn't build yourself. If a topology needs to reach beyond this router - another building, an ISP, "the internet" - you place another device and cable it there, explicitly, every time. Nothing arrives pre-connected. This is true throughout the course: from Module 5 onward, "the Internet" is represented by an ordinary router acting as an ISP gateway, which you will build and cable exactly like any other router.
 
-> **The lesson:** every hop between a PC and "the internet" - end device, switch, router, and the ISP's own equipment - has to be explicitly placed, cabled, and configured by you. Nothing arrives pre-connected. This is true whether that last hop is a real Cloud-PT device (as here) or an ordinary router standing in for an ISP gateway, which is the pattern the rest of this course uses.
+*(Curious how Packet Tracer models an ISP's own equipment specifically? Look for the **Generic Cloud** device under the **WAN Emulation** category - covered in [Appendix C](appendix/packet-tracer-tips.md) if you want to explore it on your own; this course doesn't use it again.)*
 
-Delete all four devices when you are done looking - this course does not build on Cloud-PT again. Instead, from Module 5 onward, "the Internet" is represented by an ordinary router acting as an ISP gateway: a deliberate, more realistic choice for practicing routing, NAT, and ACLs (a real router is what your own home or office actually connects to, not a generic cloud icon). See [Appendix C](appendix/packet-tracer-tips.md) if you want to explore Cloud-PT further on your own.
+Now select both the router and switch (drag a box around them, or `Ctrl`+click each) and press `Delete` to remove them.
 
 ---
 
@@ -241,7 +244,7 @@ Do the same for PC1: IP `192.168.1.20`, mask `255.255.255.0`.
 
 ![Schematic diagram of the Packet Tracer PC Desktop IP Configuration panel, showing the DHCP/Static radio buttons, IP/mask/gateway/DNS fields, and a reference of the three DHCP client states](images/pt-ip-configuration.svg)
 
-**Step 17. Verify.** On PC0 → **Desktop** → **Command Prompt**:
+**Step 17. Verify inside Packet Tracer.** On PC0 → **Desktop** → **Command Prompt**:
 
 ```
 ping 192.168.1.20
@@ -267,13 +270,21 @@ ping 192.168.1.20
 
 ## Deliverables
 
-For your lab report, include the following numbered items:
+For your lab report, include the following items, grouped by where they came from:
 
-1. Screenshot of the Packet Tracer **About** window showing your installed version (Part A).
+**Part A - Packet Tracer installation**
+
+1. Screenshot of the Packet Tracer **About** window showing your installed version.
+
+**🖥️ Part B - your own computer**
+
 2. Screenshot of `ipconfig /all` or `ip addr show` on your real machine, with your IP, mask, gateway, and DNS circled or annotated.
 3. Screenshot of your `tracert`/`traceroute` to 8.8.8.8 with hop count noted.
 4. Screenshot of `nslookup` or `dig` output with the resolved IP and DNS server identified.
 5. Written answer: explain what each of the four commands tells you and at which OSI layer it operates.
+
+**📦 Parts C/D - inside Packet Tracer**
+
 6. Screenshot of your Packet Tracer topology with both PCs and the cable visible.
 7. Screenshot of the successful ping from PC0 to PC1.
 8. Written answer to the crossover cable question (Step 18).
