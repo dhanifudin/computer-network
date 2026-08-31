@@ -77,8 +77,9 @@ the pain slide (4) is too abstract - fix it instead of breaking the rule.
 - Copy `slides/_template/module-XX.md` for every new module. It carries all
   17 slots as HTML comments; fill them in, don't renumber them.
 - `slides/_shared/roadmap.md`: single source for the Act 0 roadmap graphic.
-- Course logistics (grading, schedule, policies) live in an appendix block in
-  the Introduction deck only, outside the spine numbering.
+- Course logistics (grading, schedule, policies) live in a prelude block at
+  the front of `slides/module-01.md` only, outside the spine numbering -
+  after slot 2 (roadmap), before slot 3+4 (pain hook).
 - Full step-by-step lab instructions, deliverable checklists, and rubrics
   stay in the book (`book/src/`) - slides summarize, they never duplicate.
 - `_class: callout` (`themes/hankyong.css`): vertically centers a slide that

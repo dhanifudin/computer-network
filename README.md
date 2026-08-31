@@ -25,8 +25,9 @@ book/                      mdBook lab manual - full guided labs, rubrics
 slides/
   _template/module-XX.md   copy this to start a new module deck
   _shared/roadmap.md       Act-0 roadmap graphic, paste into slot 2
-  intro.md                 course overview + logistics (outside the spine)
-  module-01.md ... module-12.md   17-slot lecture decks
+  module-01.md ... module-12.md   17-slot lecture decks - module-01.md
+                           opens with a course-logistics prelude
+                           (outside the spine numbering)
 landing/index.html          site root - links the book and every deck
 ```
 
@@ -104,7 +105,6 @@ deck's `.html` under `/slides/` on the live site.
 
 ## Status
 
-All 12 lecture decks (Introduction + Modules 1–7, 9–12) are drafted, built,
-and themed. Handout/worksheet/quiz materials are not yet authored - the
-book covers full lab instructions, deliverables, and rubrics in the
-meantime.
+All 11 lecture decks (Modules 1–7, 9–12) are drafted, built, and themed.
+Handout/worksheet/quiz materials are not yet authored - the book covers
+full lab instructions, deliverables, and rubrics in the meantime.

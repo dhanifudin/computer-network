@@ -79,6 +79,6 @@ family growing one capability per week toward the Week 13–14 capstone.
 
 ## Status
 
-All 12 lecture decks (Introduction + Modules 1–7, 9–12) drafted, built, and
-themed. Handout/worksheet/quiz materials are not yet authored - see the book
+All 11 lecture decks (Modules 1–7, 9–12) drafted, built, and themed.
+Handout/worksheet/quiz materials are not yet authored - see the book
 (`book/src/`) for full lab instructions, deliverables, and rubrics.

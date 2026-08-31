@@ -31,7 +31,7 @@ Each weekly session is **3 × 50-minute periods (150 minutes total)**:
 
 | Segment | Duration | Material |
 |---------|----------|----------|
-| Lecture: concept & theory | ~1 hour | Slide deck - see [Lecture Slides](../slides/intro.html) |
+| Lecture: concept & theory | ~1 hour | Slide deck - see [Lecture Slides](../slides/module-01.html) |
 | Hands-on lab: guided practice | ~2 hours | This book's Guided Lab (Parts A–D below) |
 
 The lecture covers *Why This Matters*, *Learning Outcomes*, and *Theory Review* before the lab begins - the module pages below assume that context going in. Guided Lab activities in each module run roughly 90 minutes; the remaining time in the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.

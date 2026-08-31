@@ -42,6 +42,77 @@ Amalia · School of Computer & Applied Mathematics · 한경국립대학교
 
 ---
 
+<!-- PRELUDE: Course logistics (outside spine numbering, see SPINE.md) -->
+
+# Course Goal
+
+Build and operate computer networks using **Cisco Packet Tracer**.
+
+This course builds on your prior Computer Networks course - you already
+understand the theory. Here you **implement, observe failures, and fix
+them**.
+
+By the end of the semester: design, build, and present a complete simulated
+network integrating every technology covered in the weekly labs.
+
+---
+
+<!-- _class: section -->
+
+# Course Logistics
+<div class="driving-q">Read once now, use all semester.</div>
+
+---
+
+## Teaching Methods
+
+| Method | Description |
+|--------|-------------|
+| Lecture (강의) | Brief concept intro at the start of each session |
+| Lab Practice (실험·실습) | Hands-on Packet Tracer guided labs - the majority of class time |
+| PBL | Each module begins with a real-world problem your configuration must solve |
+| Capstone Design | Weeks 13–14: design, build, present a complete network project |
+
+---
+
+## Grading
+
+| Component | Weight |
+|-----------|--------|
+| Attendance (출석) | 10% |
+| Midterm Exam (중간평가) - Week 8 | 30% |
+| Final Exam (기말평가) - Week 15 | 30% |
+| Lab Reports / Assignments (과제) | 10% |
+| Other (project, participation) | 20% |
+
+Lab reports (실습결과보고서) due on the LMS within one week of each session.
+
+---
+
+## Lab Rules
+
+1. **Save constantly** - Packet Tracer does not auto-save. `StudentID_ModuleN.pka`
+2. **Personalize your configs** - hostname = your name, IP addressing = your student ID
+3. **Document as you go** - screenshot every step marked 📸
+4. **Use Simulation Mode** - watch packets hop-by-hop
+5. **No late reports without prior approval** - 20%/day penalty
+6. **Packet Tracer has no internet connectivity by default** - every "internet"/ISP hop is something you build yourself, see this module's Guided Lab
+
+---
+
+## How Each Module Is Structured
+
+| Section | Purpose |
+|---------|---------|
+| The pain | The real-world problem this week's technology solves |
+| Learning outcomes | What you can do after the lab |
+| Origin & core concept | Where the idea came from, its first formal definition |
+| Mechanics & worked example | Configuration patterns, applied to the running lab topology |
+| Common mistakes / check yourself | Pitfalls, then a quick recall check |
+| Limits | What this technique cannot do - next week's pain |
+
+---
+
 <!-- SLOT 3+4: Recap and the pain -->
 <!-- _class: callout -->
 
