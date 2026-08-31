@@ -211,4 +211,7 @@ end to end, on your own.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-12.html">Open Module 12 in the Book</a></div>
+<div class="meta">
+Full step-by-step lab instructions:<br>
+<a href="../book/module-12.html">Open Module 12 in the Book</a>
+</div>

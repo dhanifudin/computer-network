@@ -212,4 +212,7 @@ sets each one up by hand.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-11.html">Open Module 11 in the Book</a></div>
+<div class="meta">
+Full step-by-step lab instructions:<br>
+<a href="../book/module-11.html">Open Module 11 in the Book</a>
+</div>

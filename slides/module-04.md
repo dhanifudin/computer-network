@@ -223,4 +223,7 @@ traffic to the other's network.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-04.html">Open Module 4 in the Book</a></div>
+<div class="meta">
+Full step-by-step lab instructions:<br>
+<a href="../book/module-04.html">Open Module 4 in the Book</a>
+</div>

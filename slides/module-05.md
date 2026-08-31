@@ -224,4 +224,7 @@ affected site stays isolated until someone notices and logs in manually.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-05.html">Open Module 5 in the Book</a></div>
+<div class="meta">
+Full step-by-step lab instructions:<br>
+<a href="../book/module-05.html">Open Module 5 in the Book</a>
+</div>

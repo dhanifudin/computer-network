@@ -165,4 +165,7 @@ stays in the book - link to it on the closing slide.>
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-XX.html">Open in the Book</a></div>
+<div class="meta">
+Full step-by-step lab instructions:<br>
+<a href="../book/module-XX.html">Open in the Book</a>
+</div>

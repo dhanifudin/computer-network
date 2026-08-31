@@ -216,4 +216,7 @@ actually happening inside it when something goes wrong.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-03.html">Open Module 3 in the Book</a></div>
+<div class="meta">
+Full step-by-step lab instructions:<br>
+<a href="../book/module-03.html">Open Module 3 in the Book</a>
+</div>

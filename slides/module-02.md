@@ -223,4 +223,7 @@ access to it could type <code>enable</code> and change anything.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-02.html">Open Module 2 in the Book</a></div>
+<div class="meta">
+Full step-by-step lab instructions:<br>
+<a href="../book/module-02.html">Open Module 2 in the Book</a>
+</div>

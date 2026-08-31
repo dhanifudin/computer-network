@@ -226,4 +226,7 @@ ask whether it should.
 
 # Thank You
 
-<div class="meta">Full step-by-step lab instructions: <a href="../book/module-06.html">Open Module 6 in the Book</a></div>
+<div class="meta">
+Full step-by-step lab instructions:<br>
+<a href="../book/module-06.html">Open Module 6 in the Book</a>
+</div>

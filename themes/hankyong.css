@@ -322,6 +322,7 @@ section.section .driving-q {
 /* End slide */
 section.end {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: linear-gradient(180deg, #ffffff 60%, var(--pale) 100%);
@@ -330,4 +331,11 @@ section.end h1 {
   font-size: 60px;
   color: var(--navy);
   border-bottom: none;
+}
+section.end .meta {
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--deep);
+  text-align: center;
 }
